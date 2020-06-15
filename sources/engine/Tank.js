@@ -18,13 +18,13 @@ class Tank {
     move(direction) {
         this.direction = direction;
 
-        if (direction == 0 || direction == 1 || direction == 7) //droite
+        if (direction == 0 || direction == 1 || direction == 7) 
             this.coor[0] += this.speed;
-        else if (direction == 3 || direction == 4 || direction == 5) //droite
+        else if (direction == 3 || direction == 4 || direction == 5)
             this.coor[0] -= this.speed;
-        else if (direction == 1 || direction == 2 || direction == 3) //droite
+        else if (direction == 1 || direction == 2 || direction == 3)
             this.coor[1] += this.speed;
-        else if (direction == 5 || direction == 6 || direction == 7) //droite
+        else if (direction == 5 || direction == 6 || direction == 7)
             this.coor[1] -= this.speed;
     }
 
