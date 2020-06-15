@@ -20,7 +20,7 @@ class Game {
     this.players[id] = new Tank(id);
   }
 
-  move(id) {
+  move(id,direction) {
     this.players[id].move(direction);
   }
   shoot(id){
