@@ -23,3 +23,9 @@ npm install
 # run
 npm run test
 ```
+
+## Description 
+
+ici une petite description du projet 
+
+
