@@ -2,13 +2,14 @@
 const Level = require('./Level');
 const Bullet = require('./Bullet');
 
-class Tank {
+class Tank extends Entity{
     constructor(name) {
+        color = '#'+((1<<24)*Math.random()|0).toString(16); //random color
+        super(10, 0, 0, color, 800);
+        
         this.name = name;
-        this.size = 10;
-        this.coor = [0, 0];
+
         this.direction = 0;
-        this.health = 3;
         this.speed = 1;
         this.attack = 1;
         this.attackSpeed = 1;
