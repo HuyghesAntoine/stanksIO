@@ -11,6 +11,13 @@
 
   <h1>Controls</h1>
   <p> c'est la page control</p></p>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../javascript/ControlsSocket.js"></script>
+  <script src="../javascript/ControlsEvents.js"></script>
+  <script> 
+    const socket = new ControlsSocket();
+    const events = new ControlsEvents(socket);
+  </script>
 
 </body>
 
