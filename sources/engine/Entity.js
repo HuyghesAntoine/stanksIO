@@ -21,3 +21,5 @@ class Entity {
         return !(x > (this.size / 2) && x < (this.mapSize - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSize - (this.size / 2)));
     }
 }
+
+module.exports = Entity;
