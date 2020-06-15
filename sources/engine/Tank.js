@@ -5,7 +5,7 @@ const Bullet = require('./Bullet');
 class Tank extends Entity{
     constructor(name) {
         color = '#'+((1<<24)*Math.random()|0).toString(16); //random color
-        super(10, 0, 0, color, 800);
+        super(10, 0, 0, 3, color, 800);
         
         this.name = name;
 
