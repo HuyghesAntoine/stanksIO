@@ -13,13 +13,13 @@ class Tank {
     }
 
     move(direction) {
-        if(direction == 0)
+        if(direction == 0) //droite
             this.direction[0] += this.speed;
-        else if(direction == 1)
+        else if(direction == 1) //haut
             this.direction[1] += this.speed;
-        else if(direction == 2)
+        else if(direction == 2) //gauche
             this.direction[0] -= this.speed;
-        else if(direction == 3)
+        else if(direction == 3) //bas
             this.direction[1] -= this.speed;
     }
 }
