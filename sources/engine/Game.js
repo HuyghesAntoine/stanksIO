@@ -16,8 +16,8 @@ class Game {
     this.players = {};
   }
 
-  register(id) {
-    this.players[id] = new Tank(id);
+  register(id,name) {
+    this.players[id] = new Tank(name);
   }
 
   move(id,direction) {
