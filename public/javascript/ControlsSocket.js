@@ -1,10 +1,16 @@
-class ControlsSocket{
-    constructor(){
-        this.socket = io();
-        this.socket.emit('register');
-    }
+/**
+ * Socket example.
+ * Essentially for client socket communications.
+ */
 
-    move(){
-        this.socket.emit('move');
+class ControlsSocket {
+    constructor() {
+      this.socket = io();
+      this.socket.emit('register');
     }
-}
+  
+    move(direction) {
+      this.socket.emit('move',direction);
+    }
+  }
+  

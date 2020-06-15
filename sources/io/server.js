@@ -20,7 +20,7 @@ function io(server) {
   io.on('connection', function(socket) {
     socket.on('register', () => game.register(socket.id));
 
-    socket.on('move', () => game.move(socket.id));
+    socket.on('move', (direction) => game.move(socket.id,direction));
 
     socket.on('shoot', () => game.shoot(socket.id));
 
