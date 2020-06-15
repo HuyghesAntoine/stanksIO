@@ -5,7 +5,7 @@ const Entity = require('./Entity');
 
 class Tank extends Entity {
     constructor(name) {
-        super(10, 0, 0, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        super(10, 800/2, 800/2, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.name = name;
 
         this.direction = 0;
