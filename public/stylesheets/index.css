@@ -10,3 +10,11 @@ body {
     margin-top: 50px;
     border-radius: 10px;
 }
+
+#game-canvas{
+    background-color: #ffffff;
+}
+
+#game-title{
+    text-align: center;
+}
