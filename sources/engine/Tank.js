@@ -2,13 +2,14 @@
 const Level = require('./Level');
 const Bullet = require('./Bullet');
 
-class Tank {
+class Tank extends Entity{
     constructor(name) {
+        color = '#'+((1<<24)*Math.random()|0).toString(16); //random color
+        super(10, 0, 0, 3, color, 800);
+        
         this.name = name;
-        this.size = 10;
-        this.coor = [0, 0];
+
         this.direction = 0;
-        this.health = 3;
         this.speed = 1;
         this.attack = 1;
         this.attackSpeed = 1;
@@ -18,13 +19,13 @@ class Tank {
     move(direction) {
         this.direction = direction;
 
-        if (direction == 0 || direction == 1 || direction == 7) //droite
+        if (direction == 0 || direction == 1 || direction == 7) 
             this.coor[0] += this.speed;
-        else if (direction == 3 || direction == 4 || direction == 5) //droite
+        else if (direction == 3 || direction == 4 || direction == 5)
             this.coor[0] -= this.speed;
-        else if (direction == 1 || direction == 2 || direction == 3) //droite
+        else if (direction == 1 || direction == 2 || direction == 3)
             this.coor[1] += this.speed;
-        else if (direction == 5 || direction == 6 || direction == 7) //droite
+        else if (direction == 5 || direction == 6 || direction == 7)
             this.coor[1] -= this.speed;
     }
 
