@@ -1,6 +1,6 @@
 class Entity {
-    constructor(size, x, y, color, mapSize) {
-        this.health = 1;
+    constructor(size, x, y, health, color, mapSize) {
+        this.health = health;
         this.size = size;
         this.x = x;
         this.y = y;
