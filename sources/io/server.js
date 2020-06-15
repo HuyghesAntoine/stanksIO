@@ -22,6 +22,8 @@ function io(server) {
 
     socket.on('move', () => game.move(socket.id));
 
+    socket.on('shoot', () => game.shoot(socket.id));
+
     socket.on('disconnect', () => game.delist(socket.id));
 
   });

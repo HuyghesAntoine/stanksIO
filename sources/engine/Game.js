@@ -23,6 +23,9 @@ class Game {
   move(id) {
     this.players[id].move(direction);
   }
+  shoot(id){
+    this.players[id].shoot();    
+  }
 
   delist(id) {
     delete this.players[id];
