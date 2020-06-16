@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #C1C0AC;
 }
+
 #game-canvas{
     background-color: #ffffff;
 }
@@ -14,22 +15,22 @@ body {
     width: 100%;
     display: block;
 }
-a {
+.home {
     color: inherit; 
 }
 
-a:hover {
+.home:hover {
     color: inherit; 
     text-decoration: none;
 }
 
-a:first-child {
+.home:first-child {
     -webkit-clip-path: polygon(0 0, 0 100vh, 100% 100vh);
     clip-path: polygon(0 0, 0 100vh, 100% 100vh);
     background: #C2D3DA;
 }
 
-a:last-child {
+.home:last-child {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh);
     clip-path: polygon(0 0, 100% 0, 100% 100vh);
     background: #81A3A7;
@@ -38,7 +39,7 @@ a:last-child {
 #play {
     display: block;
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(+25%); 
+    transform: translateY(-25%); 
     margin-left:20%;
     width: 10%;
 }
@@ -49,4 +50,10 @@ a:last-child {
     transform: translateY(-125%);
     margin-left:65%;
     width: 20%;
+}
+
+#btnHow{
+    position: absolute;
+    margin-left: 96%;
+    margin-top: 1%;
 }
