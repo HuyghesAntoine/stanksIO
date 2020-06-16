@@ -42,10 +42,6 @@ class Game {
       player.gun.moveAll();
     });
   }
-
-  refresh(){
-    console.log('refresh');
-  }
 }
 
 module.exports = Game;
