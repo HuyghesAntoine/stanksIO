@@ -13,6 +13,13 @@ class Bullet extends Entity{
         this.y += (Math.sin(this.direction) * this.speed);
         return false;
     }
+
+    isOut(){
+        if(this.x > this.mapSize || this.x < 0 || this.y > this.mapSize || this.y <0)
+            return true;
+        else
+            return false;
+    }
 }
 
 module.exports = Bullet;
