@@ -50,13 +50,3 @@ a:last-child {
     margin-left:65%;
     width: 20%;
 }
-
-.fa-play{
-    display: block;
-    position: fixed;
-    -webkit-transition: -webkit-transform 1s;
-}
-.fa-play:hover{
-    -webkit-transform: rotate(360deg) translateZ(0);
-
-}
