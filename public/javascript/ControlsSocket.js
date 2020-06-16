@@ -12,5 +12,8 @@ class ControlsSocket {
     move(direction) {
       this.socket.emit('move',direction);
     }
+    shoot(){
+      this.socket.emit('shoot');
+    }
   }
   

@@ -9,6 +9,8 @@ class ControlsEvents {
         this.buttonRight.onclick = (event) => this.onClickMoveRight(event);
         this.buttonLeft = document.querySelector('#left');
         this.buttonLeft.onclick = (event) => this.onClickMoveLeft(event);
+        this.buttonShoot = document.querySelector('#fire');
+        this.buttonShoot.onclick = (event) => this.onClickShoot(event);
     }
     onClickMoveUp(event) {
         this.socket.move(6);
@@ -22,5 +24,7 @@ class ControlsEvents {
     onClickMoveLeft(event) {
         this.socket.move(4);
     }
-    
+    onClickShoot(event) {
+        this.socket.shoot();
+    }
 }
