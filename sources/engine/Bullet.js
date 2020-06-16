@@ -20,6 +20,14 @@ class Bullet extends Entity{
         else
             return false;
     }
+
+    touch(entity){
+        if(this.x < entity.x+entity.size/2 && this.x > entity.x-entity.size/2 && this.y<entity.y+entity.size/2 && this.y > entity.y-entity.size/2){
+            console.log("toucher");
+            entity.health -= this.damage;
+            return true;
+        }
+    }
 }
 
 module.exports = Bullet;
