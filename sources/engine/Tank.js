@@ -6,7 +6,7 @@ const Gun = require('./Gun');
 
 class Tank extends Entity {
     constructor(id) {
-        super(10, 800/2, 800/2,10, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        super(10, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.id = id;
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
@@ -32,6 +32,11 @@ class Tank extends Entity {
 
     shoot() {
         this.gun.shoot(new Bullet(this));
+    }
+
+    Alive(){
+        if(this.health <= 0)
+            return false;
     }
 }
 

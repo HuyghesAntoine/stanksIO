@@ -12,7 +12,7 @@ const Tank = require('./Tank');
 
 class Game {
   constructor(name) {
-    this.nbJ = 5;
+    this.nbJ = 0;
     this.name = name;
     this.players = new Array;
   }
@@ -31,20 +31,20 @@ class Game {
   }
 
   delist(id) {
-    delete this.players[id];
-    this.nbJ--;
+    //delete this.players[id];
   }
 
-  refresh() {
-    console.log(this.players);
-    this.players.forEach(player => {
+  refresh(){
+    this.players.forEach( player => {
       console.log(player);
       player.gun.moveAll();
+      /*if(!player.Alive())
+        Game.delist();*/
+      this.players.forEach( tank => {
+        if(tank != player)
+          player.gun.touchAll(tank);
+      });
     });
-  }
-
-  refresh() {
-    console.log('refresh');
   }
 }
 

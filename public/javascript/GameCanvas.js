@@ -21,7 +21,6 @@ class GameCanvas {
     }
 
     redraw(data) {
-
         this.context.clearRect(0, 0, 800, 800);
         const { players } = data;
         players.forEach((tank) => this.drawTank(tank));

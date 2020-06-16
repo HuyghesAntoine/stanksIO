@@ -16,7 +16,7 @@ class Gun {
     moveAll() {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-                if(this.ammos[i].move() || this.ammos[i].isOut())
+                if (this.ammos[i].move() || this.ammos[i].isOut())
                     this.remove(i);
             }
         }
@@ -26,7 +26,10 @@ class Gun {
     touchAll(entity) {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-                this.ammos[i].touch(entity);
+                if(this.ammos[i].touch(entity)){
+                    this.remove(i);
+                    console.log("remove");
+                }
             }
         }
     }
