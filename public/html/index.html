@@ -8,6 +8,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
   <link rel="stylesheet" href="../stylesheets/index.css">
 
   <!-- JavaScripts -->
@@ -17,20 +18,10 @@
 </head>
 
 <body>
-  <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
-      <center> 
-      <div class="card-header">
-        <h4 class="card-title"> Bienvenue dans NOM DU JEU</h4>
-      </div>
-      <div class="card-body">
-        <p  class="card-title"><a  id="game-btn" class="btn btn-dark" href="/game" target="_blank"> Jeu </a></p>
-        <p  class="card-title"><a id="control-btn" class="btn btn-success" href="/controls" target="_blank"> Contrôles </a></p>
-      </div>
-      <div class="card-footer">
-        Projet réalisé sous la direction de <a href="https://florian-lepretre.herokuapp.com/">M.Leprêtre</a> et M.Dubois, en collaboration avec Théo.P, Pierre.S, Vincent.V et Antoine.H <br>
-        <hr> Répertoire GitLab <a href="gitlab.com/huyghes-antoine/l3_projet_etudiant">ici</a> </center>
-      </div>
-    </div>
+
+  <div>
+      <a  class="home" href="/game" target="_blank"><i id="play" class="fas fa-play fa-10x"></i></a>
+      <a class="home" href="/controls" target="_blank"><i id="control" class="fas fa-gamepad fa-10x"></i></a>
   </div>
 
 </body>
