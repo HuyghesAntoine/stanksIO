@@ -1,6 +1,7 @@
 class ControlsEvents {
     constructor(socket){
         this.socket = socket;
+        var pseudo = document.getElementById('Pseudo').value;
         this.buttonUp = document.querySelector('#up');
         this.buttonUp.onclick = (event) => this.onClickMoveUp(event);
         this.buttonDown = document.querySelector('#down');
@@ -11,9 +12,8 @@ class ControlsEvents {
         this.buttonLeft.onclick = (event) => this.onClickMoveLeft(event);
         this.buttonShoot = document.querySelector('#fire');
         this.buttonShoot.onclick = (event) => this.onClickShoot(event);
-        this.formpseudo = document.querySelector('#pseud');
-        pseudo = document.querySelector('#pseud').value;
-        this.formpseudo.onsubmit = (event) => this.onSubPseudo(event);
+        this.buttonPseudo = document.querySelector('#pseudo');
+        this.buttonPseudo.onclick = (event) => this.onSubPseudo(event,pseudo);
     }
     onClickMoveUp(event) {
         this.socket.move(3*(Math.PI/2));

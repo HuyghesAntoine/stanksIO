@@ -16,9 +16,9 @@ const socketio = require('socket.io');
 function io(server) {
 
   const io = socketio(server);
-
   io.on('connection', function (socket) {
     socket.id = game.nbJ;
+
     socket.on('register', () => game.register(socket.id));
 
     socket.on('move', (direction) => game.move(socket.id, direction));
@@ -30,8 +30,6 @@ function io(server) {
     socket.on('disconnect', () => game.delist(socket.id));
 
   });
-
-  
 
   setInterval(() => {
     game.refresh();
