@@ -29,7 +29,7 @@ function io(server) {
   });
 
   setInterval(()=> {
-    game.moveAll();
+    
     const data = {
       message: 'Server update !',
       players: Object.values(game.players)

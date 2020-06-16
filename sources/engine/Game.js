@@ -33,9 +33,7 @@ class Game {
     delete this.players[id];
   }
 
-  moveAll(){
-    console.log("test");
-  }
+
 }
 
 module.exports = Game;
