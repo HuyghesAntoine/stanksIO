@@ -13,8 +13,7 @@ const Tank = require('./Tank');
 class Game {
   constructor(name) {
     this.name = name;
-    this.players = {};
-    this.bullets = {};
+    this.players = new Array;
   }
 
   register(id) {
@@ -26,11 +25,19 @@ class Game {
   }
 
   shoot(id){
-    this.bullets.push(this.players[id].shoot());    
+    this.players[id].shoot();    
   }
 
   delist(id) {
     delete this.players[id];
+  }
+
+  refresh(){
+    console.log(this.players);
+    this.players.forEach( player => {
+      console.log(player);
+      player.gun.moveAll();
+    });
   }
 }
 
