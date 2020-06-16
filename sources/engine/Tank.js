@@ -4,9 +4,9 @@ const Bullet = require('./Bullet');
 const Entity = require('./Entity');
 
 class Tank extends Entity {
-    constructor(name) {
-        super(10, 800/2, 800/2, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
-        this.name = name;
+    constructor(id) {
+        super(10, 800/2, 800/2,10, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        this.id = id;
 
         this.direction = 0;
         this.speed = 10;
@@ -15,17 +15,18 @@ class Tank extends Entity {
         this.level = new Level();
     }
 
-    move(direction) {
-        this.direction = direction;
+    isOut(x, y) {
+        return !(x > (this.size / 2) && x < (this.mapSize - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSize - (this.size / 2)));
+    }
 
-        if (direction == 0 || direction == 1 || direction == 7)
-            this.x += this.speed;
-        if (direction == 3 || direction == 4 || direction == 5)
-            this.x -= this.speed;
-        if (direction == 1 || direction == 2 || direction == 3)
-            this.y += this.speed;
-        if (direction == 5 || direction == 6 || direction == 7)
-            this.y -= this.speed;
+    move(direction) {
+        this.direction = direction
+        let xMove = this.x + (Math.cos(this.direction) * this.speed);
+        let yMove = this.y + (Math.sin(this.direction) * this.speed);
+        if (!this.isOut(xMove, yMove)) {
+            this.x = xMove;
+            this.y = yMove;
+        }
     }
 
     shoot() {

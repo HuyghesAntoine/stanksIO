@@ -13,16 +13,16 @@ class ControlsEvents {
         this.buttonShoot.onclick = (event) => this.onClickShoot(event);
     }
     onClickMoveUp(event) {
-        this.socket.move(6);
+        this.socket.move(3*(Math.PI/2));
     }
     onClickMoveDown(event) {
-        this.socket.move(2);
+        this.socket.move(Math.PI/2);
     }
     onClickMoveRight(event) {
         this.socket.move(0);
     }
     onClickMoveLeft(event) {
-        this.socket.move(4);
+        this.socket.move(Math.PI);
     }
     onClickShoot(event) {
         this.socket.shoot();
