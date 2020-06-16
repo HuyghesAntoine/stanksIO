@@ -32,4 +32,8 @@ class GameCanvas {
         /*const {bullets} = data;
         bullets.forEach((bullet)=> this.drawBullet(bullet));*/
     }
+
+    update(data){
+        this.redraw(data);
+    }
 }

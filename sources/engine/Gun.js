@@ -14,7 +14,7 @@ class Gun {
     moveAll() {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-                if (this.ammos[i].move(0, this.ammos[i].speed) || this.ammos[i].isDead()) {
+                if (this.ammos[i].move() || this.ammos[i].isDead()) {
                     this.remove(i);
                 }
             }

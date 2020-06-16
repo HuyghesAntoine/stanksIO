@@ -30,6 +30,10 @@ class Game {
   delist(id) {
     delete this.players[id];
   }
+
+  refresh(){
+    console.log('refresh');
+  }
 }
 
 module.exports = Game;
