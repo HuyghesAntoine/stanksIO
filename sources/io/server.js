@@ -18,7 +18,7 @@ function io(server) {
   const io = socketio(server);
 
   io.on('connection', function(socket) {
-    socket.on('register', (name) => game.register(socket.id, name));
+    socket.on('register', () => game.register(socket.id));
 
     socket.on('move', (direction) => game.move(socket.id,direction));
 
