@@ -42,8 +42,6 @@ class Game {
       player.gun.moveAll();
     });
   }
-
-
 }
 
 module.exports = Game;
