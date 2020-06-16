@@ -31,7 +31,8 @@ function io(server) {
   setInterval(()=> {
     const data = {
       message: 'Server update !',
-      players: Object.values(game.players)
+      players: Object.values(game.players),
+      bullets: Object.values(game.bullets)
     };
     io.volatile.emit('update', data);
   }, 1000/25);
