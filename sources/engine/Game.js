@@ -14,7 +14,7 @@ class Game {
   constructor(name) {
     this.nbJ = 0;
     this.name = name;
-    this.players = new Array;
+    this.players = new Array();
   }
 
   register(id) {
@@ -31,17 +31,20 @@ class Game {
   }
 
   delist(id) {
-    //delete this.players[id];
+    delete this.players[id];
   }
 
-  refresh(){
-    this.players.forEach( player => {
-      console.log(player);
+  refresh() {
+    this.players.forEach(player => {
+
+      if (player.isDead()){
+          this.delist(player.id);
+      }
       player.gun.moveAll();
       /*if(!player.Alive())
         Game.delist();*/
-      this.players.forEach( tank => {
-        if(tank != player)
+      this.players.forEach(tank => {
+        if (tank != player)
           player.gun.touchAll(tank);
       });
     });

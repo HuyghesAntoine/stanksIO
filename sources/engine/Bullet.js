@@ -27,6 +27,7 @@ class Bullet extends Entity{
             entity.health -= this.damage;
             return true;
         }
+        return false;
     }
 }
 

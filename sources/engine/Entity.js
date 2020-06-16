@@ -14,7 +14,7 @@ class Entity {
     }
 
     isDead(){
-        return this.life <= 0;
+        return this.health <= 0;
     }
 
     isOut(){
