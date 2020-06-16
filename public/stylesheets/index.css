@@ -3,7 +3,20 @@ body {
     background-color: #C1C0AC;
 }
 
-#game-canvas{
+#gamePage{
+    background: rgb(231,235,236);
+background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+}
+
+#controlPage{
+    background: rgb(231,235,236);
+background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+}
+
+#game-title{
+    text-align: center;
+}
+#game-canvas, #controlCanvas{
     background-color: #ffffff;
 }
 
@@ -54,6 +67,6 @@ body {
 
 #btnHow{
     position: absolute;
-    margin-left: 96%;
+    margin-left: 1%;
     margin-top: 1%;
 }
