@@ -29,10 +29,10 @@ function io(server) {
   });
 
   setInterval(()=> {
+    game.moveAll();
     const data = {
       message: 'Server update !',
-      players: Object.values(game.players),
-      bullets: Object.values(game.bullets)
+      players: Object.values(game.players)
     };
     io.volatile.emit('update', data);
   }, 1000/25);

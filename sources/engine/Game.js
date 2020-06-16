@@ -26,11 +26,15 @@ class Game {
   }
 
   shoot(id){
-    this.bullets.push(this.players[id].shoot());    
+    this.players[id].shoot();    
   }
 
   delist(id) {
     delete this.players[id];
+  }
+
+  moveAll(){
+    console.log("test");
   }
 }
 
