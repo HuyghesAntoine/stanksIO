@@ -13,5 +13,12 @@ describe('Tank test', () => {
     expect(this.tank.x).toBe(402);
   });
 
+  test('tir', () => {
+    this.tank = new Tank("monika");
+    this.tir = this.tank.shoot();
+    expect(this.tir.damage).toBe(this.tank.attack);
+    expect(this.tir.direction).toBe(this.tank.direction);
+  })
+
 });
 
