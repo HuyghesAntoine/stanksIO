@@ -29,15 +29,10 @@ function io(server) {
 
   });
 
-<<<<<<< HEAD
-  setInterval(()=> {
-    
-=======
   
 
   setInterval(() => {
     game.refresh();
->>>>>>> master
     const data = {
       message: 'Server update !',
       players: Object.values(game.players)
