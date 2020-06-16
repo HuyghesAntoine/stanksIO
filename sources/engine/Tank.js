@@ -1,15 +1,15 @@
 //ajouter la class level
 const Level = require('./Level');
 const Bullet = require('./Bullet');
+const Entity = require('./Entity');
 
-class Tank {
+class Tank extends Entity {
     constructor(name) {
+        super(10, 800/2, 800/2, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.name = name;
-        this.size = 10;
-        this.coor = [0, 0];
+
         this.direction = 0;
-        this.health = 3;
-        this.speed = 1;
+        this.speed = 10;
         this.attack = 1;
         this.attackSpeed = 1;
         this.level = new Level();
@@ -18,17 +18,19 @@ class Tank {
     move(direction) {
         this.direction = direction;
 
-        if (direction == 0 || direction == 1 || direction == 7) //droite
-            this.coor[0] += this.speed;
-        else if (direction == 3 || direction == 4 || direction == 5) //droite
-            this.coor[0] -= this.speed;
-        else if (direction == 1 || direction == 2 || direction == 3) //droite
-            this.coor[1] += this.speed;
-        else if (direction == 5 || direction == 6 || direction == 7) //droite
-            this.coor[1] -= this.speed;
+        if (direction == 0 || direction == 1 || direction == 7)
+            this.x += this.speed;
+        if (direction == 3 || direction == 4 || direction == 5)
+            this.x -= this.speed;
+        if (direction == 1 || direction == 2 || direction == 3)
+            this.y += this.speed;
+        if (direction == 5 || direction == 6 || direction == 7)
+            this.y -= this.speed;
     }
 
     shoot() {
         return new Bullet(this.attack, this.direction);
     }
 }
+
+module.exports = Tank;

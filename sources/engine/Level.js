@@ -15,3 +15,4 @@ class Level {
         return false;
     }
 }
+module.exports = Level;

@@ -4,3 +4,5 @@ class Bullet {
         this.direction = direction;
     }
 }
+
+module.exports = Bullet;
