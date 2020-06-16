@@ -26,7 +26,10 @@ class Gun {
     touchAll(entity) {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-                this.ammos[i].touch(entity);
+                if(this.ammos[i].touch(entity)){
+                    this.remove(i);
+                    console.log("remove");
+                }
             }
         }
     }
