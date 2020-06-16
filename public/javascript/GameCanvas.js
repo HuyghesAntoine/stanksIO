@@ -12,9 +12,20 @@ class GameCanvas {
         this.context.fill();
     }
 
+    drawBullet(bullet){
+        console.log(bullet);
+        const{x, y, size, color} = bullet;
+        this.context.beginPath();
+        this.context.arc(x,y,size,0,2*Math.PI,false);
+        this.context.fillStyle = "#AA0000";
+        this.context.fill();
+    }
+
     redraw(data){
         this.context.clearRect(0,0,800,800);
         const { players } = data; 
         players.forEach((tank)=> this.drawTank(tank));
+        const {bullets} = data;
+        bullets.forEach((bullet)=> this.drawBullet(bullet));
     }
 }
