@@ -15,5 +15,8 @@ class ControlsSocket {
     shoot(){
       this.socket.emit('shoot');
     }
+    ChangePseudo(pseudo){
+      this.socket.emit('pseudo',pseudo);
+    }
   }
   

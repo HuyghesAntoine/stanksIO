@@ -11,6 +11,9 @@ class ControlsEvents {
         this.buttonLeft.onclick = (event) => this.onClickMoveLeft(event);
         this.buttonShoot = document.querySelector('#fire');
         this.buttonShoot.onclick = (event) => this.onClickShoot(event);
+        this.formpseudo = document.querySelector('#pseud');
+        pseudo = document.querySelector('#pseud').value;
+        this.formpseudo.onsubmit = (event) => this.onSubPseudo(event);
     }
     onClickMoveUp(event) {
         this.socket.move(3*(Math.PI/2));
@@ -26,5 +29,8 @@ class ControlsEvents {
     }
     onClickShoot(event) {
         this.socket.shoot();
+    }
+    onSubPseudo(event,pseudo){
+        this.socket.ChangePseudo(pseudo);
     }
 }

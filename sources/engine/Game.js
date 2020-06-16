@@ -30,15 +30,18 @@ class Game {
     this.players[id].shoot();    
   }
 
+  changePseudo(id,pseudo){
+    this.players[id].changePseudo(pseudo);
+    console.log("argh")
+  }
+
   delist(id) {
     delete this.players[id];
     this.nbJ--;
   }
 
   refresh(){
-    console.log(this.players);
     this.players.forEach( player => {
-      console.log(player);
       player.gun.moveAll();
     });
   }

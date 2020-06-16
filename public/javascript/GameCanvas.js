@@ -11,7 +11,7 @@ class GameCanvas {
         this.context.fillStyle = color;
         this.context.fill();
         this.context.textAlign = "center";
-        this.context.fillText(tank.id,x,y+20);
+        this.context.fillText(tank.pseudo,x,y+20);
     }
 
     drawBullet(bullet) {

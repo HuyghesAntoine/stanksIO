@@ -25,6 +25,8 @@ function io(server) {
 
     socket.on('shoot', () => game.shoot(socket.id));
 
+    socket.on('pseudo', (pseudo) => game.changePseudo(socket.id,pseudo));
+
     socket.on('disconnect', () => game.delist(socket.id));
 
   });

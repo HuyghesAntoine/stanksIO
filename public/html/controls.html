@@ -13,6 +13,13 @@
 
   <canvas id="control" width="300" height="300" style="background-color: wheat"> </canvas>
 
+  <form onsubmit="return false">
+    <p>
+      <label id="pseud" for="pseudo">Pseudo</label>
+      <input type="text" name="Pseudo" id="pseudo" required>
+    </p>
+  </form>
+
   <button id="up"> UP </button>
   <button id="down"> DOWN </button>
   <button id="right"> RIGHT </button>
@@ -26,6 +33,7 @@
     const socket = new ControlsSocket();
     const events = new ControlsEvents(socket);
   </script>
+
 
 </body>
 
