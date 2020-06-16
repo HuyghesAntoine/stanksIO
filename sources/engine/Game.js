@@ -22,12 +22,12 @@ class Game {
     this.nbJ++;
   }
 
-  move(id,direction) {
+  move(id, direction) {
     this.players[id].move(direction);
   }
 
-  shoot(id){
-    this.players[id].shoot();    
+  shoot(id) {
+    this.players[id].shoot();
   }
 
   delist(id) {
@@ -35,15 +35,15 @@ class Game {
     this.nbJ--;
   }
 
-  refresh(){
+  refresh() {
     console.log(this.players);
-    this.players.forEach( player => {
+    this.players.forEach(player => {
       console.log(player);
       player.gun.moveAll();
     });
   }
 
-  refresh(){
+  refresh() {
     console.log('refresh');
   }
 }

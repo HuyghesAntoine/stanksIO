@@ -6,7 +6,7 @@ class Gun {
         this.ammos = new Array();
         this.mapSize = mapSize;
     }
-    
+
     // tirer avec une arme revient à ajouter une balle dans le tableau ammos
     shoot(ammo) {
         this.ammos.push(ammo);
@@ -16,15 +16,7 @@ class Gun {
     moveAll() {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-<<<<<<< HEAD
-                if (this.ammos[i].move() || this.ammos[i].isDead()) {
-                    this.remove(i);
-                }
-=======
-                this.ammos[i].move();// || this.ammos[i].isDead()
-                    //this.remove(i);
-                //}
->>>>>>> 554385e7a221e3616887896876e6e90f011c651f
+                this.ammos[i].move();
             }
         }
     }
