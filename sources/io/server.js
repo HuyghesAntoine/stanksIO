@@ -14,13 +14,14 @@ const game = new Game('Game');
 const socketio = require('socket.io');
 
 function io(server) {
-  
+
   const io = socketio(server);
 
-  io.on('connection', function(socket) {
+  io.on('connection', function (socket) {
+    socket.id = game.nbJ;
     socket.on('register', () => game.register(socket.id));
 
-    socket.on('move', (direction) => game.move(socket.id,direction));
+    socket.on('move', (direction) => game.move(socket.id, direction));
 
     socket.on('shoot', () => game.shoot(socket.id));
 
@@ -28,14 +29,21 @@ function io(server) {
 
   });
 
+<<<<<<< HEAD
   setInterval(()=> {
     
+=======
+  
+
+  setInterval(() => {
+    game.refresh();
+>>>>>>> master
     const data = {
       message: 'Server update !',
       players: Object.values(game.players)
     };
     io.volatile.emit('update', data);
-  }, 1000/25);
+  }, 1000 / 25);
 }
 
 module.exports = io;
