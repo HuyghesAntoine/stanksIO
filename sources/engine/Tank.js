@@ -9,7 +9,7 @@ class Tank extends Entity {
         this.name = name;
 
         this.direction = 0;
-        this.speed = 1;
+        this.speed = 10;
         this.attack = 1;
         this.attackSpeed = 1;
         this.level = new Level();
