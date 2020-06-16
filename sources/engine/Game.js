@@ -14,6 +14,7 @@ class Game {
   constructor(name) {
     this.name = name;
     this.players = {};
+    this.bullets = {};
   }
 
   register(id) {
@@ -23,8 +24,9 @@ class Game {
   move(id,direction) {
     this.players[id].move(direction);
   }
+
   shoot(id){
-    this.players[id].shoot();    
+    this.bullets.push(this.players[id].shoot());    
   }
 
   delist(id) {
