@@ -12,12 +12,14 @@ const Tank = require('./Tank');
 
 class Game {
   constructor(name) {
+    this.nbJ = 5;
     this.name = name;
     this.players = new Array;
   }
 
   register(id) {
     this.players[id] = new Tank(id);
+    this.nbJ++;
   }
 
   move(id,direction) {
@@ -30,6 +32,7 @@ class Game {
 
   delist(id) {
     delete this.players[id];
+    this.nbJ--;
   }
 
   refresh(){
