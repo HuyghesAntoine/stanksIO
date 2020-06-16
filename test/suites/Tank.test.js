@@ -7,10 +7,10 @@ describe('Tank test', () => {
     this.tank = new Tank("Monika");
     expect(this.tank.name).toBe("Monika");
     this.tank.move(1);//haut-gauche
-    expect(this.tank.x).toBe(401);
-    expect(this.tank.y).toBe(401);
+    expect(this.tank.x).toBe(410);
+    expect(this.tank.y).toBe(410);
     this.tank.move(0);//gauche
-    expect(this.tank.x).toBe(402);
+    expect(this.tank.x).toBe(420);
   });
 
   test('tir', () => {

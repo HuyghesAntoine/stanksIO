@@ -29,7 +29,7 @@ class Tank extends Entity {
     }
 
     shoot() {
-        return new Bullet(this.attack, this.direction);
+        return new Bullet(this);
     }
 }
 
