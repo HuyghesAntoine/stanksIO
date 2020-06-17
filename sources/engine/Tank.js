@@ -7,9 +7,9 @@ const Chrono = require('./Chrono');
 
 class Tank extends Entity {
     constructor(id, socketid) {
-        super(20, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        super(20, 800 / 2, 800 / 2, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.id = id;
-        this.socketId = socketid; 
+        this.socketId = socketid;
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
@@ -37,27 +37,27 @@ class Tank extends Entity {
     }
 
     shoot(direction) {
-        if (this.chrono.isOver(this.attackSpeed)){
+        if (this.chrono.isOver(this.attackSpeed)) {
             this.look = direction;
             this.gun.shoot(new Bullet(this));
             this.chrono.reset();
 
         }
-        
+
     }
 
-    changePseudo(val){
+    changePseudo(val) {
         this.pseudo = val;
     }
 
-    scorePlayer(value){
+    scorePlayer(value) {
         const score = document.getElementById("score");
         this.score += value;
         score.innerHTML = this.score;
     }
 
-    Alive(){
-        if(this.health <= 0)
+    Alive() {
+        if (this.health <= 0)
             return false;
     }
 }

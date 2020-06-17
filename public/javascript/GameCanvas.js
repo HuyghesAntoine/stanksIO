@@ -8,6 +8,7 @@ class GameCanvas {
         const { x, y, size, look } = tank;
         this.context.beginPath();
         this.context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
         this.context.fillStyle = '#777777';
         this.context.fill();
     }

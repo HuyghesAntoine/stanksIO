@@ -6,7 +6,7 @@
 
 const Tank = require('./Tank');
 const Factory = require('./Factory');
-const Bonus = require ('./Bonus.js');
+const Bonus = require('./Bonus.js');
 
 /**
 * Game class.
