@@ -11,3 +11,5 @@ class Chrono {
         return Date.now() - this.start > time;
     }
 }
+
+module.exports = Chrono;

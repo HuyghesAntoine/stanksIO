@@ -1,7 +1,6 @@
 const Entity = require('./Entity');
 const Chrono = require('./Chrono');
 
-
 class Factory {
     constructor(mapSize) {
         this.entities = new Array();
@@ -12,7 +11,7 @@ class Factory {
     }
 
     addEntity() {
-        if (this.chrono.isOver(this.delay)) {
+        if (this.chrono.isOver(this.delay) && this.entities.length <= 50) {
             this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#FFFF00', this.mapSize));
             this.chrono.reset();
         }
@@ -25,12 +24,11 @@ class Factory {
                 this.remove(i);
             }
             for (let j = 0; j < tank.gun.ammos.length; j++) {
-                if (this.entities[i].touch(tank.gun.ammos[i])){
+                if (this.entities[i].touch(tank.gun.ammos[j])){
                     tank.level.addXp(this.score);
                     this.remove(i);
                 }
             }
-
         }
     }
 
@@ -38,11 +36,10 @@ class Factory {
         this.entities.splice(i, 1);
     }
 
-
-
-
 }
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+module.exports = Factory
