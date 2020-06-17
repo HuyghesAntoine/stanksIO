@@ -43,7 +43,7 @@ function io(server) {
 
   setInterval(() => {
     game.refresh();
-    console.log(game.bonus.entities);
+    //console.log(game.bonus.entities);
     const data = {
       message: 'Server update !',
       players: Object.values(game.players),
