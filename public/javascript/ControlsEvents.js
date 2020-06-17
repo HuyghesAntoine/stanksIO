@@ -1,5 +1,5 @@
 class ControlsEvents {
-    constructor(socket){
+    constructor(socket) {
         this.socket = socket;
         var pseudo = document.getElementById('Pseudo').value;
         this.buttonUp = document.querySelector('#up');
@@ -13,13 +13,26 @@ class ControlsEvents {
         this.buttonShoot = document.querySelector('#fire');
         this.buttonShoot.onclick = (event) => this.onClickShoot(event);
         this.buttonPseudo = document.querySelector('#pseudo');
-        this.buttonPseudo.onclick = (event) => this.onSubPseudo(event,pseudo);
+        this.buttonPseudo.onclick = (event) => this.onSubPseudo(event, pseudo);
+
+        document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
+    }
+    onKeyDown(event) {
+        const keyCode = event.keyCode;
+        if (keyCode == 90)
+            this.onClickMoveUp(event)
+        if (keyCode == 83)
+            this.onClickMoveDown(event)
+        if (keyCode == 81)
+            this.onClickMoveLeft(event)
+        if (keyCode == 68)
+            this.onClickMoveRight(event)
     }
     onClickMoveUp(event) {
-        this.socket.move(3*(Math.PI/2));
+        this.socket.move(3 * (Math.PI / 2));
     }
     onClickMoveDown(event) {
-        this.socket.move(Math.PI/2);
+        this.socket.move(Math.PI / 2);
     }
     onClickMoveRight(event) {
         this.socket.move(0);
@@ -30,7 +43,7 @@ class ControlsEvents {
     onClickShoot(event) {
         this.socket.shoot();
     }
-    onSubPseudo(event,pseudo){
+    onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
     }
 }
