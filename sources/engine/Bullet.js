@@ -5,7 +5,7 @@ class Bullet extends Entity{
         super(5, tank.x, tank.y, 1, tank.color, tank.mapSize);
         this.damage = tank.attack;
         this.direction = tank.look;
-        this.speed = 1;
+        this.speed = 2*tank.speed;
     }
 
     move(){

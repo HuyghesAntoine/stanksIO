@@ -22,10 +22,10 @@ class Entity {
     }
 
     touch(entity) {
-        if (this.x + (this.size / 2) > entity.x - (entity.size / 2) &&
-            this.x - (this.size / 2) < entity.x + (entity.size / 2) &&
-            this.y + (this.size / 2) > entity.y - (entity.size / 2) &&
-            this.y - (this.size / 2) < entity.y + (entity.size / 2)) {
+        let x = this.x - entity.x;
+        let y = this.y - entity.y;
+        let dist = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+        if (dist < (this.size + entity.size)){
             return true;
         }
         return false;
