@@ -11,7 +11,7 @@ class Factory {
     }
 
     addEntity() {
-        if (this.chrono.isOver(this.delay)) {
+        if (this.chrono.isOver(this.delay) && this.entities.length <= 50) {
             this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#FFFF00', this.mapSize));
             this.chrono.reset();
         }
@@ -24,7 +24,7 @@ class Factory {
                 this.remove(i);
             }
             for (let j = 0; j < tank.gun.ammos.length; j++) {
-                if (this.entities[i].touch(tank.gun.ammos[i])){
+                if (this.entities[i].touch(tank.gun.ammos[j])){
                     tank.level.addXp(this.score);
                     this.remove(i);
                 }
