@@ -22,7 +22,8 @@ class ControlsSocket {
     barexp(data){
       console.log("xp " + data.player[0].level.xp);
       console.log("score " + data.player[0].score);
-      document.querySelector('#myexpbar').style.width = data.player[0].level.xp + "%";
+      document.querySelector('#expValue').style.width = data.player[0].level.xp + "%";
+      document.querySelector('#lifeValue').style.width = (data.player[0].health/3)*100 + "%";
       document.querySelector('#score').innerHTML = data.player[0].score;
     }
   }
