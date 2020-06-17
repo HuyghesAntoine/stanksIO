@@ -35,7 +35,8 @@ function io(server) {
     game.refresh();
     const data = {
       message: 'Server update !',
-      players: Object.values(game.players)
+      players: Object.values(game.players),
+      factory: Object.values(game.factory)
     };
     io.volatile.emit('update', data);
   }, 1000 / 25);
