@@ -15,6 +15,7 @@ class ControlsEvents {
         this.buttonShoot.onclick = (event) => this.onClickShoot(event);
         this.buttonPseudo = document.querySelector('#pseudo');
         this.buttonPseudo.onclick = (event) => this.onSubPseudo(event, pseudo);
+        this.flag = false;
 
         this.controlCanvas = document.querySelector('#controlCanvas'); 
         this.controlCanvas.addEventListener('touchstart', (event) => this.onTouch(event), false);
@@ -57,11 +58,16 @@ class ControlsEvents {
 
     onTouch(event){
         this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
+        var angle = Math.atan2(260 - event.touches[0].pageY, 450 - event.touches[0].pageX);
+        this.socket.move(angle+Math.PI);
     }
     onTouchMove(event){
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        this.socket.move(angle+Math.PI);
+        this.buttonDown.innerHTML = "angle " + angle;
         this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
     }
-    onTouchMove(event){
+    onTouchEnd(event){
         this.buttonUp.innerHTML = "up";
     }
 }
