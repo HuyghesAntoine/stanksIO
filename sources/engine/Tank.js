@@ -15,6 +15,7 @@ class Tank extends Entity {
         this.attack = 1;
         this.attackSpeed = 1;
         this.level = new Level();
+        this.score = 0;
     }
 
     isOut(x, y) {
@@ -38,6 +39,13 @@ class Tank extends Entity {
     changePseudo(val){
         this.pseudo = val;
     }
+
+    scorePlayer(value){
+        const score = document.getElementById("score");
+        this.score += value;
+        score.innerHTML = this.score;
+    }
+
     Alive(){
         if(this.health <= 0)
             return false;

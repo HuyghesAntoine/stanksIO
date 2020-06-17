@@ -5,6 +5,7 @@
  */
 
 const Tank = require('./Tank');
+const Factory = require('./Factory');
 
 /**
 * Game class.
@@ -15,6 +16,7 @@ class Game {
     this.nbJ = 1;
     this.name = name;
     this.players = {};
+    this.factory = new Factory(800);
   }
 
   register(id) {
@@ -22,7 +24,7 @@ class Game {
     this.nbJ += 1;
   }
 
-  move(id,direction) {
+  move(id, direction) {
     this.players[id].move(direction);
   }
 
@@ -41,7 +43,9 @@ class Game {
   }
 
   refresh(){
+    this.factory.addEntity();
     Object.values(this.players).forEach( player => {
+      this.factory.touchAll(player);
       //console.log(player);
       player.gun.moveAll();
       if(player.Alive() == false)

@@ -96,3 +96,15 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
     margin-right:auto;
     margin-top: 5px;
 }
+
+#changeP{
+    position: absolute;
+    margin-top: 0.5%;
+    margin-left: 2%;
+}
+
+#score{
+    position: absolute;
+    margin-top: 0.5%;
+    margin-left: 13%;
+}

@@ -16,23 +16,22 @@
 </head>
 
 <body id="controlPage">
-
   <p align="center">
     <canvas id="controlCanvas"></canvas>
     <canvas id="controlCanvas2"></canvas>
   </p>
-  <div class="progress" id="lifeBar">
-    <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100"
-      aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <div class="progress" id="expBar">
-    <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100"
-      aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
+  <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Change name </button>
+  <span id="score"> 0 </span>
+    <div class="progress" id="lifeBar">
+        <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="expBar">
+        <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    
   <form id="formControl" onsubmit="return false">
     <p>
       <label id="pseud" for="pseudo">Pseudo</label>
-      <input type="text" id="Pseudo" onkeyup="changerP()">
       <button id="btnValid"> Validate </button>
     </p>
     <button id="up"> UP </button>
@@ -43,6 +42,20 @@
     <button id="pseudo"> PSEUDO </button>
   </form>
 
+
+  <!-- Modal -->
+<div class="modal fade" id="pseudoModal" tabindex="-1" role="dialog" aria-labelledby="pseudoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <input autocomplete="off" class="form-control" type="text" id="Pseudo" onkeyup="changerP()">
+          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
+            Change
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="../javascript/ControlsSocket.js"></script>
@@ -55,8 +68,6 @@
       var x = document.getElementById("Pseudo").value;
       events.onSubPseudo(event, x);
     }
-    const vld = document.getElementById("btnValid");
-    //vld.onclick
   </script>
 
 
