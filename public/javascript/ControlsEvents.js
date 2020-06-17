@@ -15,18 +15,25 @@ class ControlsEvents {
         this.buttonPseudo = document.querySelector('#pseudo');
         this.buttonPseudo.onclick = (event) => this.onSubPseudo(event, pseudo);
 
+        this.controlCanvas = document.querySelector('#controlCanvas'); 
+        this.controlCanvas.addEventListener('touchstart', (event) => this.onTouch(event), false);
+        this.controlCanvas.addEventListener('touchmove', (event) => this.onTouchMove(event), false);
+        this.controlCanvas.addEventListener('touchend', (event) => this.onTouchEnd(event), false);
+
         document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
     }
     onKeyDown(event) {
         const keyCode = event.keyCode;
+
+        this.buttonUp.innerHTML = "xd";
         if (keyCode == 90)
-            this.onClickMoveUp(event)
+            this.onClickMoveUp(event);
         if (keyCode == 83)
-            this.onClickMoveDown(event)
+            this.onClickMoveDown(event);
         if (keyCode == 81)
-            this.onClickMoveLeft(event)
+            this.onClickMoveLeft(event);
         if (keyCode == 68)
-            this.onClickMoveRight(event)
+            this.onClickMoveRight(event);
     }
     onClickMoveUp(event) {
         this.socket.move(3 * (Math.PI / 2));
@@ -45,5 +52,15 @@ class ControlsEvents {
     }
     onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
+    }
+
+    onTouch(event){
+        this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
+    }
+    onTouchMove(event){
+        this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
+    }
+    onTouchMove(event){
+        this.buttonUp.innerHTML = "up";
     }
 }
