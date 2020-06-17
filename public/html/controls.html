@@ -16,17 +16,19 @@
 </head>
 
 <body id="controlPage">
-    <div class="progress" id="lifeBar">
-        <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <div class="progress" id="expBar">
-        <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <p align="center">
-      <canvas id="controlCanvas"></canvas>
-      <canvas id="controlCanvas2"></canvas>
-    </p>
-    
+
+  <p align="center">
+    <canvas id="controlCanvas"></canvas>
+    <canvas id="controlCanvas2"></canvas>
+  </p>
+  <div class="progress" id="lifeBar">
+    <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100"
+      aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div class="progress" id="expBar">
+    <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100"
+      aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
   <form id="formControl" onsubmit="return false">
     <p>
       <label id="pseud" for="pseudo">Pseudo</label>
@@ -37,21 +39,21 @@
     <button id="down"> DOWN </button>
     <button id="right"> RIGHT </button>
     <button id="left"> LEFT </button>
-    <button style="margin-left: 5%; " id="fire"> SHOOT </button> 
+    <button style="margin-left: 5%; " id="fire"> SHOOT </button>
     <button id="pseudo"> PSEUDO </button>
   </form>
-  
+
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="../javascript/ControlsSocket.js"></script>
   <script src="../javascript/ControlsEvents.js"></script>
-  <script> 
+  <script>
     const socket = new ControlsSocket();
     const events = new ControlsEvents(socket);
-    function changerP(){
+    function changerP() {
       console.log("test");
       var x = document.getElementById("Pseudo").value;
-      events.onSubPseudo(event,x);
+      events.onSubPseudo(event, x);
     }
     const vld = document.getElementById("btnValid");
     //vld.onclick
@@ -61,4 +63,3 @@
 </body>
 
 </html>
-

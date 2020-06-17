@@ -22,7 +22,6 @@ class Tank extends Entity {
     }
 
     move(direction) {
-        this.direction = direction;
         let xMove = this.x + (Math.cos(direction) * this.speed);
         let yMove = this.y + (Math.sin(direction) * this.speed);
         if (!this.isOut(xMove, yMove)) {
@@ -31,11 +30,8 @@ class Tank extends Entity {
         }
     }
 
-    look(direction){
+    shoot(direction) {
         this.direction = direction;
-    }
-
-    shoot() {
         this.gun.shoot(new Bullet(this));
     }
 

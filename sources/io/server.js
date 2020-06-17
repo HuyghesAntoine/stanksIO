@@ -23,7 +23,7 @@ function io(server) {
 
     socket.on('move', (direction) => game.move(socket.id, direction));
 
-    socket.on('shoot', () => game.shoot(socket.id));
+    socket.on('shoot', (direction) => game.shoot(socket.id, direction));
 
     socket.on('pseudo', (pseudo) => game.changePseudo(socket.id,pseudo));
 
