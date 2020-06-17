@@ -23,7 +23,7 @@ function io(server) {
 
     socket.on('move', (direction) => game.move(id, direction));
 
-    socket.on('stopMove', () => game.stopMove(id));
+    socket.on('stopMove', () => game.stopMove(id) );
 
     socket.on('shoot', (direction) => game.shoot(id, direction));
 
@@ -43,6 +43,7 @@ function io(server) {
 
   setInterval(() => {
     game.refresh();
+    console.log(game.bonus.entities);
     const data = {
       message: 'Server update !',
       players: Object.values(game.players),

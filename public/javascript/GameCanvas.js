@@ -4,6 +4,15 @@ class GameCanvas {
         this.context = this.canvas.getContext('2d');
     }
 
+    drawCannon(tank) {
+        const { x, y, size, look } = tank;
+        this.context.beginPath();
+        this.context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
+        this.context.fillStyle = '#777777';
+        this.context.fill();
+    }
+
     drawTank(tank) {
         const { x, y, size, color } = tank;
         this.context.beginPath();
@@ -11,7 +20,7 @@ class GameCanvas {
         this.context.fillStyle = color;
         this.context.fill();
         this.context.textAlign = "center";
-        this.context.fillText(tank.pseudo,x,y+20);
+        this.context.fillText(tank.pseudo, x, y + (2 * size));
     }
 
     drawBullet(bullet) {
@@ -24,23 +33,27 @@ class GameCanvas {
 
     redraw(data) {
         this.context.clearRect(0, 0, 800, 800);
-        const { players , factory, bonus } = data;
+        const { players, factory, bonus } = data;
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
         /*factory.entities.forEach((entity) => {
             console.log('ah');
             this.drawBullet(entity)});*/
-        players.forEach((tank) => this.drawTank(tank));
         players.forEach((player) => {
             for (let i = 0; i < player.gun.ammos.length; i++) {
                 this.drawBullet(player.gun.ammos[i]);
             }
         });
+        players.forEach((tank) => {
+            this.drawCannon(tank);
+            this.drawTank(tank);
+        });
+
         /*const {bullets} = data;
         bullets.forEach((bullet)=> this.drawBullet(bullet));*/
     }
 
-    update(data){
+    update(data) {
         this.redraw(data);
     }
 }
