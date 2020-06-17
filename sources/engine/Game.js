@@ -19,8 +19,8 @@ class Game {
     this.factory = new Factory(800);
   }
 
-  register(id) {
-    this.players[id] = new Tank(id);
+  register(id, socket) {
+    this.players[id] = new Tank(id, socket);
     this.nbJ += 1;
   }
 

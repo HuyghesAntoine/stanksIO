@@ -6,9 +6,10 @@ const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
 class Tank extends Entity {
-    constructor(id) {
+    constructor(id, socketid) {
         super(10, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.id = id;
+        this.socketId = socketid; 
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;

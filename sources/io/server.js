@@ -17,24 +17,24 @@ function io(server) {
 
   const io = socketio(server);
   io.on('connection', function (socket) {
-    socket.id = game.nbJ;
+    var id = game.nbJ;
 
-    socket.on('register', () => game.register(socket.id));
+    socket.on('register', () => game.register(id, socket.id));
 
-    socket.on('move', (direction) => game.move(socket.id, direction));
+    socket.on('move', (direction) => game.move(id, direction));
 
-    socket.on('shoot', (direction) => game.shoot(socket.id, direction));
+    socket.on('shoot', (direction) => game.shoot(id, direction));
 
-    socket.on('pseudo', (pseudo) => game.changePseudo(socket.id,pseudo));
+    socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 
-    socket.on('disconnect', () => game.delist(socket.id));
+    socket.on('disconnect', () => game.delist(id));
 
   });
 
   setInterval(() =>{
     const data = {
       message: 'display',
-      player: Object.values(game.players)
+      players: Object.values(game.players)
     };
     io.volatile.emit('control', data);
   }, 1000 / 5);
