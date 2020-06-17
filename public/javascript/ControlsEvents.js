@@ -4,6 +4,7 @@ class ControlsEvents {
         var pseudo = document.getElementById('Pseudo').value;
         this.buttonUp = document.querySelector('#up');
         this.buttonUp.onclick = (event) => this.onClickMoveUp(event);
+        this.buttonUp.onkeypress = (event) => this.myFunction(event);
         this.buttonDown = document.querySelector('#down');
         this.buttonDown.onclick = (event) => this.onClickMoveDown(event);
         this.buttonRight = document.querySelector('#right');

@@ -4,33 +4,43 @@
 
 <head>
   <title>Controls</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/stylesheets/index.css">
+
+  <!-- JavaScripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body id="controlPage">
-  <!--
-  <p align="center">
-    <canvas id="controlCanvas" width="500" height="500"> </canvas>
-  </p>-->
-
-  <h1>Controls</h1>
-  <p> c'est la page control</p></p>
-
-  <canvas id="control" width="300" height="300" style="background-color: wheat"> </canvas>
-
-  <form >
+    <div class="progress" id="lifeBar">
+        <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="expBar">
+        <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <p align="center">
+  <canvas id="controlCanvas"></canvas>
+  </p>
+    <!--
+  <form id="formControl">
     <p>
       <label id="pseud" for="pseudo">Pseudo</label>
       <input type="text" id="Pseudo" required>
     </p>
+    <button id="up"> UP </button>
+    <button id="down"> DOWN </button>
+    <button id="right"> RIGHT </button>
+    <button id="left"> LEFT </button>
+    <button style="margin-left: 5%; " id="fire"> SHOOT </button> 
+    <button id="pseudo"> PSEUDO </button>
   </form>
+  -->
 
-  <button id="up"> UP </button>
-  <button id="down"> DOWN </button>
-  <button id="right"> RIGHT </button>
-  <button id="left"> LEFT </button>
-  <button id="pseudo"> PSEUDO </button>
-  <button style="margin-left: 5%; " id="fire"> SHOOT </button> 
+
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="../javascript/ControlsSocket.js"></script>
