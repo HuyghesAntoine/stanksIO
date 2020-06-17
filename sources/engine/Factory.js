@@ -8,6 +8,7 @@ class Factory {
         this.delay = 2000;
         this.chrono = new Chrono();
         this.score = 100;
+        this.xp = 10;
     }
 
     addEntity() {
@@ -20,12 +21,14 @@ class Factory {
     touchAll(tank) {
         for (let i = 0; i < this.entities.length; i++) {
             if (this.entities[i].touch(tank)) {
-                tank.level.addXp(this.score);
+                tank.level.addXp(this.xp);
+                tank.score += this.score;
                 this.remove(i);
             }
             for (let j = 0; j < tank.gun.ammos.length; j++) {
                 if (this.entities[i].touch(tank.gun.ammos[j])){
-                    tank.level.addXp(this.score);
+                    tank.level.addXp(this.xp);
+                    tank.score += this.score;
                     this.remove(i);
                 }
             }
