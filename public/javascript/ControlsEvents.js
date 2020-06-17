@@ -14,9 +14,9 @@ class ControlsEvents {
 
 
         this.tirCanvas = document.querySelector('#controlCanvas');
-        this.tirCanvas.addEventListener('touchstart', (event1) => this.onTouchShoot(event1), false);
-        this.tirCanvas.addEventListener('touchmove', (event1) => this.onTouchMoveShoot(event1), false);
-        this.tirCanvas.addEventListener('touchend', (event1) => this.onTouchEndShoot(event1), false);
+        this.tirCanvas.addEventListener('touchstart', (event) => this.onTouchShoot(event), false);
+        this.tirCanvas.addEventListener('touchmove', (event) => this.onTouchMoveShoot(event), false);
+        this.tirCanvas.addEventListener('touchend', (event) => this.onTouchEndShoot(event), false);
 
         document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
     }
