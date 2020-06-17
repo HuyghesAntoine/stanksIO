@@ -7,7 +7,7 @@ const Chrono = require('./Chrono');
 
 class Tank extends Entity {
     constructor(id, socketid) {
-        super(10, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        super(20, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.id = id;
         this.socketId = socketid; 
         this.pseudo = "noname";
