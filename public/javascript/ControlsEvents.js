@@ -49,32 +49,24 @@ class ControlsEvents {
     }
 
     onTouch(event){
-        this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
         var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
         this.socket.move(angle+Math.PI);
     }
     onTouchMove(event){
         var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
         this.socket.move(angle+Math.PI);
-        this.buttonDown.innerHTML = this.controlCanvas.clientHeight + " " + this.controlCanvas.clientWidth + "angle " + angle;
-        //this.buttonUp.innerHTML = x + " " + y;
     }
     onTouchEnd(event){
-        this.buttonUp.innerHTML = "up";
     }
 
     onTouchShoot(event){
-        this.buttonUp.innerHTML = event.touches[0].pageX + " " + event.touches[0].pageY;
         var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth+this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
         this.socket.shoot(angle+Math.PI);
     }
     onTouchMoveShoot(event){
-        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth+this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
         this.socket.shoot(angle+Math.PI);
-        //this.buttonDown.innerHTML = this.controlCanvas.clientHeight + " " + this.controlCanvas.clientWidth + "angle " + angle;
-        //this.buttonUp.innerHTML = x + " " + y;
     }
     onTouchEndShoot(event){
-        this.buttonUp.innerHTML = "up";
     }
 }
