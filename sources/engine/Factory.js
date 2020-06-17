@@ -1,7 +1,6 @@
 const Entity = require('./Entity');
 const Chrono = require('./Chrono');
 
-
 class Factory {
     constructor(mapSize) {
         this.entities = new Array();
@@ -30,7 +29,6 @@ class Factory {
                     this.remove(i);
                 }
             }
-
         }
     }
 
@@ -38,11 +36,10 @@ class Factory {
         this.entities.splice(i, 1);
     }
 
-
-
-
 }
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+module.exports = Factory

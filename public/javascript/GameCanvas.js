@@ -24,7 +24,11 @@ class GameCanvas {
 
     redraw(data) {
         this.context.clearRect(0, 0, 800, 800);
-        const { players } = data;
+        const { players , factory } = data;
+        factory[0].forEach((entity) => this.drawBullet(entity));
+        /*factory.entities.forEach((entity) => {
+            console.log('ah');
+            this.drawBullet(entity)});*/
         players.forEach((tank) => this.drawTank(tank));
         players.forEach((player) => {
             for (let i = 0; i < player.gun.ammos.length; i++) {
