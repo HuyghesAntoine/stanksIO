@@ -17,26 +17,26 @@ function io(server) {
 
   const io = socketio(server);
   io.on('connection', function (socket) {
-    socket.id = game.nbJ;
+    var id = game.nbJ;
 
-    socket.on('register', () => game.register(socket.id));
+    socket.on('register', () => game.register(id, socket.id));
 
-    socket.on('move', (direction) => game.move(socket.id, direction));
+    socket.on('move', (direction) => game.move(id, direction));
 
     socket.on('stopMove', () => game.stopMove(socket.id) );
 
     socket.on('shoot', (direction) => game.shoot(socket.id, direction));
 
-    socket.on('pseudo', (pseudo) => game.changePseudo(socket.id,pseudo));
+    socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 
-    socket.on('disconnect', () => game.delist(socket.id));
+    socket.on('disconnect', () => game.delist(id));
 
   });
 
   setInterval(() =>{
     const data = {
       message: 'display',
-      player: Object.values(game.players)
+      players: Object.values(game.players)
     };
     io.volatile.emit('control', data);
   }, 1000 / 5);
@@ -46,7 +46,8 @@ function io(server) {
     const data = {
       message: 'Server update !',
       players: Object.values(game.players),
-      factory: Object.values(game.factory)
+      factory: Object.values(game.factory),
+      bonus: Object.values(game.bonus)
     };
     io.volatile.emit('update', data);
   }, 1000 / 25);

@@ -24,8 +24,9 @@ class GameCanvas {
 
     redraw(data) {
         this.context.clearRect(0, 0, 800, 800);
-        const { players , factory } = data;
+        const { players , factory, bonus } = data;
         factory[0].forEach((entity) => this.drawBullet(entity));
+        bonus[0].forEach((entity) => this.drawBullet(entity));
         /*factory.entities.forEach((entity) => {
             console.log('ah');
             this.drawBullet(entity)});*/
