@@ -1,5 +1,6 @@
 class ControlsEvents {
     constructor(socket) {
+
         this.socket = socket;
         this.body = document.querySelector('#controlPage');
 
@@ -19,7 +20,6 @@ class ControlsEvents {
     onKeyDown(event) {
         const keyCode = event.keyCode;
 
-        this.buttonUp.innerHTML = "xd";
         if (keyCode == 90)
             this.onClickMoveUp(event);
         if (keyCode == 83)
