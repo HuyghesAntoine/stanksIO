@@ -4,7 +4,7 @@ class Bullet extends Entity{
     constructor(tank){
         super(5, tank.x, tank.y, 1, tank.color, tank.mapSize);
         this.damage = tank.attack;
-        this.direction = tank.direction;
+        this.direction = tank.look;
         this.speed = 1;
     }
 

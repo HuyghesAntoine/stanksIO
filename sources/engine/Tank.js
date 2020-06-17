@@ -13,6 +13,7 @@ class Tank extends Entity {
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
+        this.look = 0;
         this.speed = 5;
         this.attack = 1;
         this.attackSpeed = 1000;
@@ -37,7 +38,7 @@ class Tank extends Entity {
 
     shoot(direction) {
         if (this.chrono.isOver(this.attackSpeed)){
-            this.direction = direction;
+            this.look = direction;
             this.gun.shoot(new Bullet(this));
             this.chrono.reset();
 
