@@ -8,6 +8,7 @@ class Tank extends Entity {
     constructor(id) {
         super(10, 800/2, 800/2,3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
         this.id = id;
+        this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
         this.speed = 10;
@@ -34,6 +35,9 @@ class Tank extends Entity {
         this.gun.shoot(new Bullet(this));
     }
 
+    changePseudo(val){
+        this.pseudo = val;
+    }
     Alive(){
         if(this.health <= 0)
             return false;

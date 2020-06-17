@@ -10,6 +10,8 @@ class GameCanvas {
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         this.context.fillStyle = color;
         this.context.fill();
+        this.context.textAlign = "center";
+        this.context.fillText(tank.pseudo,x,y+20);
     }
 
     drawBullet(bullet) {

@@ -30,6 +30,11 @@ class Game {
     this.players[id].shoot();
   }
 
+  changePseudo(id,pseudo){
+    this.players[id].changePseudo(pseudo);
+    console.log("argh")
+  }
+
   delist(id) {
     delete this.players[id];
     console.log("delist");
@@ -37,7 +42,7 @@ class Game {
 
   refresh(){
     Object.values(this.players).forEach( player => {
-      console.log(player);
+      //console.log(player);
       player.gun.moveAll();
       if(player.Alive() == false)
         this.delist(player.id);
