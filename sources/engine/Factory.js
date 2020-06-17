@@ -30,7 +30,6 @@ class Factory {
                     this.remove(i);
                 }
             }
-
         }
     }
 
