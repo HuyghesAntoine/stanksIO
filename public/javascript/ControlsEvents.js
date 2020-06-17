@@ -85,8 +85,8 @@ class ControlsEvents {
     }
     onTouchMoveShoot(event){
         var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
-        this.socket.move(angle+Math.PI);
-        this.buttonDown.innerHTML = this.controlCanvas.clientHeight + " " + this.controlCanvas.clientWidth + "angle " + angle;
+        this.socket.shoot(angle+Math.PI);
+        //this.buttonDown.innerHTML = this.controlCanvas.clientHeight + " " + this.controlCanvas.clientWidth + "angle " + angle;
         //this.buttonUp.innerHTML = x + " " + y;
     }
     onTouchEndShoot(event){
