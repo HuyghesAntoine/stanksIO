@@ -8,6 +8,7 @@ class Level {
     addXp(xp){
         this.xp += xp;
     }
+    
     levelUp(){
         if (this.xp >= this.xpNeeded){
             this.levelNumber++;
