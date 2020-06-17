@@ -10,6 +10,10 @@ class ControlsSocket {
     this.socket.on('control', (data) => this.barexp(data));
   }
 
+  stopMove() {
+    this.socket.emit('stopMove');
+  }
+
   move(direction) {
     this.socket.emit('move', direction);
   }

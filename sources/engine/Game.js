@@ -27,14 +27,19 @@ class Game {
   }
 
   move(id, direction) {
-    this.players[id].move(direction);
+    this.players[id].direction = direction;
+    this.players[id].isMoving = true;
   }
 
-  shoot(id, direction){
-    this.players[id].shoot(direction);    
+  stopMove(id) {
+    this.players[id].isMoving = false;
   }
 
-  changePseudo(id,pseudo){
+  shoot(id, direction) {
+    this.players[id].shoot(direction);
+  }
+
+  changePseudo(id, pseudo) {
     this.players[id].changePseudo(pseudo);
     console.log("argh")
   }
@@ -44,17 +49,20 @@ class Game {
     console.log("delist");
   }
 
-  refresh(){
+  refresh() {
     this.factory.addEntity();
-    Object.values(this.players).forEach( player => {
+    Object.values(this.players).forEach(player => {
+      if (player.isMoving == true) {
+        player.move();
+      }
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
       //console.log(player);
       player.gun.moveAll();
-      if(player.Alive() == false)
+      if (player.Alive() == false)
         this.delist(player.id);
-      Object.values(this.players).forEach( tank => {
-        if(tank != player)
+      Object.values(this.players).forEach(tank => {
+        if (tank != player)
           player.gun.touchAll(tank);
       });
     });
