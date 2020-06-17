@@ -1,18 +1,33 @@
 class ControlsEvents {
     constructor(socket) {
         this.socket = socket;
+        this.body = document.querySelector('#controlPage');
+
+        this.controlCanvas = document.querySelector('#controlCanvas2');
+        this.controlCanvas.addEventListener('touchstart', (event) => this.onTouch(event), false);
+        this.controlCanvas.addEventListener('touchmove', (event) => this.onTouchMove(event), false);
+        this.controlCanvas.addEventListener('touchend', (event) => this.onTouchEnd(event), false);
+
+
+        this.tirCanvas = document.querySelector('#controlCanvas');
+        this.tirCanvas.addEventListener('touchstart', (event) => this.onTouchShoot(event), false);
+        this.tirCanvas.addEventListener('touchmove', (event) => this.onTouchMoveShoot(event), false);
+        this.tirCanvas.addEventListener('touchend', (event) => this.onTouchEndShoot(event), false);
+
         document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
     }
     onKeyDown(event) {
         const keyCode = event.keyCode;
+
+        this.buttonUp.innerHTML = "xd";
         if (keyCode == 90)
-            this.onClickMoveUp(event)
+            this.onClickMoveUp(event);
         if (keyCode == 83)
-            this.onClickMoveDown(event)
+            this.onClickMoveDown(event);
         if (keyCode == 81)
-            this.onClickMoveLeft(event)
+            this.onClickMoveLeft(event);
         if (keyCode == 68)
-            this.onClickMoveRight(event)
+            this.onClickMoveRight(event);
     }
     onClickMoveUp(event) {
         this.socket.move(3 * (Math.PI / 2));
@@ -31,5 +46,27 @@ class ControlsEvents {
     }
     onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
+    }
+
+    onTouch(event){
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        this.socket.move(angle+Math.PI);
+    }
+    onTouchMove(event){
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        this.socket.move(angle+Math.PI);
+    }
+    onTouchEnd(event){
+    }
+
+    onTouchShoot(event){
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth+this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        this.socket.shoot(angle+Math.PI);
+    }
+    onTouchMoveShoot(event){
+        var angle = Math.atan2(this.controlCanvas.clientHeight/2 - event.touches[0].pageY, this.controlCanvas.clientWidth+this.controlCanvas.clientWidth/2 - event.touches[0].pageX);
+        this.socket.shoot(angle+Math.PI);
+    }
+    onTouchEndShoot(event){
     }
 }

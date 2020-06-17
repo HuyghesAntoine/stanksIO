@@ -11,21 +11,23 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 #controlCanvas{
     background: rgb(231,235,236);
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    margin-top: 2%;
-    margin-right: 2%;
-    width: 47.5vw;
+    margin-top: 0%;
+    margin-right: 0%;
+    width: 49vw;
     height: 90vh;
     float: right;
+    border-radius: 50%;
 }
 
 #controlCanvas2{
     background: rgb(231,235,236);
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 0%;
+    margin-left: 0%;
     height: 90vh;
-    width: 47.5vw;
+    width: 49vw;
     float: left;
+    border-radius: 50%;
 }
 
 #game-title{
@@ -91,7 +93,7 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 }
 
 #lifeBar, #expBar{
-    width: 50%;
+    width: 35%;
     margin-left: auto;
     margin-right:auto;
     margin-top: 5px;
@@ -99,12 +101,10 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 
 #changeP{
     position: absolute;
-    margin-top: 0.5%;
-    margin-left: 2%;
+    top: 0;
 }
 
 #score{
     position: absolute;
-    margin-top: 0.5%;
-    margin-left: 13%;
+    bottom: 0;
 }

@@ -28,8 +28,8 @@ class Game {
     this.players[id].move(direction);
   }
 
-  shoot(id) {
-    this.players[id].shoot();
+  shoot(id, direction){
+    this.players[id].shoot(direction);    
   }
 
   changePseudo(id,pseudo){

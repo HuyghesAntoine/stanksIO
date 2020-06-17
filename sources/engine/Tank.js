@@ -3,6 +3,7 @@ const Level = require('./Level');
 const Bullet = require('./Bullet');
 const Entity = require('./Entity');
 const Gun = require('./Gun');
+const Chrono = require('./Chrono');
 
 class Tank extends Entity {
     constructor(id) {
@@ -11,11 +12,12 @@ class Tank extends Entity {
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
-        this.speed = 10;
+        this.speed = 1;
         this.attack = 1;
-        this.attackSpeed = 1;
+        this.attackSpeed = 1000;
         this.level = new Level();
         this.score = 0;
+        this.chrono = new Chrono();
     }
 
     isOut(x, y) {
@@ -23,17 +25,22 @@ class Tank extends Entity {
     }
 
     move(direction) {
-        this.direction = direction
-        let xMove = this.x + (Math.cos(this.direction) * this.speed);
-        let yMove = this.y + (Math.sin(this.direction) * this.speed);
+        let xMove = this.x + (Math.cos(direction) * this.speed);
+        let yMove = this.y + (Math.sin(direction) * this.speed);
         if (!this.isOut(xMove, yMove)) {
             this.x = xMove;
             this.y = yMove;
         }
     }
 
-    shoot() {
-        this.gun.shoot(new Bullet(this));
+    shoot(direction) {
+        if (this.chrono.isOver(this.attackSpeed)){
+            this.direction = direction;
+            this.gun.shoot(new Bullet(this));
+            this.chrono.reset();
+
+        }
+        
     }
 
     changePseudo(val){
