@@ -23,16 +23,16 @@ class Tank extends Entity {
     }
 
     move(direction) {
-        this.direction = direction
-        let xMove = this.x + (Math.cos(this.direction) * this.speed);
-        let yMove = this.y + (Math.sin(this.direction) * this.speed);
+        let xMove = this.x + (Math.cos(direction) * this.speed);
+        let yMove = this.y + (Math.sin(direction) * this.speed);
         if (!this.isOut(xMove, yMove)) {
             this.x = xMove;
             this.y = yMove;
         }
     }
 
-    shoot() {
+    shoot(direction) {
+        this.direction = direction;
         this.gun.shoot(new Bullet(this));
     }
 

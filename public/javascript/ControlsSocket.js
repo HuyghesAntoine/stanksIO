@@ -12,8 +12,8 @@ class ControlsSocket {
     move(direction) {
       this.socket.emit('move',direction);
     }
-    shoot(){
-      this.socket.emit('shoot');
+    shoot(direction){
+      this.socket.emit('shoot', direction);
     }
     ChangePseudo(pseudo){
       this.socket.emit('pseudo',pseudo);
