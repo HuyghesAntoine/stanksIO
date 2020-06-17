@@ -37,11 +37,10 @@ class Tank extends Entity {
     }
 
     shoot(direction) {
+        this.look = direction;
         if (this.chrono.isOver(this.attackSpeed)) {
-            this.look = direction;
             this.gun.shoot(new Bullet(this));
             this.chrono.reset();
-
         }
 
     }

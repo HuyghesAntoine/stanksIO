@@ -5,7 +5,7 @@ class Factory {
     constructor(mapSize) {
         this.entities = new Array();
         this.mapSize = mapSize;
-        this.delay = 2000;
+        this.delay = 5000;
         this.chrono = new Chrono();
         this.score = 100;
         this.xp = 10;
@@ -25,13 +25,16 @@ class Factory {
                 tank.score += this.score;
                 this.remove(i);
             }
-            for (let j = 0; j < tank.gun.ammos.length; j++) {
-                if (this.entities[i].touch(tank.gun.ammos[j])) {
-                    tank.level.addXp(this.xp);
-                    tank.score += this.score;
-                    this.remove(i);
+            else{
+                for (let j = 0; j < tank.gun.ammos.length; j++) {
+                    if (this.entities[i].touch(tank.gun.ammos[j])) {
+                        tank.level.addXp(this.xp);
+                        tank.score += this.score;
+                        this.remove(i);
+                    }
                 }
             }
+            
         }
     }
 
