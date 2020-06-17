@@ -31,6 +31,14 @@ function io(server) {
 
   });
 
+  setInterval(() =>{
+    const data = {
+      message: 'display',
+      player: Object.values(game.players)
+    };
+    io.volatile.emit('control', data);
+  }, 1000 / 5);
+
   setInterval(() => {
     game.refresh();
     const data = {
