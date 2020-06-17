@@ -108,3 +108,7 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
     position: absolute;
     bottom: 0;
 }
+
+#controlPage{
+    overflow: hidden;
+}
