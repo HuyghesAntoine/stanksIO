@@ -57,6 +57,7 @@ class ControlsEvents {
         this.socket.move(angle+Math.PI);
     }
     onTouchEnd(event){
+        this.socket.stopMove();
     }
 
     onTouchShoot(event){

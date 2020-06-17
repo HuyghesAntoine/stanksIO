@@ -12,21 +12,22 @@ class Tank extends Entity {
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
-        this.speed = 1;
+        this.speed = 5;
         this.attack = 1;
         this.attackSpeed = 1000;
         this.level = new Level();
         this.score = 0;
         this.chrono = new Chrono();
+        this.isMoving = false;
     }
 
     isOut(x, y) {
         return !(x > (this.size / 2) && x < (this.mapSize - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSize - (this.size / 2)));
     }
 
-    move(direction) {
-        let xMove = this.x + (Math.cos(direction) * this.speed);
-        let yMove = this.y + (Math.sin(direction) * this.speed);
+    move() {
+        let xMove = this.x + (Math.cos(this.direction) * this.speed);
+        let yMove = this.y + (Math.sin(this.direction) * this.speed);
         if (!this.isOut(xMove, yMove)) {
             this.x = xMove;
             this.y = yMove;
