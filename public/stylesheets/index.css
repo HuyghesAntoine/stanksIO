@@ -8,7 +8,7 @@ body {
 background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
 
-#controlPage{
+#controlCanvas{
     background: rgb(231,235,236);
 background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
@@ -18,6 +18,15 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 }
 #game-canvas, #controlCanvas{
     background-color: #ffffff;
+}
+
+#controlCanvas{
+    margin-top: 1%;
+    width: 95%;
+}
+
+#formControl{
+    position: absolute;
 }
 
 .home { 
@@ -69,4 +78,11 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
     position: absolute;
     margin-left: 1%;
     margin-top: 1%;
+}
+
+#lifeBar, #expBar{
+    width: 50%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 5px;
 }
