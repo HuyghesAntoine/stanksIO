@@ -27,6 +27,7 @@ class Gun {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
                 if(this.ammos[i].touch(entity)){
+                    entity.health -= this.ammos[i].damage;
                     this.remove(i);
                 }
             }
