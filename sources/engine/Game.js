@@ -22,12 +22,12 @@ class Game {
     this.nbJ += 1;
   }
 
-  move(id,direction) {
+  move(id, direction) {
     this.players[id].move(direction);
   }
 
-  shoot(id){
-    this.players[id].shoot();    
+  shoot(id) {
+    this.players[id].shoot();
   }
 
   changePseudo(id,pseudo){

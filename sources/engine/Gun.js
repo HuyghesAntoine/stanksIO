@@ -28,7 +28,6 @@ class Gun {
             for (let i = 0; i < this.ammos.length; i++) {
                 if(this.ammos[i].touch(entity)){
                     this.remove(i);
-                    console.log("remove");
                 }
             }
         }
