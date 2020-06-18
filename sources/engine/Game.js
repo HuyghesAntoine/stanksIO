@@ -27,10 +27,8 @@ class Game {
   }
 
   move(id, direction) {
-    if (typeof (this.players[id]) != 'undefined') {
-      this.players[id].direction = direction;
-      this.players[id].isMoving = true;
-    }
+    this.players[id].direction = direction;
+    this.players[id].isMoving = true;
   }
 
   stopMove(id) {
@@ -48,7 +46,6 @@ class Game {
 
   delist(id, socket) {
     if (typeof (this.players[id]) != 'undefined') {
-      console.log("delist " + id + " " + socket + " " + this.players[id].socketId);
       if (this.players[id].socketId == socket)
         delete this.players[id];
     }
