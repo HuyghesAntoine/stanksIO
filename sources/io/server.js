@@ -34,7 +34,7 @@ function io(server) {
   });
 
   setInterval(() =>{
-    game.testPlayer();
+    game.classement();
     const data = {
       message: 'display',
       players: Object.values(game.players)

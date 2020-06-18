@@ -24,6 +24,7 @@ class Game {
   register(id, socket) {
     this.players[id] = new Tank(id, socket);
     this.nbJ += 1;
+    this.players[id].classement = this.nbJ;
   }
 
   move(id, direction) {
@@ -46,14 +47,12 @@ class Game {
   classement(){
     Object.values(this.players).forEach(player1 => {
       Object.values(this.players).forEach(player => {
-        if(player1.score){}
+        if(player1.score==player.score){
+          var trans = player.classement;
+          player.classement = player1.classement;
+          player1.classement = trans;
+        }
       });
-    });
-  }
-
-  testPlayer(){
-    Object.values(this.players).forEach(player => {
-      console.log(player);
     });
   }
 

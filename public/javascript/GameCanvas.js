@@ -25,8 +25,8 @@ class GameCanvas {
         this.context.textAlign = "center";
         this.context.fillText(tank.pseudo, x, y + (2 * size));
         this.cxt.fill();
-        this.cxt.fillText(tank.pseudo, 10, 20*tank.id);
-        this.cxt.fillText(tank.score, 180, 20*tank.id);
+        this.cxt.fillText(tank.pseudo, 10, 20*tank.classement);
+        this.cxt.fillText(tank.score, 180, 20*tank.classement);
     }
 
     drawBullet(bullet) {
