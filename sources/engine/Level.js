@@ -7,6 +7,7 @@ class Level {
 
     addXp(xp){
         this.xp += xp;
+        this.levelUp();
     }
     
     levelUp(){
