@@ -1,0 +1,54 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #C1C0AC;
+}
+
+#lifeBar, #expBar{
+    width: 30%;   
+    margin-top: 15px;
+}
+
+
+#changeP{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+}
+
+#controlPage{
+    overflow: hidden;
+}
+
+#controlCanvas{
+    background: rgb(231,235,236);
+    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+    width: 25%;
+    height: 25%;
+    float: right;
+    margin-top: 70vh;
+    margin-right: 10vw;
+    border-radius: 50%;
+}
+
+#controlCanvas2{
+    background: rgb(231,235,236);
+    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+    width: 25%;
+    height: 25%;
+    float: left;
+    margin-top: 70vh;
+    margin-left: 10vw;
+    border-radius: 50%;
+}
+
+#upgrades{
+    width: 100px;
+	height: 100px;	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;	
+	margin: auto;
+}
