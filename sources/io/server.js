@@ -29,7 +29,7 @@ function io(server) {
 
     socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 
-    socket.on('disconnect', () => game.delist(id));
+    socket.on('disconnect', () => game.delist(id, socket.id));
 
   });
 
