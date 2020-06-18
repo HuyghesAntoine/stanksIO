@@ -44,9 +44,10 @@ class Game {
     console.log("argh")
   }
 
-  delist(id) {
-    delete this.players[id];
-    console.log("delist");
+  delist(id, socket) {
+    console.log("delist " + id + " " + socket + " " + this.players[id].socketId);
+    if(this.players[id].socketId == socket)
+      delete this.players[id];
   }
 
   refresh() {
@@ -60,7 +61,7 @@ class Game {
       //console.log(player);
       player.gun.moveAll();
       if (player.Alive() == false)
-        this.delist(player.id);
+        this.delist(player.id, player.socketId);
       Object.values(this.players).forEach(tank => {
         if (tank != player)
           player.gun.touchAll(tank);
