@@ -5,17 +5,17 @@ body {
 
 #gamePage{
     background: rgb(231,235,236);
-background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
 
 #controlCanvas{
     background: rgb(231,235,236);
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    margin-top: 0%;
-    margin-right: 0%;
-    width: 49vw;
-    height: 90vh;
+    width: 15vw;
+    height: 25vh;
     float: right;
+    margin-top: 70vh;
+    margin-right: 10vw;
     border-radius: 50%;
 }
 
@@ -24,9 +24,11 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
     margin-top: 0%;
     margin-left: 0%;
-    height: 90vh;
-    width: 49vw;
+    width: 15vw;
+    height: 25vh;
     float: left;
+    margin-top: 70vh;
+    margin-left: 10vw;
     border-radius: 50%;
 }
 
@@ -102,11 +104,11 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 #changeP{
     position: absolute;
     top: 0;
+    right: 0;
 }
 
 #score{
-    position: absolute;
-    bottom: 0;
+    position: absolute; 
 }
 
 #controlPage{
