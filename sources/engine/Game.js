@@ -51,9 +51,10 @@ class Game {
   }
 
   delist(id, socket) {
-    console.log("delist " + id + " " + socket + " " + this.players[id].socketId);
-    if(this.players[id].socketId == socket)
-      delete this.players[id];
+    if (typeof (this.players[id]) != 'undefined') {
+      if (this.players[id].socketId == socket)
+        delete this.players[id];
+    }
   }
 
   refresh() {
@@ -66,12 +67,14 @@ class Game {
       this.bonus.touchAll(player);
       //console.log(player);
       player.gun.moveAll();
-      if (player.Alive() == false)
-        this.delist(player.id, player.socketId);
+
       Object.values(this.players).forEach(tank => {
         if (tank != player)
           player.gun.touchAll(tank);
       });
+
+      if (player.Alive() == false)
+        this.delist(player.id, player.socketId);
     });
   }
 }

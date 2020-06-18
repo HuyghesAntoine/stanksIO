@@ -58,6 +58,8 @@ class Tank extends Entity {
     Alive() {
         if (this.health <= 0)
             return false;
+        else
+            return true;
     }
 }
 
