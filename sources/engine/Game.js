@@ -26,7 +26,6 @@ class Game {
   register(id, socket) {
     this.players[id] = new Tank(id, socket);
     this.nbJ += 1;
-    this.players[id].classement = this.nbJ;
   }
 
   move(id, direction) {
