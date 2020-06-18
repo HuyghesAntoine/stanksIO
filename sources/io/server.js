@@ -36,7 +36,7 @@ function io(server) {
   setInterval(() =>{
     const data = {
       message: 'display',
-      players: Object.values(game.players)
+      players: game.players
     };
     io.volatile.emit('control', data);
   }, 1000 / 5);

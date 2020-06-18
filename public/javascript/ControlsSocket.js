@@ -23,14 +23,18 @@ class ControlsSocket {
   ChangePseudo(pseudo) {
     this.socket.emit('pseudo', pseudo);
   }
+
   barexp(data) {
-    data.players.forEach(player => {
+    var exist = false;
+    Object.values(data.players).forEach(player => {
       if (this.socket.id == player.socketId) {
         document.querySelector('#expValue').style.width = player.level.xp + "%";
         document.querySelector('#lifeValue').style.width = (player.health / 3) * 100 + "%";
         document.querySelector('#score').innerHTML = player.score;
+        exist = true;
       }
-
     });
+    if(exist == false)
+      window.location.reload();
   }
 }
