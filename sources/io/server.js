@@ -34,6 +34,7 @@ function io(server) {
   });
 
   setInterval(() =>{
+    console.log(players);
     const data = {
       message: 'display',
       players: Object.values(game.players)
