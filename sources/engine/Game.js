@@ -39,6 +39,12 @@ class Game {
     this.players[id].shoot(direction);
   }
 
+  testPlayer(){
+    Object.values(this.players).forEach(player => {
+      console.log(player);
+    });
+  }
+
   changePseudo(id, pseudo) {
     this.players[id].changePseudo(pseudo);
     console.log("argh")
