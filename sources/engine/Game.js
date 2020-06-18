@@ -6,7 +6,8 @@
 
 const Tank = require('./Tank');
 const Factory = require('./Factory');
-const Bonus = require('./Bonus.js');
+const Bonus = require('./Bonus');
+const Leaderboard = require('./Leaderboard');
 
 /**
 * Game class.
@@ -19,6 +20,7 @@ class Game {
     this.players = {};
     this.factory = new Factory(800);
     this.bonus = new Bonus(800);
+    this.leaderboard = new Leaderboard();
   }
 
   register(id, socket) {
@@ -63,6 +65,7 @@ class Game {
   }
 
   refresh() {
+    this.leaderboard.refresh(this.players);
     this.factory.addEntity();
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {
