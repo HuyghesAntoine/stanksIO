@@ -56,6 +56,7 @@ class ControlsEvents {
             this.idMove = 0;
         else
             this.idMove = 1;
+        console.log(window.innerHeight);
         var centerX = (window.innerWidth * 0.1 + this.controlCanvas.clientWidth / 2);
         var centerY = (window.innerHeight * 0.6 + this.controlCanvas.clientHeight / 2);
         var angle = Math.atan2(centerY - event.touches[this.idMove].pageY, centerX - event.touches[this.idMove].pageX);
