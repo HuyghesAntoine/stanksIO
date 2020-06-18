@@ -26,7 +26,7 @@ class ControlsSocket {
 
   barexp(data) {
     var exist = false;
-    Object.values(data.players).forEach(player => {
+    data.players.forEach(player => {
       if (this.socket.id == player.socketId) {
         document.querySelector('#expValue').style.width = player.level.xp + "%";
         document.querySelector('#lifeValue').style.width = (player.health / 3) * 100 + "%";
