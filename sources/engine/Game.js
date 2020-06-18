@@ -40,7 +40,7 @@ class Game {
 
   shoot(id, direction) {
     if (typeof (this.players[id]) != 'undefined')
-      this.players[id].shoot(direction);
+      this.players[id].look = direction;
   }
 
   classement(){
@@ -75,6 +75,7 @@ class Game {
       if (player.isMoving == true) {
         player.move();
       }
+      player.shoot();
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
       //console.log(player);
