@@ -115,12 +115,17 @@ body {
 }
 
 #upgrades{
-    width: 100px;
-	height: 100px;	
-	position: absolute;
-	top:0;
-	bottom: 0;
+    width: 50%;
+    position: absolute;
+    display: none;
+	top: 30vh;
 	left: 0;
 	right: 0;	
 	margin: auto;
+}
+
+.btn-outline-dark{
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
 }
