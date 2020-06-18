@@ -29,11 +29,12 @@ function io(server) {
 
     socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 
-    socket.on('disconnect', () => game.delist(id));
+    socket.on('disconnect', () => game.delist(id, socket.id));
 
   });
 
   setInterval(() =>{
+    game.testPlayer();
     const data = {
       message: 'display',
       players: Object.values(game.players)

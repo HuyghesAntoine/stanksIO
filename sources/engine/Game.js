@@ -39,14 +39,22 @@ class Game {
     this.players[id].shoot(direction);
   }
 
+  testPlayer(){
+    Object.values(this.players).forEach(player => {
+      console.log(player);
+    });
+  }
+
   changePseudo(id, pseudo) {
     this.players[id].changePseudo(pseudo);
     console.log("argh")
   }
 
-  delist(id) {
-    delete this.players[id];
-    console.log("delist");
+  delist(id, socket) {
+    if (typeof (this.players[id]) != 'undefined') {
+      if (this.players[id].socketId == socket)
+        delete this.players[id];
+    }
   }
 
   refresh() {
@@ -59,12 +67,14 @@ class Game {
       this.bonus.touchAll(player);
       //console.log(player);
       player.gun.moveAll();
-      if (player.Alive() == false)
-        this.delist(player.id);
+
       Object.values(this.players).forEach(tank => {
         if (tank != player)
           player.gun.touchAll(tank);
       });
+
+      if (player.Alive() == false)
+        this.delist(player.id, player.socketId);
     });
   }
 }
