@@ -10,15 +10,10 @@ class ControlsEvents {
             else {
                 this.onTouch(joyMove.GetX(),joyMove.GetY());
             }
-            if (joyShoot.GetDir() == "C"){
-                this.onTouchEndShoot();
-            }
-            else {
+            if (!joyShoot.GetDir() == "C"){
                 this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY());
             }
           },1000/60);
-
-        document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
     }
    
     onSubPseudo(event, pseudo) {
