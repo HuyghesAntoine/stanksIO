@@ -44,15 +44,9 @@ class Game {
       this.players[id].look = direction;
   }
 
-  classement(){
-    Object.values(this.players).forEach(player1 => {
-      Object.values(this.players).forEach(player => {
-        if(player1.score==player.score){
-          var trans = player.classement;
-          player.classement = player1.classement;
-          player1.classement = trans;
-        }
-      });
+  testPlayer(){
+    Object.values(this.players).forEach(player => {
+      //console.log(player);
     });
   }
 

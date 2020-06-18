@@ -23,7 +23,6 @@ class Tank extends Entity {
         this.score = 0;
         this.chrono = new Chrono();
         this.isMoving = false;
-        this.classement = 1;
     }
 
     isOut(x, y) {
