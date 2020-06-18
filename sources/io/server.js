@@ -51,7 +51,7 @@ function io(server) {
       bonus: Object.values(game.bonus)
     };
     io.volatile.emit('update', data);
-  }, 1000 / 25);
+  }, 1000 / 60);
 }
 
 module.exports = io;
