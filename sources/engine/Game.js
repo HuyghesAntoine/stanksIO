@@ -27,16 +27,20 @@ class Game {
   }
 
   move(id, direction) {
-    this.players[id].direction = direction;
-    this.players[id].isMoving = true;
+    if (typeof (this.players[id]) != 'undefined') {
+      this.players[id].direction = direction;
+      this.players[id].isMoving = true;
+    }
   }
 
   stopMove(id) {
-    this.players[id].isMoving = false;
+    if (typeof (this.players[id]) != 'undefined')
+      this.players[id].isMoving = false;
   }
 
   shoot(id, direction) {
-    this.players[id].shoot(direction);
+    if (typeof (this.players[id]) != 'undefined')
+      this.players[id].shoot(direction);
   }
 
   testPlayer(){
