@@ -24,17 +24,16 @@ class Factory {
                 tank.level.addXp(this.xp);
                 tank.score += this.score;
                 this.remove(i);
+                break;
             }
-            else{
-                for (let j = 0; j < tank.gun.ammos.length; j++) {
-                    if (this.entities[i].touch(tank.gun.ammos[j])) {
-                        tank.level.addXp(this.xp);
-                        tank.score += this.score;
-                        this.remove(i);
-                    }
+            for (let j = 0; j < tank.gun.ammos.length; j++) {
+                if (this.entities[i].touch(tank.gun.ammos[j])) {
+                    tank.level.addXp(this.xp);
+                    tank.score += this.score;
+                    this.remove(i);
+                    break;
                 }
             }
-            
         }
     }
 
