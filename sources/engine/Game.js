@@ -6,7 +6,8 @@
 
 const Tank = require('./Tank');
 const Factory = require('./Factory');
-const Bonus = require('./Bonus.js');
+const Bonus = require('./Bonus');
+const Leaderboard = require('./Leaderboard');
 
 /**
 * Game class.
@@ -19,6 +20,7 @@ class Game {
     this.players = {};
     this.factory = new Factory(800);
     this.bonus = new Bonus(800);
+    this.leaderboard = new Leaderboard();
   }
 
   register(id, socket) {
@@ -27,16 +29,28 @@ class Game {
   }
 
   move(id, direction) {
-    this.players[id].direction = direction;
-    this.players[id].isMoving = true;
+    if (typeof (this.players[id]) != 'undefined') {
+      this.players[id].direction = direction;
+      this.players[id].isMoving = true;
+    }
   }
 
   stopMove(id) {
-    this.players[id].isMoving = false;
+    if (typeof (this.players[id]) != 'undefined')
+      this.players[id].isMoving = false;
   }
 
   shoot(id, direction) {
-    this.players[id].shoot(direction);
+    if (typeof (this.players[id]) != 'undefined')
+      this.players[id].look = direction;
+  }
+
+  classement(){
+    Object.values(this.players).forEach(player1 => {
+      Object.values(this.players).forEach(player => {
+        if(player1.score){}
+      });
+    });
   }
 
   testPlayer(){
@@ -58,11 +72,13 @@ class Game {
   }
 
   refresh() {
+    this.leaderboard.refresh(this.players);
     this.factory.addEntity();
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {
         player.move();
       }
+      player.shoot();
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
       //console.log(player);

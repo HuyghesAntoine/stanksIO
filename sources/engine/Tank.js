@@ -8,12 +8,14 @@ const Chrono = require('./Chrono');
 class Tank extends Entity {
     constructor(id, socketid) {
         super(20, 800 / 2, 800 / 2, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+        this.x = getRandom(0+this.size , this.mapSize-this.size);
+        this.y = getRandom(0+this.size , this.mapSize-this.size);
         this.id = id;
         this.socketId = socketid;
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
-        this.look = 0;
+        this.look = getRandom(0,2*Math.PI);
         this.speed = 5;
         this.attack = 1;
         this.attackSpeed = 1000;
@@ -36,8 +38,7 @@ class Tank extends Entity {
         }
     }
 
-    shoot(direction) {
-        this.look = direction;
+    shoot() {
         if (this.chrono.isOver(this.attackSpeed)) {
             this.gun.shoot(new Bullet(this));
             this.chrono.reset();
@@ -61,6 +62,10 @@ class Tank extends Entity {
         else
             return true;
     }
+}
+
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
 module.exports = Tank;
