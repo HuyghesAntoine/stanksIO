@@ -36,7 +36,9 @@ background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 
 #game-canvas, #controlCanvas{
     background-color: #ffffff;
 }
-
+#lead-canvas{
+    background-color: #ffffff;
+}
 #formControl{
     position: absolute;
 }
