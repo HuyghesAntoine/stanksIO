@@ -3,9 +3,20 @@ body {
     background-color: #C1C0AC;
 }
 
-#lifeBar, #expBar{
-    width: 30%;   
-    margin-top: 15px;
+#lifeBar{
+    margin-top:7%;
+    width: 55%;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+}
+#expBar{
+    width: 55%;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 5%;
+    
 }
 
 
@@ -22,35 +33,40 @@ body {
     width: 100vw;
 }
 
-#controlCanvas{
-    background: rgb(231,235,236);
-    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    width: 25%;
-    height: 30%;
-    float: right;
-    margin-top: 70vh;
-    margin-right: 10vw;
-    border-radius: 50%;
-}
-
-#controlCanvas2{
-    background: rgb(231,235,236);
-    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%); 
-    width: 25%;
-    height: 30%;
-    float: left;
-    margin-top: 70vh;
-    margin-left: 10vw;
-    border-radius: 50%;
-}
-
 #upgrades{
     width: 100px;
 	height: 100px;	
-	position: absolute;
+    position: absolute;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;	
 	margin: auto;
+}
+
+.btnUpgr{
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+#joyMove{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    bottom:0; 
+    left: 0;
+    margin-left: 10%;
+    margin-bottom: 15%;
+}
+
+#joyShoot{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10%;
+    margin-bottom: 15%;
 }

@@ -15,7 +15,7 @@ class ControlsEvents {
             }
           },1000/60);
     }
-   
+
     onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
     }
