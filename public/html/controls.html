@@ -18,15 +18,8 @@
 
 <body id="controlPage">
 
-  <div id="joyDiv" style="width:200px;height:200px;margin-bottom:20px;margin:50px"><canvas id="joystick" width="200" height="200"></canvas></div>
-
-
-  <div id="can1">
-      <canvas id="controlCanvas"></canvas>
-      <canvas id="controlCanvas2"></canvas>
-  </div>
--->
-<div id="joyDiv">  </div>
+  <div id="joyMove" style="width:200px;height:200px;margin-bottom:20px;margin:50px"><canvas id="joystick" width="200" height="200"></canvas></div>
+  <div id="joyShoot" style="width:200px;height:200px;margin-bottom:10px;margin:250px"><canvas id="joystick" width="200" height="200"></canvas></div>
 
   <div class="row">
   <div class="progress" id="lifeBar">
@@ -85,7 +78,8 @@
   <script src="../javascript/ControlsSocket.js"></script>
   <script src="../javascript/ControlsEvents.js"></script>
   <script>
-    var joy = new JoyStick('joyDiv');
+    var joyMove = new JoyStick('joyMove');
+    var joyShoot = new JoyStick('joyShoot');
     const socket = new ControlsSocket();
     const events = new ControlsEvents(socket);
 
@@ -94,7 +88,7 @@
       events.onSubPseudo(event, x);
     }
 
-    const joyDiv= new JoyStick('joyDiv');
+    
 
   </script>
 
