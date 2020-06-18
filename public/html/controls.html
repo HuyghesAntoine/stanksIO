@@ -18,27 +18,26 @@
 
 <body id="controlPage">
 
-  <div id="joyMove" style="width:200px;height:200px;margin-bottom:20px;margin:50px"><canvas id="joystick" width="200" height="200"></canvas></div>
-  <div id="joyShoot" style="width:200px;height:200px;margin-bottom:10px;margin:250px"><canvas id="joystick" width="200" height="200"></canvas></div>
-
   <div class="row">
   <div class="progress" id="lifeBar">
     <div id="lifeValue" class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100"
       aria-valuemin="0" aria-valuemax="100"></div>
   </div>
 </div>
+
 <div class="row">
   <div class="progress" id="expBar">
     <div id="expValue" class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100"
       aria-valuemin="0" aria-valuemax="100"></div>
   </div>
 </div>
-  <p class="text-center" id="level">Level: 1</p>
-    <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Change name </button>
-  <div id="scoreDiv" class="row justify-content-center">
-    <span id="score"> 0 </span>
-  </div>
 
+  <p class="text-center" id="level">Level: 1</p>
+    <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Name </button>
+  <div id="scoreDiv" class="row justify-content-center">
+    Score : &nbsp <span id="score"> 0 </span>
+  </div>
+ 
   <div id="upgrades" class="row">
     <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr"> ATTACK UP </button>
@@ -53,6 +52,9 @@
         <button class="btn btn-outline-dark btnUpgr"> ATTACK SPEED UP </button>
     </div>
   </div>
+
+  <div id="joyMove" >  </div>
+  <div id="joyShoot">  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="pseudoModal" tabindex="-1" role="dialog" aria-labelledby="pseudoModalLabel"
@@ -70,16 +72,29 @@
   </div>
 
   <!-- JavaScripts -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../javascript/joy.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="../javascript/ControlsSocket.js"></script>
   <script src="../javascript/ControlsEvents.js"></script>
   <script>
-    var joyMove = new JoyStick('joyMove');
-    var joyShoot = new JoyStick('joyShoot');
+    var joyMove = new JoyStick('joyMove',  {
+      internalFillColor: '#4D221E',
+      internalLineWidth: 1,
+      internalStrokeColor: '#4D221E',
+      externalLineWidth: 1,
+      externalStrokeColor: '#000000',
+      autoReturnToCenter: true
+    });
+    
+    var joyShoot = new JoyStick('joyShoot', {
+      internalFillColor: '#4D221E',
+      internalLineWidth: 1,
+      internalStrokeColor: '#4D221E',
+      externalLineWidth: 1,
+      externalStrokeColor: '#000000',
+      autoReturnToCenter: true
+    });
     const socket = new ControlsSocket();
     const events = new ControlsEvents(socket);
 
@@ -87,9 +102,6 @@
       var x = document.getElementById("Pseudo").value;
       events.onSubPseudo(event, x);
     }
-
-    
-
   </script>
 
 

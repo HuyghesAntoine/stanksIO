@@ -11,16 +11,14 @@ class ControlsEvents {
                 this.onTouch(joyMove.GetX(),joyMove.GetY());
             }
             if (joyShoot.GetDir() == "C"){
-                this.onTouchEndShoot();
+                
             }
             else {
                 this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY());
             }
-          },1000/60);
-
-        document.getElementById('controlPage').addEventListener('keydown', (event) => this.onKeyDown(event), false);
+        },1000/60);
     }
-   
+
     onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
     }
