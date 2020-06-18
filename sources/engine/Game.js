@@ -78,7 +78,7 @@ class Game {
 
       Object.values(this.players).forEach(tank => {
         if (tank != player)
-          player.gun.touchAll(tank);
+          player.touchAll(tank);
       });
 
       if (player.Alive() == false)
