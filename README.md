@@ -3,22 +3,29 @@
 
 ## Description 
 
-Ce jeu est le projet de fin d'année de L3 Info à l'ULCO Calais.
+This is the final project of our last year in Bachelor Degree in ULCO Calais.
 
-## Développeurs 
+## How to play 
 
-* **Skibinski Pierre** : Chef de projet et responsable du moteur du jeu.
-* **Pecqueux Théo** :  Responsable des contrôles du jeu.
-* **Villette Vincent** : Responsable de la partie réseaux du jeu.
-* **Huyghes Antoine** : Git master et responsable de la partie graphique du jeu.
+Launch [this link(empty)][] to access the home page of the game.
+Click on [the play button(empty)][] to access the game page, and click on [the controler(empty)][] to access the control page.
+You have to use the control page on your mobile phone.
+Use the joysticks to move and shoot towards a specific direction.
+Take care of your life bar and try to kill ennemies to get experience and increase your abilitys. 
+Try to be the best players of the server and be known for everywhere, thanks to the leaderboard.
 
-## Développement 
+## Development team  
 
-Chaque développeur possède **une branche** nominative, qui lui permet de faire les modifications qu'il souhaite sur sa propre partie.
-Lorsqu'un développeur pense avoir codé quelque chose d'utile pour les autres membres de l'équipe, alors il procède à une **merge request**, 
-qui est étudié par le **Git master** et qui la valide, ou non. 
+* **Skibinski Pierre** :Project manager and in charge of the game engine.
+* **Pecqueux Théo** :  In charge of the game controls.
+* **Villette Vincent** : In charge of the networking process.
+* **Huyghes Antoine** : Git master and in charge of the graphic part of the game.
 
-## Installer le jeu sur un réseau local
+## Development   
+
+Each developer has a branch with their name. They can add their own modifications to this branch. When a developer want to put his code on the master branch and give it to everyone, he just have to create a **merge request** on the git respository. The git master just have to take a look on this request and validate it, or not.
+
+## Install the game on local network 
 
 ```sh
 # fork and clone project
@@ -31,7 +38,7 @@ npm install
 npm run devstart
 ```
 
-## Lancer les tests unitaires
+## Run the tests
 
 ```sh
 # install
@@ -42,7 +49,7 @@ npm install
 npm run test
 ```
 
-## Diagrammes de classe 
+## Class diagram  
 
 ![](img/diag.png)
 
