@@ -44,7 +44,7 @@ npm run test
 
 ## Diagrammes de classe 
 
-! [Diagramme de classe](img/diag.png)
+! [][img/diag.png]
 
 ## Conclusion 
 
