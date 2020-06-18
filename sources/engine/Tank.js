@@ -62,6 +62,20 @@ class Tank extends Entity {
         else
             return true;
     }
+
+    touchAll(entity) {
+        if (this.gun.ammos.length > 0) {
+            for (let i = 0; i < this.gun.ammos.length; i++) {
+                if (this.gun.ammos[i].touch(entity)) {
+                    entity.health -= this.gun.ammos[i].damage;
+                    if (entity.isDead()){
+                        this.score += 500;
+                    }
+                    this.gun.remove(i);
+                }
+            }
+        }
+    }
 }
 
 function getRandom(min, max) {
