@@ -34,7 +34,7 @@ function io(server) {
   });
 
   setInterval(() =>{
-    game.testPlayer();
+    //game.testPlayer();
     const data = {
       message: 'display',
       players: Object.values(game.players)
@@ -53,6 +53,10 @@ function io(server) {
     };
     io.volatile.emit('update', data);
   }, 1000 / 60);
+
+  setInterval( ()=> {
+    io.volatile.emit('leaderboard', game.leaderboard);
+  },1000);
 }
 
 module.exports = io;
