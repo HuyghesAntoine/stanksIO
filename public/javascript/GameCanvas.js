@@ -2,7 +2,10 @@ class GameCanvas {
     constructor() {
         this.canvas = document.querySelector('#game-canvas');
         this.context = this.canvas.getContext('2d');
+        this.lead = document.querySelector('#lead-canvas');
+        this.cxt = this.lead.getContext('2d');
     }
+
 
     drawCannon(tank) {
         const { x, y, size, look } = tank;
@@ -22,7 +25,7 @@ class GameCanvas {
         this.context.textAlign = "center";
         this.context.fillText(tank.pseudo, x, y + (2 * size));
     }
-
+ 
     drawBullet(bullet) {
         const { x, y, size, color } = bullet;
         this.context.beginPath();
@@ -33,6 +36,7 @@ class GameCanvas {
 
     redraw(data) {
         this.context.clearRect(0, 0, 800, 800);
+        this.cxt.clearRect(0, 0, 100, 100);
         const { players, factory, bonus } = data;
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
@@ -48,7 +52,6 @@ class GameCanvas {
             this.drawCannon(tank);
             this.drawTank(tank);
         });
-
         /*const {bullets} = data;
         bullets.forEach((bullet)=> this.drawBullet(bullet));*/
     }

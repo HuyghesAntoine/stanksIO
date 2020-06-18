@@ -56,11 +56,15 @@ class ControlsEvents {
             this.idMove = 0;
         else
             this.idMove = 1;
-        var angle = Math.atan2(this.controlCanvas.clientHeight / 2 - event.touches[this.idMove].pageY, this.controlCanvas.clientWidth / 2 - event.touches[this.idMove].pageX);
+        var centerX = (window.innerWidth * 0.1 + this.controlCanvas.clientWidth / 2);
+        var centerY = (window.innerHeight * 0.6 + this.controlCanvas.clientHeight / 2);
+        var angle = Math.atan2(centerY - event.touches[this.idMove].pageY, centerX - event.touches[this.idMove].pageX);
         this.socket.move(angle + Math.PI);
     }
     onTouchMove(event) {
-        var angle = Math.atan2(this.controlCanvas.clientHeight / 2 - event.touches[this.idMove].pageY, this.controlCanvas.clientWidth / 2 - event.touches[this.idMove].pageX);
+        var centerX = (window.innerWidth * 0.1 + this.controlCanvas.clientWidth / 2);
+        var centerY = (window.innerHeight * 0.6 + this.controlCanvas.clientHeight / 2);
+        var angle = Math.atan2(centerY - event.touches[this.idMove].pageY, centerX - event.touches[this.idMove].pageX);
         this.socket.move(angle + Math.PI);
     }
     onTouchEnd(event) {
@@ -73,12 +77,15 @@ class ControlsEvents {
             this.idShoot = 0;
         else
             this.idShoot = 1;
-        console.log(event.touches);
-        var angle = Math.atan2(this.controlCanvas.clientHeight / 2 - event.touches[this.idShoot].pageY, this.controlCanvas.clientWidth + this.controlCanvas.clientWidth / 2 - event.touches[this.idShoot].pageX);
+        var centerX = (window.innerWidth - window.innerWidth * 0.1 - this.controlCanvas.clientWidth / 2);
+        var centerY = (window.innerHeight * 0.6 + this.controlCanvas.clientHeight / 2);
+        var angle = Math.atan2(centerY - event.touches[this.idShoot].pageY, centerX - event.touches[this.idShoot].pageX);
         this.socket.shoot(angle + Math.PI);
     }
     onTouchMoveShoot(event) {
-        var angle = Math.atan2(this.controlCanvas.clientHeight / 2 - event.touches[this.idShoot].pageY, this.controlCanvas.clientWidth + this.controlCanvas.clientWidth / 2 - event.touches[this.idShoot].pageX);
+        var centerX = (window.innerWidth - window.innerWidth * 0.1 - this.controlCanvas.clientWidth / 2);
+        var centerY = (window.innerHeight * 0.6 + this.controlCanvas.clientHeight / 2);
+        var angle = Math.atan2(centerY - event.touches[this.idShoot].pageY, centerX - event.touches[this.idShoot].pageX);
         this.socket.shoot(angle + Math.PI);
     }
     onTouchEndShoot(event) {
