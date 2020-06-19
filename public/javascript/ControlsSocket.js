@@ -30,8 +30,10 @@ class ControlsSocket {
 
   barexp(data) {
     var exist = false;
+    this.me;
     data.players.forEach(player => {
       if (this.socket.id == player.socketId) {
+        this.me = player;
         document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
         document.querySelector('#lifeValue').style.width = (player.health / player.healthMax) * 100 + "%";
         document.querySelector('#score').innerHTML = player.score;
@@ -40,8 +42,10 @@ class ControlsSocket {
         this.leveling(player);
       }
     });
-    if (exist == false)
-      window.location.reload();
+    if (exist == false){
+      var url = location.protocol+ '//' + location.host + location.pathname + '?pseudo=' + this.me.pseudo;
+      window.location.href = url;
+    }
   }
 
   leveling(player) {
