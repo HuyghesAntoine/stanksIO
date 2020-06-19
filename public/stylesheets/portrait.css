@@ -94,3 +94,11 @@ body {
     margin-right: 10%;
     margin-bottom: 15%;
 }
+
+#control_pading {
+    display : none;
+}
+
+#hide_joy{
+    visibility : hidden;
+}
