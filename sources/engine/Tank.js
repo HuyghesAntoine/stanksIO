@@ -56,12 +56,14 @@ class Tank extends Entity {
             this.attackSpeed = 250;
             this.color = "#ffd700";
         }
-        if (val == "noob") {
-            this.attack = 0;
+        if(val == "grimtous"){
+            this.health = 6;
+            this.healthMax = 6;
+            this.attack = 3;
             this.speed = 2;
-            this.bulletSize = 7;
-            this.size = 50;
-            this.attackSpeed = 5000;
+            this.bulletSize = 15;
+            this.size = 40;
+            this.attackSpeed = 3000;
             this.color = "#ff1493";
         }
         this.pseudo = val;
