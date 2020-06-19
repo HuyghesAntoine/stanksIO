@@ -52,8 +52,8 @@ class Game {
   }
 
   changePseudo(id, pseudo) {
-    this.players[id].changePseudo(pseudo);
-    console.log("argh")
+    if (typeof (this.players[id]) != 'undefined')
+      this.players[id].changePseudo(pseudo);
   }
 
   delist(id, socket) {
@@ -65,16 +65,16 @@ class Game {
 
   upgrade(id, value) {
     if (typeof (this.players[id]) != 'undefined') {
-      if (value == 0){
+      if (value == 0) {
         this.players[id].attack = 2;
         this.players[id].level.xpPoint--;
-      }else if (value == 1){
+      } else if (value == 1) {
         this.players[id].speed = 10;
         this.players[id].level.xpPoint--;
-      }else if (value == 2){
+      } else if (value == 2) {
         this.players[id].size = 30;
         this.players[id].level.xpPoint--;
-      }else if (value == 3){
+      } else if (value == 3) {
         this.players[id].attackSpeed = 500;
         this.players[id].level.xpPoint--;
       }
