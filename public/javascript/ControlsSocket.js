@@ -42,10 +42,10 @@ class ControlsSocket {
 
   leveling(player){
     if(player.level.levelNumber == 1){
-      /*document.getElementById("attackUpgrade").style.display = "none";
+      document.getElementById("attackUpgrade").style.display = "none";
       document.getElementById("speedUpgrade").style.display = "none";
       document.getElementById("sizeUpgrade").style.display = "none";
-      document.getElementById("attackSpeedUpgrade").style.display = "none";*/
+      document.getElementById("attackSpeedUpgrade").style.display = "none";
     }else{
       document.getElementById("attackUpgrade").style.display = "block";
       document.getElementById("speedUpgrade").style.display = "block";
