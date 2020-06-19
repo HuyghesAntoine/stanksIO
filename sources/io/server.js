@@ -27,7 +27,7 @@ function io(server) {
 
     socket.on('shoot', (direction) => game.shoot(id, direction));
 
-    socket.on('lvlUp', (value) => game.lvlUp(id, value));
+    socket.on('upgrade', (value) => game.upgrade(id, value));
 
     socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 

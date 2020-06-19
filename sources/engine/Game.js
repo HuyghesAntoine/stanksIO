@@ -45,7 +45,7 @@ class Game {
       this.players[id].look = direction;
   }
 
-  testPlayer(){
+  testPlayer() {
     Object.values(this.players).forEach(player => {
       //console.log(player);
     });
@@ -63,8 +63,22 @@ class Game {
     }
   }
 
-  lvlUp(){
-    console.log("lvlup");
+  upgrade(id, value) {
+    if (typeof (this.players[id]) != 'undefined') {
+      if (value == 0){
+        this.players[id].attack = 2;
+        this.players[id].level.xpPoint--;
+      }else if (value == 1){
+        this.players[id].speed = 10;
+        this.players[id].level.xpPoint--;
+      }else if (value == 2){
+        this.players[id].size = 30;
+        this.players[id].level.xpPoint--;
+      }else if (value == 3){
+        this.players[id].attackSpeed = 500;
+        this.players[id].level.xpPoint--;
+      }
+    }
   }
 
   refresh() {
