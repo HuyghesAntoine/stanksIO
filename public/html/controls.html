@@ -17,7 +17,14 @@
 </head>
 
 <body id="controlPage">
+<div id="pseudal_page">
+  <label for="name">Pseudo</label>
+  <input  type="text" id="Pseudal">
+  <button id="btnPseudo" onclick="displayte()">Valider</button>
+</div>
 
+
+<div id="control_pading">
   <div class="row">
   <div class="progress" id="lifeBar">
     <div id="lifeValue" class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100"
@@ -95,16 +102,18 @@
       externalStrokeColor: '#000000',
       autoReturnToCenter: true
     });
-    const socket = new ControlsSocket();
-    const events = new ControlsEvents(socket);
 
-    function changerP() {
-      var x = document.getElementById("Pseudo").value;
-      events.onSubPseudo(event, x);
+    function displayte(){
+      var x = document.getElementById("Pseudal").value;
+      document.getElementById("pseudal_page").style.display = "none";
+      document.getElementById("control_pading").style.display = "block";
+      const socket = new ControlsSocket();
+    const events = new ControlsEvents(socket);
+    events.onSubPseudo(event, x);
     }
   </script>
 
-
+</div>
 </body>
 
 </html>
