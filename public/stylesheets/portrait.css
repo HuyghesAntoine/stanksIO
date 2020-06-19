@@ -98,3 +98,7 @@ body {
 #control_pading {
     display : none;
 }
+
+#hide_joy{
+    visibility : hidden;
+}
