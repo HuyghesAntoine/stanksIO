@@ -19,12 +19,6 @@ body {
     margin-top: 10px;
 }
 
-#changeP{
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 #controlPage{
     overflow: hidden;
 }
@@ -79,4 +73,17 @@ body {
 
 #hide_joy{
     visibility : hidden;
+}
+
+#pseudal_page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}   
+
+#Pseudal{
+    width: 250px;
 }

@@ -17,10 +17,11 @@
 </head>
 
 <body id="controlPage">
-<div id="pseudal_page">
-  <label for="name">Pseudo</label>
-  <input  type="text" id="Pseudal" >
-  <button id="btnPseudo" onclick="displayte()">Valider</button>
+<div id="pseudal_page" class="row">
+
+  <input class="form-control" type="text" id="Pseudal" >
+  <button class="btn btn-dark" id="btnPseudo" onclick="displayte()">Validate</button>
+
 </div>
 
 
@@ -40,7 +41,6 @@
 </div>
 
   <p class="text-center" id="level">Level: 1</p>
-    <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Name </button>
   <div id="scoreDiv" class="row justify-content-center">
     Score : &nbsp <span id="score"> 0 </span>
   </div>
@@ -59,11 +59,11 @@
         <button class="btn btn-outline-dark btnUpgr" id="attackSpeedUpgrade"> ATTACK SPEED UP </button>
     </div>
   </div>
- </div>
- <div id="hide_joy">
+</div>
+<div id="hide_joy">
   <div id="joyMove" >  </div>
   <div id="joyShoot">  </div>
- </div>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="pseudoModal" tabindex="-1" role="dialog" aria-labelledby="pseudoModalLabel"
     aria-hidden="true">
