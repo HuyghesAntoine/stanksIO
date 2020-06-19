@@ -21,10 +21,11 @@ class Game {
     this.factory = new Factory(800);
     this.bonus = new Bonus(800);
     this.leaderboard = new Leaderboard();
+    this.colors = ['#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
   }
 
   register(id, socket) {
-    this.players[id] = new Tank(id, socket);
+    this.players[id] = new Tank(id, socket, this.getRandomColor());
     this.nbJ += 1;
   }
 
@@ -92,6 +93,14 @@ class Game {
         this.delist(player.id, player.socketId);
     });
   }
+
+  getRandomColor() {
+    return this.colors[Math.floor(getRandom(0,this.colors.length-1))];
+  }
+}
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 module.exports = Game;
