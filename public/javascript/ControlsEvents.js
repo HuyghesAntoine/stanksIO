@@ -41,20 +41,15 @@ class ControlsEvents {
     }
 
     attackUp(){
-        console.log(this.socket);
         this.socket.upgrade(0);
-        document.getElementById("attackUpgrade").disabled = true;
     }
     speedUp(){
-        document.getElementById("speedUpgrade").disabled = true;
         this.socket.upgrade(1);
     }
     sizeUp(){
-        document.getElementById("sizeUpgrade").disabled = true;
         this.socket.upgrade(2);
     }
     attackSpeedUp(){
-        document.getElementById("attackSpeedUpgrade").disabled = true;
         this.socket.upgrade(3);
     }
 }    

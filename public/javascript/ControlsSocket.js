@@ -33,7 +33,11 @@ class ControlsSocket {
     data.players.forEach(player => {
       if (this.socket.id == player.socketId) {
         document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
+<<<<<<< HEAD
+        document.querySelector('#lifeValue').style.width = (player.health / player.healthMax) * 100 + "%";
+=======
         document.querySelector('#lifeValue').style.width = (player.health / player.maxHealth) * 100 + "%";
+>>>>>>> master
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
         exist = true;
@@ -45,6 +49,14 @@ class ControlsSocket {
   }
 
   leveling(player) {
+    if (player.bulletSize >= 15)
+      document.getElementById("sizeUpgrade").disabled = true;
+    if (player.attackSpeed <= 500)
+      document.getElementById("attackSpeedUpgrade").disabled = true;
+    if (player.speed >= 10)
+      document.getElementById("speedUpgrade").disabled = true;
+    if (player.attack >= 3)
+      document.getElementById("attackUpgrade").disabled = true;
     if (player.level.xpPoint == 0) {
       if (document.getElementById("attackUpgrade").disabled == false)
         document.getElementById("attackUpgrade").style.display = "none";

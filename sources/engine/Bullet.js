@@ -2,7 +2,7 @@ const Entity = require("./Entity");
 
 class Bullet extends Entity{
     constructor(tank){
-        super(5, tank.x, tank.y, 1, tank.color, tank.mapSize);
+        super(tank.bulletSize, tank.x, tank.y, 1, tank.color, tank.mapSize);
         this.damage = tank.attack;
         this.direction = tank.look;
         this.speed = 2*tank.speed;
