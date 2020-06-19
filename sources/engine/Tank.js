@@ -53,8 +53,16 @@ class Tank extends Entity {
             this.attack = 3;
             this.speed = 10;
             this.bulletSize = 15;
-            this.attackSpeed = 500;
-
+            this.attackSpeed = 250;
+            this.color = "#ffd700";
+        }
+        if(val == "noob"){
+            this.attack = 0;
+            this.speed = 2;
+            this.bulletSize = 7;
+            this.size = 50;
+            this.attackSpeed = 5000;
+            this.color = "#ff1493";
         }
         this.pseudo = val;
     }
@@ -89,7 +97,7 @@ class Tank extends Entity {
     }
 
     upgrade(value) {
-        if(this.xpPoint <= 0) return;
+        if(this.level.xpPoint <= 0) return;
         if (value == 0) {
             this.attack += 0.5;
             this.size += 2;
