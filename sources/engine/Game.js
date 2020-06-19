@@ -84,6 +84,7 @@ class Game {
   refresh() {
     this.leaderboard.refresh(this.players);
     this.factory.addEntity();
+    this.bonus.addEntity();
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {
         player.move();

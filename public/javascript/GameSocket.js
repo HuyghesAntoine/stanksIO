@@ -10,7 +10,7 @@ class GameSocket {
         let list = document.getElementById('leaderboard');
         list.innerHTML='<ul>';
         leaderboard.board.forEach((player) => {
-            list.innerHTML += '<li>'+ player.pseudo + ' : ' + player.score + '</li>';
+            list.innerHTML += '<li>'+ player.pseudo + ' (level ' + player.level.levelNumber + ') : ' + player.score + '</li>';
         });
         list.innerHTML += '</ul>';
     }

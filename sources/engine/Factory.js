@@ -13,7 +13,7 @@ class Factory {
 
     addEntity() {
         if (this.chrono.isOver(this.delay) && this.entities.length <= 10) {
-            this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#FFFF00', this.mapSize));
+            this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#1FE400', this.mapSize));
             this.chrono.reset();
         }
     }
