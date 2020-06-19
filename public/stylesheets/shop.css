@@ -4,9 +4,26 @@ body{
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
 
-.card-group{
+.card-img-top{
+    width: 65%;
     margin: 0 auto;
-    margin-top: 25px;
+}
+#cardG1{
+    margin: auto auto;
     height: 150px;
+    text-align: center;
+    
+}
+
+#row1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container{
+    margin-top: 25vh;
+    transform: translateY(-50%); 
+}
+.modal-body{
     text-align: center;
 }
