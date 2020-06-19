@@ -6,8 +6,8 @@ const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
 class Tank extends Entity {
-    constructor(id, socketid) {
-        super(20, 800 / 2, 800 / 2, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
+    constructor(id, socketid, color) {
+        super(20, 800 / 2, 800 / 2, 3, color, 800);
         this.x = getRandom(0 + this.size, this.mapSize - this.size);
         this.y = getRandom(0 + this.size, this.mapSize - this.size);
         this.id = id;
@@ -100,21 +100,15 @@ class Tank extends Entity {
         if(this.level.xpPoint <= 0) return;
         if (value == 0) {
             this.attack += 0.5;
-            this.size += 2;
-            this.level.xpPoint--;
         } else if (value == 1) {
             this.speed += 1;
-            this.size += 2;
-            this.level.xpPoint--;
         } else if (value == 2) {
             this.bulletSize *= 1.5;
-            this.size += 2;
-            this.level.xpPoint--;
         } else if (value == 3) {
             this.attackSpeed *= 0.8;
-            this.size += 2;
-            this.level.xpPoint--;
         }
+        this.size += 2;
+        this.level.xpPoint--;
     }
     
     heal() {
