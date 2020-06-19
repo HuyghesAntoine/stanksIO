@@ -8,28 +8,6 @@ body {
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
 
-#controlCanvas{
-    background: rgb(231,235,236);
-    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    width: 20%;
-    height: 20%;
-    float: right;
-    margin-top: 60vh;
-    margin-right: 10vw;
-    border-radius: 50%;
-}
-
-#controlCanvas2{
-    background: rgb(231,235,236);
-    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
-    width: 20%;
-    height: 20%;
-    float: left;
-    margin-top: 60vh;
-    margin-left: 10vw;
-    border-radius: 50%;
-}
-
 #game-title{
     text-align: center;
 }
@@ -92,12 +70,20 @@ body {
     margin-top: 1%;
 }
 
-#lifeBar, #expBar{
+#lifeBar{
     width: 35%;
     text-align: center;
     margin-left: auto;
     margin-right:auto;
-    margin-top: 5px;
+    margin-top: 2%;
+}
+
+#expBar{
+    width: 35%;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10px;
 }
 
 #changeP{
@@ -106,21 +92,50 @@ body {
     right: 0;
 }
 
-#score{
-    position: absolute; 
-}
-
 #controlPage{
     overflow: hidden;
 }
 
+#scoreDiv{
+    position: absolute;
+    top:0;
+    left:0;
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
 #upgrades{
-    width: 100px;
-	height: 100px;	
-	position: absolute;
-	top:0;
-	bottom: 0;
+    width: 50%;
+    position: absolute;
+    
+	top: 30vh;
 	left: 0;
 	right: 0;	
 	margin: auto;
+}
+
+.btnUpgr{
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#joyMove{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    bottom:0; 
+    left: 0;
+    margin-left: 10%;
+    margin-bottom: 15%;
+}
+
+#joyShoot{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10%;
+    margin-bottom: 15%;
 }

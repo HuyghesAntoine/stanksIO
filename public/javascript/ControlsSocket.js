@@ -24,6 +24,10 @@ class ControlsSocket {
     this.socket.emit('pseudo', pseudo);
   }
 
+  upgrade(value){
+    this.socket.emit('upgrade', value);
+  }
+
   barexp(data) {
     var exist = false;
     data.players.forEach(player => {
@@ -33,9 +37,24 @@ class ControlsSocket {
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
         exist = true;
+        this.leveling(player);
       }
     });
     if(exist == false)
       window.location.reload();
+  }
+
+  leveling(player){
+    if(player.level.levelNumber == 1){
+      /*document.getElementById("attackUpgrade").style.display = "none";
+      document.getElementById("speedUpgrade").style.display = "none";
+      document.getElementById("sizeUpgrade").style.display = "none";
+      document.getElementById("attackSpeedUpgrade").style.display = "none";*/
+    }else{
+      document.getElementById("attackUpgrade").style.display = "block";
+      document.getElementById("speedUpgrade").style.display = "block";
+      document.getElementById("sizeUpgrade").style.display = "block";
+      document.getElementById("attackSpeedUpgrade").style.display = "block";
+    }
   }
 }

@@ -63,6 +63,10 @@ class Game {
     }
   }
 
+  lvlUp(){
+    console.log("lvlup");
+  }
+
   refresh() {
     this.leaderboard.refresh(this.players);
     this.factory.addEntity();
@@ -78,7 +82,7 @@ class Game {
 
       Object.values(this.players).forEach(tank => {
         if (tank != player)
-          player.gun.touchAll(tank);
+          player.touchAll(tank);
       });
 
       if (player.Alive() == false)
