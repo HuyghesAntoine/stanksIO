@@ -49,14 +49,14 @@ class Tank extends Entity {
     }
 
     changePseudo(val) {
-        if(val == "eagleFlo"){
+        if (val == "eagleFlo") {
             this.attack = 3;
             this.speed = 10;
             this.bulletSize = 15;
             this.attackSpeed = 250;
             this.color = "#ffd700";
         }
-        if(val == "noob"){
+        if (val == "noob") {
             this.attack = 0;
             this.speed = 2;
             this.bulletSize = 7;
@@ -82,22 +82,31 @@ class Tank extends Entity {
 
     touchAll(entity) {
         if (this.gun.ammos.length > 0) {
+            let rm = false;
             for (let i = 0; i < this.gun.ammos.length; i++) {
+                for (let j = 0; j < entity.gun.ammos.length; j++) {
+                    if (this.gun.ammos[i].touch(entity.gun.ammos[j])) {
+                        entity.gun.remove(j);
+                        rm = true;
+                        break;
+                    }
+                }
                 if (this.gun.ammos[i].touch(entity)) {
                     entity.health -= this.gun.ammos[i].damage;
                     if (entity.isDead()) {
-                        this.score += 500;
                         this.score += entity.getScore();
                         this.level.addXp(entity.getXp());
                     }
-                    this.gun.remove(i);
+                    rm = true;
                 }
+                if (rm)
+                    this.gun.remove(i);
             }
         }
     }
 
     upgrade(value) {
-        if(this.level.xpPoint <= 0) return;
+        if (this.level.xpPoint <= 0) return;
         if (value == 0) {
             this.attack += 0.5;
         } else if (value == 1) {
@@ -110,7 +119,7 @@ class Tank extends Entity {
         this.size += 2;
         this.level.xpPoint--;
     }
-    
+
     heal() {
         if (this.health == this.maxHealth) {
             this.maxHealth++;
@@ -118,8 +127,8 @@ class Tank extends Entity {
         this.health++;
     }
 
-    getScore(){
-        return (this.score/2) + 500;
+    getScore() {
+        return (this.score / 2) + 500;
     }
     getXp() {
         return this.level.levelNumber * 100;
