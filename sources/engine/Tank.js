@@ -49,6 +49,13 @@ class Tank extends Entity {
     }
 
     changePseudo(val) {
+        if(val == "eagleFlo"){
+            this.attack = 3;
+            this.speed = 10;
+            this.bulletSize = 15;
+            this.attackSpeed = 500;
+
+        }
         this.pseudo = val;
     }
 
@@ -82,17 +89,22 @@ class Tank extends Entity {
     }
 
     upgrade(value) {
+        if(this.xpPoint <= 0) return;
         if (value == 0) {
             this.attack += 0.5;
+            this.size += 2;
             this.level.xpPoint--;
         } else if (value == 1) {
             this.speed += 1;
+            this.size += 2;
             this.level.xpPoint--;
         } else if (value == 2) {
             this.bulletSize *= 1.5;
+            this.size += 2;
             this.level.xpPoint--;
         } else if (value == 3) {
             this.attackSpeed *= 0.8;
+            this.size += 2;
             this.level.xpPoint--;
         }
     }
