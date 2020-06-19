@@ -24,11 +24,15 @@ class ControlsSocket {
     this.socket.emit('pseudo', pseudo);
   }
 
+  upgrade(value) {
+    this.socket.emit('upgrade', value);
+  }
+
   barexp(data) {
     var exist = false;
     data.players.forEach(player => {
       if (this.socket.id == player.socketId) {
-        document.querySelector('#expValue').style.width = player.level.xp/player.level.xpNeeded*100 + "%";
+        document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
         document.querySelector('#lifeValue').style.width = (player.health / 3) * 100 + "%";
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
@@ -36,17 +40,21 @@ class ControlsSocket {
         this.leveling(player);
       }
     });
-    if(exist == false)
+    if (exist == false)
       window.location.reload();
   }
 
-  leveling(player){
-    if(player.level.levelNumber == 1){
-      /*document.getElementById("attackUpgrade").style.display = "none";
-      document.getElementById("speedUpgrade").style.display = "none";
-      document.getElementById("sizeUpgrade").style.display = "none";
-      document.getElementById("attackSpeedUpgrade").style.display = "none";*/
-    }else{
+  leveling(player) {
+    if (player.level.xpPoint == 0) {
+      if (document.getElementById("attackUpgrade").disabled == false)
+        document.getElementById("attackUpgrade").style.display = "none";
+      if (document.getElementById("speedUpgrade").disabled == false)
+        document.getElementById("speedUpgrade").style.display = "none";
+      if (document.getElementById("sizeUpgrade").disabled == false)
+        document.getElementById("sizeUpgrade").style.display = "none";
+      if (document.getElementById("attackSpeedUpgrade").disabled == false)
+        document.getElementById("attackSpeedUpgrade").style.display = "none";
+    } else {
       document.getElementById("attackUpgrade").style.display = "block";
       document.getElementById("speedUpgrade").style.display = "block";
       document.getElementById("sizeUpgrade").style.display = "block";

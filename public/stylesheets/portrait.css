@@ -28,9 +28,33 @@ body {
 }
 
 #controlPage{
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+}
+
+#controlCanvas{
+    background: rgb(231,235,236);
+    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
+    width: 25%;
+    height: 30%;
+    float: right;
+    margin-top: 60vh;
+    margin-right: 10vw;
+    border-radius: 50%;
+}
+
+#controlCanvas2{
+    background: rgb(231,235,236);
+    background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%); 
+    width: 25%;
+    height: 30%;
+    float: left;
+    margin-top: 60vh;
+    margin-left: 10vw;
+    border-radius: 50%;
 }
 
 #upgrades{
