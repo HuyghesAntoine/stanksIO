@@ -8,17 +8,18 @@ const Chrono = require('./Chrono');
 class Tank extends Entity {
     constructor(id, socketid) {
         super(20, 800 / 2, 800 / 2, 3, '#' + ((1 << 24) * Math.random() | 0).toString(16), 800);
-        this.x = getRandom(0+this.size , this.mapSize-this.size);
-        this.y = getRandom(0+this.size , this.mapSize-this.size);
+        this.x = getRandom(0 + this.size, this.mapSize - this.size);
+        this.y = getRandom(0 + this.size, this.mapSize - this.size);
         this.id = id;
         this.socketId = socketid;
         this.pseudo = "noname";
         this.gun = new Gun(this.mapSize);
         this.direction = 0;
-        this.look = getRandom(0,2*Math.PI);
+        this.look = getRandom(0, 2 * Math.PI);
         this.speed = 5;
         this.attack = 1;
         this.attackSpeed = 1000;
+        this.bulletSize = 5;
         this.level = new Level();
         this.score = 0;
         this.chrono = new Chrono();
@@ -68,12 +69,28 @@ class Tank extends Entity {
             for (let i = 0; i < this.gun.ammos.length; i++) {
                 if (this.gun.ammos[i].touch(entity)) {
                     entity.health -= this.gun.ammos[i].damage;
-                    if (entity.isDead()){
+                    if (entity.isDead()) {
                         this.score += 500;
                     }
                     this.gun.remove(i);
                 }
             }
+        }
+    }
+
+    upgrade(value) {
+        if (value == 0) {
+            this.attack += 0.5;
+            this.level.xpPoint--;
+        } else if (value == 1) {
+            this.speed += 1;
+            this.level.xpPoint--;
+        } else if (value == 2) {
+            this.bulletSize *= 1.5;
+            this.level.xpPoint--;
+        } else if (value == 3) {
+            this.attackSpeed *= 0.8;
+            this.level.xpPoint--;
         }
     }
 }

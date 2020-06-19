@@ -5,7 +5,7 @@ class Factory {
     constructor(mapSize) {
         this.entities = new Array();
         this.mapSize = mapSize;
-        this.delay = 5000;
+        this.delay = 2000;
         this.chrono = new Chrono();
         this.score = 100;
         this.xp = 10;

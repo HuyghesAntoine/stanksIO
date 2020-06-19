@@ -45,6 +45,14 @@ class ControlsSocket {
   }
 
   leveling(player) {
+    if (player.bulletSize >= 15)
+      document.getElementById("sizeUpgrade").disabled = true;
+    if (player.attackSpeed <= 500)
+      document.getElementById("attackSpeedUpgrade").disabled = true;
+    if (player.speed >= 10)
+      document.getElementById("speedUpgrade").disabled = true;
+    if (player.attack >= 3)
+      document.getElementById("attackUpgrade").disabled = true;
     if (player.level.xpPoint == 0) {
       if (document.getElementById("attackUpgrade").disabled == false)
         document.getElementById("attackUpgrade").style.display = "none";

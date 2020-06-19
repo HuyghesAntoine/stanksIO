@@ -14,8 +14,28 @@ describe('Tank test', () => {
     this.tank = new Tank(0, "socketid");
     this.x = this.tank.x;
     this.y = this.tank.y;
-    this.tank.move(Math.PI);//haut-gauche
-    console.log(this.tank.x + "  " +this.x);
+    this.tank.direction = 0;
+    this.tank.move();//droite
+    expect(this.x+5).toBe(this.tank.x);
+    expect(this.y).toBe(this.tank.y);
+    this.x = this.tank.x;
+    this.y = this.tank.y;
+    this.tank.direction = Math.PI/2;
+    this.tank.move();//haut
+    expect(this.y+5).toBe(this.tank.y);
+    expect(this.x).toBe(this.tank.x);
+    this.x = this.tank.x;
+    this.y = this.tank.y;
+    this.tank.direction = -Math.PI;
+    this.tank.move();//gauche
+    expect(this.x-5).toBe(this.tank.x);
+    expect(this.y).toBe(this.tank.y);
+    this.x = this.tank.x;
+    this.y = this.tank.y;
+    this.tank.direction = -Math.PI/2;
+    this.tank.move();//bas
+    expect(this.y-5).toBe(this.tank.y);
+    expect(this.x).toBe(this.tank.x);
   });
 
   test('tir', () => {
@@ -31,11 +51,23 @@ describe('Tank test', () => {
 
   test('upgrade', () =>{
     this.tank = new Tank(0, "socketid");
-    expect(this.tank.healthMax).toBe(3);
+    
     expect(this.tank.attack).toBe(1);
+    this.tank.upgrade(0);
+    expect(this.tank.attack).toBe(1+0.5);
+
     expect(this.tank.speed).toBe(5);
+    this.tank.upgrade(1);
+    expect(this.tank.speed).toBe(5+1);
+
+    expect(this.tank.bulletSize).toBe(5);
+    this.tank.upgrade(2);
+    expect(this.tank.bulletSize).toBe(5*1.5);    
+    
     expect(this.tank.attackSpeed).toBe(1000);
-    expect(this.tank.score).toBe(0);
+    this.tank.upgrade(3);
+    expect(this.tank.attackSpeed).toBe(1000*0.8);
+
   });
 
 });
