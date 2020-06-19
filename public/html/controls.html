@@ -19,7 +19,7 @@
 <body id="controlPage">
 <div id="pseudal_page">
   <label for="name">Pseudo</label>
-  <input  type="text" id="Pseudal">
+  <input  type="text" id="Pseudal" >
   <button id="btnPseudo" onclick="displayte()">Valider</button>
 </div>
 
@@ -86,6 +86,8 @@
   <script src="../javascript/ControlsSocket.js"></script>
   <script src="../javascript/ControlsEvents.js"></script>
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById("Pseudal").value = urlParams.get('pseudo');
     
     var joyMove = new JoyStick('joyMove',  {
       internalFillColor: '#4D221E',
