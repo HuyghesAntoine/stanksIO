@@ -33,7 +33,11 @@ class ControlsSocket {
     data.players.forEach(player => {
       if (this.socket.id == player.socketId) {
         document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
+<<<<<<< HEAD
         document.querySelector('#lifeValue').style.width = (player.health / player.healthMax) * 100 + "%";
+=======
+        document.querySelector('#lifeValue').style.width = (player.health / player.maxHealth) * 100 + "%";
+>>>>>>> master
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
         exist = true;

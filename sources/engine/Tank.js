@@ -24,6 +24,7 @@ class Tank extends Entity {
         this.score = 0;
         this.chrono = new Chrono();
         this.isMoving = false;
+        this.maxHealth = 3;
     }
 
     isOut(x, y) {
@@ -71,6 +72,8 @@ class Tank extends Entity {
                     entity.health -= this.gun.ammos[i].damage;
                     if (entity.isDead()) {
                         this.score += 500;
+                        this.score += entity.getScore();
+                        this.level.addXp(entity.getXp());
                     }
                     this.gun.remove(i);
                 }
@@ -92,6 +95,20 @@ class Tank extends Entity {
             this.attackSpeed *= 0.8;
             this.level.xpPoint--;
         }
+    }
+    
+    heal() {
+        if (this.health == this.maxHealth) {
+            this.maxHealth++;
+        }
+        this.health++;
+    }
+
+    getScore(){
+        return (this.score/2) + 500;
+    }
+    getXp() {
+        return this.level.levelNumber * 100;
     }
 }
 

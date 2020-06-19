@@ -5,31 +5,31 @@ class Bonus {
     constructor(mapSize) {
         this.entities = new Array();
         this.mapSize = mapSize;
-        this.delay = 200;
+        this.delay = 10000;
         this.chrono = new Chrono();
-        this.score = 500;
-        this.xp = 10;
     }
 
     addEntity() {
         if (this.chrono.isOver(this.delay) && this.entities.length <= 5) {
-            this.entities.push(new Entity(20, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#BC392F', this.mapSize));
+            this.entities.push(new Entity(10, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#E40000', this.mapSize));
             this.chrono.reset();
+            this.delay = getRandom(10000,30000);
         }
     }
 
     touchAll(tank) {
         for (let i = 0; i < this.entities.length; i++) {
             if (this.entities[i].touch(tank)) {
-                tank.level.addXp(this.xp);
-                tank.score += this.score;
+                tank.heal();
                 this.remove(i);
             }
-            for (let j = 0; j < tank.gun.ammos.length; j++) {
-                if (this.entities[i].touch(tank.gun.ammos[j])) {
-                    tank.level.addXp(this.xp);
-                    tank.score += this.score;
-                    this.remove(i);
+            else{
+                for (let j = 0; j < tank.gun.ammos.length; j++) {
+                    if (this.entities[i].touch(tank.gun.ammos[j])) {
+                        tank.heal();
+                        this.remove(i);
+                        break;
+                    }
                 }
             }
         }
