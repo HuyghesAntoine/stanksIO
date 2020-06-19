@@ -63,6 +63,10 @@ class Game {
     }
   }
 
+  lvlUp(){
+    console.log("lvlup");
+  }
+
   refresh() {
     this.leaderboard.refresh(this.players);
     this.factory.addEntity();

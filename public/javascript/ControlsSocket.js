@@ -24,6 +24,10 @@ class ControlsSocket {
     this.socket.emit('pseudo', pseudo);
   }
 
+  upgrade(value){
+    this.socket.emit('upgrade', value);
+  }
+
   barexp(data) {
     var exist = false;
     data.players.forEach(player => {
