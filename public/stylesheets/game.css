@@ -11,6 +11,7 @@
     background-color: #ffffff;
 }
 
-#lead-canvas{
-    background-color: #ffffff;
+#leaderboard{
+    margin-left: 5vw; 
+    width: 200px;
 }
