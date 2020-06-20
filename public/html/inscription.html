@@ -84,29 +84,9 @@
                   Confirm
                 </label>
               </div>
-              
+              <button type="submit" class="btn btn-primary">Sign in</button>
               <br/>
               <br/>
             </form>
-            <button class="btn btn-primary" onclick="insc()">Sign in</button>
-            <script src="/socket.io/socket.io.js"></script>
-            <script src="../javascript/InscriptionSocket.js"></script>
-            <script src="../javascript/InscriptionEvents.js"></script>
-            <script>
-              function insc(){
-                const fn = document.getElementById("firstname").value;
-                const ln = document.getElementById("lastname").value;
-                const day = document.getElementById("jour").value;
-                const month = document.getElementById("month").value;
-                const year = document.getElementById("year").value;
-                const mail = document.getElementById("mail").value;
-                const passwd = document.getElementById("mot2pass").value;
-
-                const socket = new InscriptionSocket();
-                const events = new InscriptionEvents(socket);
-
-                events.Inscription(event, fn,ln,day,month,year,mail,passwd);
-              }
-            </script>
     </body>
 </html>
