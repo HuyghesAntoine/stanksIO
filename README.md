@@ -11,8 +11,19 @@ Launch [this link(empty)][] to access the home page of the game.
 Click on [the play button(empty)][] to access the game page, and click on [the controler(empty)][] to access the control page.
 You have to use the control page on your mobile phone.
 Use the joysticks to move and shoot towards a specific direction.
-Take care of your life bar and try to kill ennemies to get experience and increase your abilitys. 
-Try to be the best players of the server and be known for everywhere, thanks to the leaderboard.
+
+##functionalitys
+
+* Each player **control** a tank.
+* Each tank can **move** and **aim** with the two joysticks.
+* **Left** joystick to move.
+* **Right** joystick to aim.
+* Collect **green dots** to gain experience and score points.
+* Collect **red hearth** to regain life point. 
+* Improve skills on your mobile screen. 
+* Try to be on the top of the leaderboard. 
+* Log in to your personnal account to save your best performances. 
+* Use our **fake** shop to buy skins.
 
 ## Development team  
 
