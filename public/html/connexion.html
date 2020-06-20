@@ -8,7 +8,7 @@
             <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
-    <link rel="stylesheet" href="../stylesheets/shop.css">
+    <link rel="stylesheet" href="../stylesheets/inscription.css">
 
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -17,25 +17,16 @@
 
     </head>
     <body>
-<form method="post" action="/connexion" id="ModalCmp">
+<form method="post" action="/connexion">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="titleModal">Compte</h5>
-            </div>
+        <div class="modal-content"  id="conexModal">
             <div  class="modal-body">
                     <form method="post" action="/connexion">
-                <div class="row">
-                    <input id="identifiant" name="mail" type="text" class="form-control" placeholder="Identifiant">
-                </div>
-                <br/>
-                <div class="row">
-                    <input  id="pass" name="mot2pass" type="password" class="form-control" placeholder="Mot de passe">
-                </div>
-                <br/>
-                <div class="row">
-                    <button id="Conx" class="btn btn-seconndary" type="submit">Connexion</button>
-                </div>
+                    <input id="identifiant" name="mail" type="text" class="form-control" placeholder="Login">
+                    <input  id="pass" name="mot2pass" type="password" class="form-control" placeholder="Password"> 
+            <div class="modal-footer">
+                    <button id="btnConx" class="btn btn-secondary" type="submit">Log in</button>
+            </div>
                 </form>
             </div>
         </div>
