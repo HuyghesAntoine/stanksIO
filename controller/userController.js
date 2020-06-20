@@ -11,13 +11,12 @@ exports.register = function (req,res){
 exports.sign_in = function(req,res){
     const conex = data.get_user(req.body.mail, req.body.mot2pass);
     if(conex){
-        
         req.session.firstname=conex.firstname;
-        res.redirect('/index?status=success');
+        res.redirect('/?status=success');
         console.log(conex.firstname);
     }
     else{
-        res.redirect('/index?status=error');
+        res.redirect('/?status=error');
         console.log('erreur');
     }
 };
