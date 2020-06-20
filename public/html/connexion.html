@@ -17,19 +17,18 @@
 
     </head>
     <body>
-<form method="post" action="/connexion">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content"  id="conexModal">
-            <div  class="modal-body">
+<form method="post" action="/connexion"></form>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" id="conexModal">
+            <div class="card-header">Log in</div>
+            <div class="card-body">
                     <form method="post" action="/connexion">
-                    <input id="identifiant" name="mail" type="text" class="form-control" placeholder="Login">
-                    <input  id="pass" name="mot2pass" type="password" class="form-control" placeholder="Password"> 
-            <div class="modal-footer">
-                    <button id="btnConx" class="btn btn-secondary" type="submit">Log in</button>
+                        <input id="identifiant" name="mail" type="text" class="form-control" placeholder="Login">
+                        <input  id="pass" name="mot2pass" type="password" class="form-control" placeholder="Password"> 
+                <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Log in</button>
+                </div>
+                    </form>
             </div>
-                </form>
-            </div>
-        </div>
     </div>
 </form>
 </body>
