@@ -12,7 +12,7 @@ Click on [the play button(empty)][] to access the game page, and click on [the c
 You have to use the control page on your mobile phone.
 Use the joysticks to move and shoot towards a specific direction.
 
-##functionalitys
+## functionalitys
 
 * Each player **control** a tank.
 * Each tank can **move** and **aim** with the two joysticks.
