@@ -3,9 +3,10 @@ const path = require('path');
 
 
 
-exports.register = function (req,res){
-    const insc = data.insert_user(req.body.lastname, req.body.firstname, req.body.Jour, req.body.Mois, req.body.Année, req.body.mail, req.body.mot2pass);
-    res.sendFile(path.join(__dirname, "../public/html/index.html"));
+exports.register = function (fn,ln,day,month,year,mail,passwd){
+    console.log(fn,ln,day,month,year,passwd,mail);
+    const insc = data.insert_user(fn, ln, day, month, year, mail, passwd);
+   
 }
 
 exports.sign_in = function(req,res){
