@@ -4,29 +4,13 @@ body{
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
 }
 
-.card-img-top{
-    width: 65%;
-    margin: 0 auto;
-}
-#cardG1{
-    margin: auto auto;
-    height: 150px;
-    text-align: center;   
-}
-
-.card{
+#conexModal{
     border-radius: 25px;
 }
-
-#row1{
+#titleModal{
     text-align: center;
-    margin-bottom: 10px;
 }
-
-.container{
-    margin-top: 25vh;
-    transform: translateY(-50%); 
-}
-.modal-body{
+.form-control{
+    margin-top: 5px;
     text-align: center;
 }
