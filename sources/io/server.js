@@ -4,6 +4,8 @@
  */
 
 const Game = require('../engine/Game');
+const control = require('../../controller/userController');
+
 
 const game = new Game('Game');
 
@@ -12,7 +14,10 @@ const game = new Game('Game');
  */
 
 const socketio = require('socket.io');
+const path = require('path');
 
+const source = path.join(__dirname, '../../public/html/inscription.html');
+const res =0;
 function io(server) {
 
   const io = socketio(server);
@@ -32,6 +37,8 @@ function io(server) {
     socket.on('pseudo', (pseudo) => game.changePseudo(id,pseudo));
 
     socket.on('disconnect', () => game.delist(id, socket.id));
+
+    socket.on('inscription', (fn, ln, day, month, year, mail,passwd) =>  control.register(fn,ln,day,month,year,mail,passwd));
 
   });
 
