@@ -109,3 +109,18 @@ body {
 #Pseudal{
     width: 150px;
 }
+
+#classPage{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.btnCls{
+    width: 100px; 
+    height: 100px;
+    text-align: center;
+}

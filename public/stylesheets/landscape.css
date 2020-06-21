@@ -83,8 +83,27 @@ body {
     -ms-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-}   
+}
 
 #Pseudal{
     width: 250px;
+}
+
+#classPage{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.btnCls{
+    width: 100px; 
+    height: 100px;
+    text-align: center;
+}
+
+.fa-question-circle:hover{
+    display: none;
 }
