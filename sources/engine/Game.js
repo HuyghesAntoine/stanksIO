@@ -28,7 +28,7 @@ class Game {
   
   register(id, socket, cls) {
     console.log("Création d'un tank : "+ cls);
-    this.players[id] = new Tank(id, socket, this.getRandomColor());
+    this.players[id] = new Tank(id, socket, this.getRandomColor(), cls);
     this.nbJ += 1;
   }
 
