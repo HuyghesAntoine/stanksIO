@@ -21,7 +21,7 @@ function io(server) {
   io.on('connection', function (socket) {
     var id = game.nbJ;
 
-    socket.on('register', () => game.register(id, socket.id));
+    socket.on('register', (cls) => game.register(id, socket.id, cls));
 
     socket.on('move', (direction) => game.move(id, direction));
 
