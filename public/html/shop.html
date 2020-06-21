@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-
 <html>
-
-<head>
+    <head>
     <meta charset="utf-8"> 
     <title>Shop</title>
-
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
     <link rel="stylesheet" href="../stylesheets/shop.css">
-
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+    </head>
+    <body>
         <nav class="navbar navbar-light bg-secondary">
-                <a class="btn btn-outline-light" href="/"> <i class="fas fa-home"></i> </a>
-                <button class="btn btn-outline-light" id="checkoutBtn" data-toggle="modal" data-target="#exampleModal"> checkout </button>
-            </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-
-        </div>
-            <div class="col-md-8" id="row1"> 
-                <span class="badge badge-secondary"> Limited edition <br><br> <label id="Compte"></label>
-                </span>
+            <a class="btn btn-outline-light" href="/"> <i class="fas fa-home"></i> </a>
+            <button class="btn btn-outline-light" id="checkoutBtn" data-toggle="modal" data-target="#exampleModal"> checkout </button>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"> </div>
+                <div class="col-md-8" id="row1"> 
+                    <span class="badge badge-secondary"> Limited edition <br><br> <label id="Compte"></label></span>
+                </div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2">
-            </div>
-    </div>
-        <div class="row">
+            <div class="row">
                 <div class="card-group" id="cardG1">
                         <div class="card">
                             <img class="card-img-top" src="../images/skin1.png" id="skin1" alt="Skin1">
@@ -41,8 +33,8 @@
                                 <p class="card-text"> <span class="badge badge-primary"> NEW !</span> Dragon Ball tank cosmetics  </p>
                             </div>
                             <div class="card-footer">
-                            <small class="text-muted"> $4.99</small> 
-                        </div>
+                                <small class="text-muted"> $4.99</small> 
+                            </div>
                         </div>
                         <div class="card">
                             <img class="card-img-top" src="../images/skin2.png" alt="Skin2">
@@ -63,72 +55,64 @@
                             </div>
                         </div>
                         <div class="card">
-                                <img class="card-img-top" src="../images/skindio.png" alt="Skin4">
-                                <div class="card-body">
-                                    <p class="card-text"> <span class="badge badge-primary"> NEW !</span> Dio tank cosmetics </p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">$4.99</small>
-                                </div>
+                            <img class="card-img-top" src="../images/skindio.png" alt="Skin4">
+                            <div class="card-body">
+                                <p class="card-text"> <span class="badge badge-primary"> NEW !</span> Dio tank cosmetics </p>
                             </div>
-                            <div class="card">
-                                    <img class="card-img-top" src="../images/skinvalo.png" alt="Skin5">
-                                    <div class="card-body">
-                                        <p class="card-text"> <span class="badge badge-primary"> NEW !</span> Valorant legendary cosmetics (for true PGM) </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">$24.99</small>
-                                    </div>
-                                </div>
-                    </div>       
-            </div>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                    <button onclick="thanks()"><i class="fab fa-cc-apple-pay fa-3x"></i></button>
-                    <button onclick="thanks()"> <i class="fab fa-cc-visa fa-3x"></i> </button>
-                    <button onclick="thanks()"> <i class="fab fa-cc-mastercard fa-3x"></i> </button>
-                    <button onclick="thanks()"><i class="fab fa-cc-paypal fa-3x"></i></button>
+                            <div class="card-footer">
+                                <small class="text-muted">$4.99</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="../images/skinvalo.png" alt="Skin5">
+                            <div class="card-body">
+                                <p class="card-text"> <span class="badge badge-primary"> NEW !</span> Valorant legendary cosmetics (for true PGM) </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">$24.99</small>
+                            </div>
+                        </div>
+                </div>       
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <button onclick="thanks()"><i class="fab fa-cc-apple-pay fa-3x"></i></button>
+                        <button onclick="thanks()"> <i class="fab fa-cc-visa fa-3x"></i> </button>
+                        <button onclick="thanks()"> <i class="fab fa-cc-mastercard fa-3x"></i> </button>
+                        <button onclick="thanks()"><i class="fab fa-cc-paypal fa-3x"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-</body>
-
-
-<script type="text/JavaScript">
-    var Affiche=document.getElementById("Compte");
-    function Rebour() {
-    var date1 = new Date();
-    var date2 = new Date ("June 30 00:00:00 2020");
-    var sec = (date2 - date1) / 1000;
-    var n = 24 * 3600;
-    if (sec > 0) {
-    j = Math.floor (sec / n);
-    h = Math.floor ((sec - (j * n)) / 3600);
-    mn = Math.floor ((sec - ((j * n + h * 3600))) / 60);
-    sec = Math.floor (sec - ((j * n + h * 3600 + mn * 60)));
-    Affiche.innerHTML =   j +" j "+ h +" h "+ mn +" min "+ sec + " s ";
-    window.status =   j +" j "+ h +" h "+ mn +" min "+ sec + " s ";
-    }
-    tRebour=setTimeout ("Rebour();", 1000);
-    }
-    Rebour();
-
-    function thanks(){
-        alert("Thanks, this money will be used to improve the stability of the servers. ");
-    }
-</script>
-
-
+    </body>
+    <script type="text/JavaScript">
+        var Affiche=document.getElementById("Compte");
+        function Rebour() {
+        var date1 = new Date();
+        var date2 = new Date ("June 30 00:00:00 2020");
+        var sec = (date2 - date1) / 1000;
+        var n = 24 * 3600;
+        if (sec > 0) {
+        j = Math.floor (sec / n);
+        h = Math.floor ((sec - (j * n)) / 3600);
+        mn = Math.floor ((sec - ((j * n + h * 3600))) / 60);
+        sec = Math.floor (sec - ((j * n + h * 3600 + mn * 60)));
+        Affiche.innerHTML =   j +" j "+ h +" h "+ mn +" min "+ sec + " s ";
+        window.status =   j +" j "+ h +" h "+ mn +" min "+ sec + " s ";
+        }
+        tRebour=setTimeout ("Rebour();", 1000);
+        }
+        Rebour();
+        function thanks(){alert("Thanks, this money will be used to improve the stability of the servers. ");}
+    </script>
 </html>
