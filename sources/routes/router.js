@@ -9,6 +9,8 @@ const __public = path.join(__dirname, '../../public');
 
 const router = express.Router();
 
+const userController = require('../../controller/userController.js');
+
 // GET home.html page.
 router.get('/', function(req, res, next) {
   res.sendFile('html/index.html', { root: __public });
@@ -25,6 +27,14 @@ router.get('/controls', function(req, res, next) {
 router.get('/shop', function(req, res, next) {
   res.sendFile('html/shop.html', { root: __public });
 });
-
-
+// GET connexion.html page
+router.post('/connexion', userController.sign_in)
+router.get('/connexion', function(req, res, next) {
+  res.sendFile('html/connexion.html', { root: __public });
+});
+// Get inscription.html page
+router.post('/inscription', userController.register)
+router.get('/inscription', function(req, res, next) {
+  res.sendFile('html/inscription.html', { root: __public });
+});
 module.exports = router;

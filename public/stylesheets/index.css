@@ -1,3 +1,5 @@
+/* Index page css */
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
     overflow: hidden;
@@ -53,5 +55,8 @@ body {
     margin-left: 1%;
 }
 
+#btnHomePagePerso{
+    margin-top: 1%;
+}
 
 

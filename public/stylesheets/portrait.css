@@ -1,3 +1,5 @@
+/* Controls page css for portrait mode (media queries in the html source page) */
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #C1C0AC;
@@ -17,14 +19,6 @@ body {
     margin-right:auto;
     margin-top: 5%;
     
-}
-
-
-#changeP{
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 10px;
 }
 
 #controlPage{
@@ -101,4 +95,41 @@ body {
 
 #hide_joy{
     visibility : hidden;
+}
+
+#pseudal_page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}   
+
+#Pseudal{
+    width: 150px;
+}
+
+#classPage{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.btnCls{
+    width: 100px; 
+    height: 100px;
+    text-align: center;
+}
+
+.descriClass{
+    width: 400px;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60vh;
+    border-radius: 25px;
 }

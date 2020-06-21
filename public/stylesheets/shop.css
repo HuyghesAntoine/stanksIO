@@ -1,3 +1,5 @@
+/* Fake shop page css */
+
 body{
     font-family: 'Roboto', Arial, sans-serif;
     background: rgb(231,235,236);
@@ -11,8 +13,11 @@ body{
 #cardG1{
     margin: auto auto;
     height: 150px;
-    text-align: center;
-    
+    text-align: center;   
+}
+
+.card{
+    border-radius: 25px;
 }
 
 #row1{

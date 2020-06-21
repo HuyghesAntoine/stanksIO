@@ -4,6 +4,8 @@
  */
 
 const Game = require('../engine/Game');
+const control = require('../../controller/userController');
+
 
 const game = new Game('Game');
 
@@ -19,7 +21,7 @@ function io(server) {
   io.on('connection', function (socket) {
     var id = game.nbJ;
 
-    socket.on('register', () => game.register(id, socket.id));
+    socket.on('register', (cls) => game.register(id, socket.id, cls));
 
     socket.on('move', (direction) => game.move(id, direction));
 
@@ -36,7 +38,6 @@ function io(server) {
   });
 
   setInterval(() =>{
-    //game.testPlayer();
     const data = {
       message: 'display',
       players: Object.values(game.players)
@@ -46,18 +47,17 @@ function io(server) {
 
   setInterval(() => {
     game.refresh();
-    //console.log(game.bonus.entities);
     const data = {
       message: 'Server update !',
       players: Object.values(game.players),
       factory: Object.values(game.factory),
       bonus: Object.values(game.bonus)
     };
-    io.volatile.emit('update', data);
+    io.volatile.emit('update', data); // Refresh all data at 60 frame per second
   }, 1000 / 60);
 
   setInterval( ()=> {
-    io.volatile.emit('leaderboard', game.leaderboard);
+    io.volatile.emit('leaderboard', game.leaderboard); // Refresh leaderboard every seconds
   },1000);
 }
 

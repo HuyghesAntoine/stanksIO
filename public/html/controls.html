@@ -17,12 +17,29 @@
 </head>
 
 <body id="controlPage">
-  <div id="pseudal_page">
-    <label for="name">Pseudo</label>
-    <input type="text" id="Pseudal">
-    <button id="btnPseudo" onclick="displayte()">Valider</button>
+
+  <div id="pseudal_page" class="row">
+    <input class="form-control" type="text" id="Pseudal">
+    <button class="btn btn-dark" id="btnPseudo" onclick="displayte()" disabled>Validate</button>
   </div>
 
+  <div id="classPage" class="row btn-group">
+    <button id="cls1" class="btn btn-outline-dark btnCls" data-toggle="tooltip" data-placement="top" title="Test oui non" > Masto </button>
+    <button id="cls2" class="btn btn-outline-dark btnCls"> Hunter </button>
+    <button id="cls3" class="btn btn-outline-dark btnCls"> Farmer </button>
+    <button id="cls4" class="btn btn-outline-dark btnCls"> Sniper </button>
+  </div>
+
+  <div class="card bg-light mb-3 descriClass">
+    <div class="card-header">Class description</div>
+      <div class="card-body">
+        <ul>
+          <li>Masto : Heavy but big damages</li>
+          <li>Hunter : Faster movement and shot</li>
+          <li>Farmer : Poor stats but better exp amount</li>
+          <li>Sniper : Slow shoot but heavy damages</li>
+      </div>
+  </div>
 
   <div id="control_pading">
     <div class="row">
@@ -31,20 +48,16 @@
           aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
-
     <div class="row">
       <div class="progress" id="expBar">
         <div id="expValue" class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%"
           aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
-
     <p class="text-center" id="level">Level: 1</p>
-    <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Name </button>
     <div id="scoreDiv" class="row justify-content-center">
       Score : &nbsp <span id="score"> 0 </span>
     </div>
-
     <div id="upgrades" class="row">
       <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr" id="attackUpgrade"> ATTACK UP </button>
@@ -80,14 +93,51 @@
   </div>
 
   <!-- JavaScripts -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="../javascript/joy.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="../javascript/ControlsSocket.js"></script>
   <script src="../javascript/ControlsEvents.js"></script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById("Pseudal").value = urlParams.get('pseudo');
+
+    document.getElementById("cls1").addEventListener("click", () => cls1());
+    document.getElementById("cls2").addEventListener("click", () => cls2());
+    document.getElementById("cls3").addEventListener("click", () => cls3());
+    document.getElementById("cls4").addEventListener("click", () => cls4());
+
+    var myCls = "undefined";
+    function cls1() {
+      document.querySelectorAll(".btnCls").forEach((btn) => {
+        btn.classList.remove('btn-success');
+      });
+      document.getElementById("cls1").classList.add('btn-success');
+      document.getElementById("btnPseudo").disabled = false;
+      myCls = "cls1";
+    }
+    function cls2() {
+      document.querySelectorAll(".btnCls").forEach((btn) => {
+        btn.classList.remove('btn-success');
+      });
+      document.getElementById("cls2").classList.add('btn-success');
+      document.getElementById("btnPseudo").disabled = false;
+      myCls = "cls2";
+    }
+    function cls3() {
+      document.querySelectorAll(".btnCls").forEach((btn) => {
+        btn.classList.remove('btn-success');
+      });
+      document.getElementById("cls3").classList.add('btn-success');
+      document.getElementById("btnPseudo").disabled = false;
+      myCls = "cls3";
+    }
+    function cls4() {
+      document.querySelectorAll(".btnCls").forEach((btn) => {
+        btn.classList.remove('btn-success');
+      });
+      document.getElementById("cls4").classList.add('btn-success');
+      document.getElementById("btnPseudo").disabled = false;
+      myCls = "cls4";
+    }
 
     var joyMove = new JoyStick('joyMove', {
       internalFillColor: '#4D221E',
@@ -97,7 +147,6 @@
       externalStrokeColor: '#000000',
       autoReturnToCenter: true
     });
-
     var joyShoot = new JoyStick('joyShoot', {
       internalFillColor: '#4D221E',
       internalLineWidth: 1,
@@ -108,18 +157,18 @@
     });
 
     function displayte() {
-      var x = document.getElementById("Pseudal").value;
-      document.getElementById("pseudal_page").style.display = "none";
-      document.getElementById("control_pading").style.display = "block";
-      document.getElementById("hide_joy").style.visibility = "visible";
-      const socket = new ControlsSocket();
-      const events = new ControlsEvents(socket);
-
-      events.onSubPseudo(event, x);
+      if (myCls != "undefined") { //vérifie que la classe est bien sélectionné
+        var x = document.getElementById("Pseudal").value;
+        document.getElementById("pseudal_page").style.display = "none";
+        document.getElementById("classPage").style.display = "none";
+        document.getElementById("control_pading").style.display = "block";
+        document.getElementById("hide_joy").style.visibility = "visible";
+        const socket = new ControlsSocket(myCls);
+        const events = new ControlsEvents(socket);
+        events.onSubPseudo(event, x);
+      }
     }
   </script>
-
-
 </body>
 
 </html>

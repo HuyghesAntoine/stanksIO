@@ -1,3 +1,5 @@
+/* Controls page css for landscape mode (media queries in the html source page) */ 
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #C1C0AC;
@@ -19,12 +21,6 @@ body {
     margin-top: 10px;
 }
 
-#changeP{
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 #controlPage{
     overflow: hidden;
 }
@@ -40,7 +36,6 @@ body {
 #upgrades{
     width: 50%;
     position: absolute;
-    
 	top: 30vh;
 	left: 0;
 	right: 0;	
@@ -79,4 +74,45 @@ body {
 
 #hide_joy{
     visibility : hidden;
+}
+
+#pseudal_page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+#Pseudal{
+    width: 250px;
+}
+
+#classPage{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.btnCls{
+    width: 100px; 
+    height: 100px;
+    text-align: center;
+}
+
+.fa-question-circle:hover{
+    display: none;
+}
+
+.descriClass{
+    width: 400px;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60vh;
+    border-radius: 25px;
 }
