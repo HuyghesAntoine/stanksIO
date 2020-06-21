@@ -107,3 +107,12 @@ body {
 .fa-question-circle:hover{
     display: none;
 }
+
+.descriClass{
+    width: 400px;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60vh;
+    border-radius: 25px;
+}
