@@ -6,7 +6,6 @@
 class ControlsSocket {
   constructor(cls) {
     this.socket = io();
-    console.log(cls);
     this.socket.emit('register', cls);
     this.socket.on('control', (data) => this.barexp(data));
   }

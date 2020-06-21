@@ -135,23 +135,6 @@ class Tank extends Entity {
     getXp() {
         return this.level.levelNumber * 100;
     }
-
-    draw(){
-        const { x, y, size, look } = this;
-        var context = document.querySelector('#game-canvas').getContext('2d');
-        context.beginPath();
-        context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
-        context.arc((x + Math.cos(look) * (size*1.2)), (y + Math.sin(look) * (size*1.2)), size / 2, 0, 2 * Math.PI, false);
-        context.fillStyle = '#777777';
-        context.fill();
-
-        context.beginPath();
-        context.arc(x, y, size, 0, 2 * Math.PI, false);
-        context.fillStyle = this.color;
-        context.fill();
-        context.textAlign = "center";
-        context.fillText(this.pseudo, x, y + (2 * size));
-    }
 }
 
 function getRandom(min, max) {
