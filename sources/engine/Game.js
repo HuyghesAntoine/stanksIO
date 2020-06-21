@@ -14,6 +14,7 @@ const Leaderboard = require('./Leaderboard');
 */
 
 class Game {
+  // Constructor that take a name parameter
   constructor(name) {
     this.nbJ = 1;
     this.name = name;
@@ -21,9 +22,10 @@ class Game {
     this.factory = new Factory(800);
     this.bonus = new Bonus(800);
     this.leaderboard = new Leaderboard();
+    // Array for tank colors.
     this.colors = ['#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
   }
-
+  
   register(id, socket) {
     this.players[id] = new Tank(id, socket, this.getRandomColor());
     this.nbJ += 1;
