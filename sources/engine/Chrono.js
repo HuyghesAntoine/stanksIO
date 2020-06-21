@@ -1,3 +1,5 @@
+// Chrono class
+// Create an intern chronometer that can be use if the factory and bonus classes.
 class Chrono {
     constructor() {
         this.start = Date.now();
