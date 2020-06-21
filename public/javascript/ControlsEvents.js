@@ -15,7 +15,7 @@ class ControlsEvents {
                 this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY());
             }
         },1000/60);
-        document.querySelector("#attackUpgrade").addEventListener("click", () => this.attackUp());
+        document.getElementById("attackUpgrade").addEventListener("click", () => this.attackUp());
         document.getElementById("speedUpgrade").addEventListener("click", () => this.speedUp());
         document.getElementById("sizeUpgrade").addEventListener("click", () => this.sizeUp());
         document.getElementById("attackSpeedUpgrade").addEventListener("click", () => this.attackSpeedUp());
