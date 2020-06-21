@@ -6,25 +6,16 @@ const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
 class Tank extends Entity {
-    constructor(id, socketid, color) {
+    constructor(id, socketid, color, cls) {
         super(20, 800 / 2, 800 / 2, 3, color, 800);
         this.x = getRandom(0 + this.size, this.mapSize - this.size);
         this.y = getRandom(0 + this.size, this.mapSize - this.size);
         this.id = id;
         this.socketId = socketid;
-        this.pseudo = "noname";
-        this.gun = new Gun(this.mapSize);
-        this.direction = 0;
-        this.look = getRandom(0, 2 * Math.PI);
-        this.speed = 5;
-        this.attack = 1;
-        this.attackSpeed = 1000;
-        this.bulletSize = 5;
-        this.level = new Level();
-        this.score = 0;
-        this.chrono = new Chrono();
-        this.isMoving = false;
-        this.maxHealth = 3;
+        if(cls == "cls1") this.masto();
+        if(cls == "cls2") this.hunter();
+        if(cls == "cls3") this.farmer();
+        if(cls == "cls4") this.sniper();
     }
 
     isOut(x, y) {
@@ -134,6 +125,74 @@ class Tank extends Entity {
     }
     getXp() {
         return this.level.levelNumber * 100;
+    }
+
+    masto(){
+        this.pseudo = "noname";
+        this.gun = new Gun(this.mapSize);
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.level = new Level();
+        this.score = 0;
+        this.chrono = new Chrono();
+        this.isMoving = false;
+        this.maxHealth = 5;
+        this.size = 30;
+        this.speed = 2;
+        this.attack = 1.5;
+        this.bulletSize = 10; 
+        this.attackSpeed = 1000;
+    }
+
+    hunter(){
+        this.pseudo = "noname";
+        this.gun = new Gun(this.mapSize);
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.level = new Level();
+        this.score = 0;
+        this.chrono = new Chrono();
+        this.isMoving = false;
+        this.maxHealth = 3;
+        this.size = 20;
+        this.speed = 8;
+        this.attack = 0.7;
+        this.bulletSize = 5; 
+        this.attackSpeed = 500;
+    }
+
+    farmer(){
+        this.pseudo = "noname";
+        this.gun = new Gun(this.mapSize);
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.level = new Level();
+        this.score = 0;
+        this.chrono = new Chrono();
+        this.isMoving = false;
+        this.maxHealth = 2;
+        this.size = 20;
+        this.speed = 3;
+        this.attack = 0.5;
+        this.bulletSize = 5; 
+        this.attackSpeed = 1500;
+    }
+
+    sniper(){
+        this.pseudo = "noname";
+        this.gun = new Gun(this.mapSize);
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.level = new Level();
+        this.score = 0;
+        this.chrono = new Chrono();
+        this.isMoving = false;
+        this.maxHealth = 3;
+        this.size = 15;
+        this.speed = 5;
+        this.attack = 2;
+        this.bulletSize = 17; 
+        this.attackSpeed = 3000;
     }
 }
 
