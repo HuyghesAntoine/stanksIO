@@ -3,10 +3,10 @@
 
 <head>
   <title>Controls</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" />
   <link rel="stylesheet" href="/stylesheets/landscape.css" type="text/css" media="screen and (orientation: landscape)">
   <link rel="stylesheet" href="/stylesheets/portrait.css" type="text/css" media="screen and (orientation: portrait)">
   <!-- JavaScripts -->
@@ -17,53 +17,53 @@
 </head>
 
 <body id="controlPage">
-<div id="pseudal_page">
-  <label for="name">Pseudo</label>
-  <input  type="text" id="Pseudal" >
-  <button id="btnPseudo" onclick="displayte()">Valider</button>
-</div>
-
-
-<div id="control_pading">
-  <div class="row">
-  <div class="progress" id="lifeBar">
-    <div id="lifeValue" class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100"
-      aria-valuemin="0" aria-valuemax="100"></div>
+  <div id="pseudal_page">
+    <label for="name">Pseudo</label>
+    <input type="text" id="Pseudal">
+    <button id="btnPseudo" onclick="displayte()">Valider</button>
   </div>
-</div>
 
-<div class="row">
-  <div class="progress" id="expBar">
-    <div id="expValue" class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%" aria-valuenow="100"
-      aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-</div>
 
-  <p class="text-center" id="level">Level: 1</p>
+  <div id="control_pading">
+    <div class="row">
+      <div class="progress" id="lifeBar">
+        <div id="lifeValue" class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 100%"
+          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="progress" id="expBar">
+        <div id="expValue" class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 00%"
+          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+
+    <p class="text-center" id="level">Level: 1</p>
     <button id="changeP" class="btn btn-outline-info" data-toggle="modal" data-target="#pseudoModal"> Name </button>
-  <div id="scoreDiv" class="row justify-content-center">
-    Score : &nbsp <span id="score"> 0 </span>
-  </div>
- 
-  <div id="upgrades" class="row">
-    <div class="col-md-3">
+    <div id="scoreDiv" class="row justify-content-center">
+      Score : &nbsp <span id="score"> 0 </span>
+    </div>
+
+    <div id="upgrades" class="row">
+      <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr" id="attackUpgrade"> ATTACK UP </button>
-    </div>
-    <div class="col-md-3">
+      </div>
+      <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr" id="speedUpgrade"> SPEED UP </button>
-    </div>
-    <div class="col-md-3">
+      </div>
+      <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr" id="sizeUpgrade"> SIZE UP </button>
-    </div>
-    <div class="col-md-3">
+      </div>
+      <div class="col-md-3">
         <button class="btn btn-outline-dark btnUpgr" id="attackSpeedUpgrade"> ATTACK SPEED UP </button>
+      </div>
     </div>
   </div>
- </div>
- <div id="hide_joy">
-  <div id="joyMove" >  </div>
-  <div id="joyShoot">  </div>
- </div>
+  <div id="hide_joy">
+    <div id="joyMove"> </div>
+    <div id="joyShoot"> </div>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="pseudoModal" tabindex="-1" role="dialog" aria-labelledby="pseudoModalLabel"
     aria-hidden="true">
@@ -88,8 +88,8 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById("Pseudal").value = urlParams.get('pseudo');
-    
-    var joyMove = new JoyStick('joyMove',  {
+
+    var joyMove = new JoyStick('joyMove', {
       internalFillColor: '#4D221E',
       internalLineWidth: 1,
       internalStrokeColor: '#4D221E',
@@ -97,7 +97,7 @@
       externalStrokeColor: '#000000',
       autoReturnToCenter: true
     });
-    
+
     var joyShoot = new JoyStick('joyShoot', {
       internalFillColor: '#4D221E',
       internalLineWidth: 1,
@@ -107,7 +107,7 @@
       autoReturnToCenter: true
     });
 
-    function displayte(){
+    function displayte() {
       var x = document.getElementById("Pseudal").value;
       document.getElementById("pseudal_page").style.display = "none";
       document.getElementById("control_pading").style.display = "block";
@@ -115,7 +115,7 @@
       const socket = new ControlsSocket();
       const events = new ControlsEvents(socket);
 
-    events.onSubPseudo(event, x);
+      events.onSubPseudo(event, x);
     }
   </script>
 

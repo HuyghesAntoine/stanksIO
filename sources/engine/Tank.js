@@ -58,7 +58,7 @@ class Tank extends Entity {
         }
         if(val == "grimtous"){
             this.health = 6;
-            this.healthMax = 6;
+            this.maxHealth = 6;
             this.attack = 3;
             this.speed = 2;
             this.bulletSize = 15;

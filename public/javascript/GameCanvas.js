@@ -4,6 +4,11 @@ class GameCanvas {
         this.context = this.canvas.getContext('2d');
     }
 
+    drawLife(tank){
+        const { x, y, size, color, health, maxHealth } = tank;
+
+    }
+
 
     drawCannon(tank) {
         const { x, y, size, look } = tank;
