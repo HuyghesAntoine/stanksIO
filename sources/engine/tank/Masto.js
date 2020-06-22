@@ -6,12 +6,6 @@ class Masto extends Tank {
     constructor(id, socket, color){
         super(id, socket, color);
         this.myUpgrade = ["HEALTH UP", "SPEED UP", "ATTACK UP", "ATK SPEED UP"];
-        this.pseudo = "noname";
-        this.direction = 0;
-        this.look = getRandom(0, 2 * Math.PI);
-        this.level = new Level();
-        this.score = 0;
-        this.isMoving = false;
         this.maxHealth = 15;
         this.health = 15;
         this.size = 25;

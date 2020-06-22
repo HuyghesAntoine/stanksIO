@@ -6,7 +6,7 @@ const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
 class Tank extends Entity {
-    constructor(id, socketid, color, cls) {
+    constructor(id, socketid, color) {
         super(20, 800 / 2, 800 / 2, 3, color, 800);
         const myUpgrade = ["TANK", "TANK", "TANK", "TANK"];
         this.x = getRandom(0 + this.size, this.mapSize - this.size);
@@ -15,7 +15,6 @@ class Tank extends Entity {
         this.socketId = socketid;
         this.gun = new Array();
         this.gun.push(new Gun(this.mapSize, 0));
-        this.gun.push(new Gun(this.mapSize, Math.PI));
         this.chrono = new Chrono();
         this.level = new Level();
         this.direction = 0;
@@ -122,6 +121,7 @@ class Tank extends Entity {
     }
 
     upgrade(i) {
+        console.log('upgrade');
         if (this.level.xpPoint <= 0) return;
         let value = this.myUpgrade[i];
         if (value == "ATTACK") {
@@ -158,6 +158,9 @@ class Tank extends Entity {
     }
     getXp() {
         return this.level.levelNumber * 100;
+    }
+    addCanon(direction){
+        this.gun.push(new Gun(this.mapSize,direction));
     }
 }
 

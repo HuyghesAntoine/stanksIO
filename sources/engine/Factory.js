@@ -10,13 +10,13 @@ class Factory {
         this.delay = 2000;
         this.chrono = new Chrono();
         this.score = 100;
-        this.xp = 10;
+        this.xp = 100;
     }
 
     // Function that add a factory entity in an array?
     addEntity() {
         // 10 factory entites maximum in the map.
-        if (this.chrono.isOver(this.delay) && this.entities.length <= 10) {
+        if (this.chrono.isOver(this.delay) && this.entities.length <= 50) {
             // Add the entity in the array with given properties.
             this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#1FE400', this.mapSize));
             // Reset the chrono for a new factory entity to spawn.
