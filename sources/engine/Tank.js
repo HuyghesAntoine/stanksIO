@@ -47,7 +47,6 @@ class Tank extends Entity {
             this.gun.forEach(canon => {
                 canon.shoot(new Bullet(this, canon.direction));
             });
-            //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
         }
     }
