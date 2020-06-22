@@ -5,7 +5,7 @@ class Level {
         this.levelNumber = 1;
         this.xp = 0;
         this.xpNeeded = 100;
-        this.xpPoint = 100;
+        this.xpPoint = 0;
     }
     // Function that add exp points 
     addXp(xp){
