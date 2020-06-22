@@ -121,7 +121,6 @@ class Tank extends Entity {
     }
 
     upgrade(i) {
-        console.log('upgrade');
         if (this.level.xpPoint <= 0) return;
         let value = this.myUpgrade[i];
         if (value == "ATTACK") {
@@ -140,7 +139,7 @@ class Tank extends Entity {
         } else if(value=="XP"){
             this.level.changeMult(this.level.mult * 1.1);
         } else if (value=="ALPHA"){
-
+            this.alpha *= 0.8;
         }
         this.size += 2;
         this.level.xpPoint--;
