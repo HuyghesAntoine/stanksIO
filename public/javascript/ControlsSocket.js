@@ -35,7 +35,7 @@ class ControlsSocket {
       if (this.socket.id == player.socketId) {
         this.me = player;
         document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
-        document.querySelector('#lifeValue').style.width = (player.health / player.healthMax) * 100 + "%";
+        document.querySelector('#lifeValue').style.width = (player.health / player.maxHealth) * 100 + "%";
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
         exist = true;

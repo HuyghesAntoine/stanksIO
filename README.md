@@ -4,6 +4,7 @@
 ## Description 
 
 This is the final project of our last year in Bachelor Degree in ULCO Calais.
+This is a browser game, with mobile controler. 
 
 ## How to play 
 
@@ -11,6 +12,7 @@ Launch [this link(empty)]() to access the home page of the game.
 Click on [the play button(empty)]() to access the game page, and click on [the controler(empty)]() to access the control page.
 You have to use the control page on your mobile phone.
 Use the joysticks to move and shoot towards a specific direction.
+**Your main objectif: kill the other tanks.**
 
 ## functionalitys
 
@@ -21,7 +23,7 @@ Use the joysticks to move and shoot towards a specific direction.
 * **Right** joystick to aim.
 * Collect **green dots** to gain experience and score points.
 * Collect **red hearth** to regain life point. 
-* Upgrade your tank with your levels.
+* Upgrade your tank with your levels. They are different according to the class.
 * Multiple canons.
 
 ## Development team  
@@ -34,6 +36,7 @@ Use the joysticks to move and shoot towards a specific direction.
 ## Development   
 
 Each developer has a branch with their name. They can add their own modifications to this branch. When a developer want to put his code on the master branch and give it to everyone, he just have to create a **merge request** on the git respository. The git master just have to take a look on this request and validate it, or not.
+We can help each others if someone is stuck on a problem for to long.
 
 ## Install the game on local network 
 

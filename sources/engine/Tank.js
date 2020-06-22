@@ -46,7 +46,7 @@ class Tank extends Entity {
     shoot() {
         if (this.chrono.isOver(this.attackSpeed)) {
             this.gun.forEach(canon => {
-                canon.shoot(new Bullet(this,canon.direction));
+                canon.shoot(new Bullet(this, canon.direction));
             });
             //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
@@ -94,7 +94,6 @@ class Tank extends Entity {
             if (canon.ammos.length > 0) {
                 let rm = false;
                 for (let i = 0; i < canon.ammos.length; i++) {
-                    // bullet vs entity bullet
                     entity.gun.forEach(canonEntity => {
                         for (let j = 0; j < canonEntity.ammos.length; j++) {
                             if (canon.ammos[i].touch(canonEntity.ammos[j])) {
@@ -104,7 +103,6 @@ class Tank extends Entity {
                             }
                         }
                     });
-                    // bullet vs entity
                     if (canon.ammos[i].touch(entity)) {
                         entity.health -= canon.ammos[i].damage;
                         if (entity.isDead()) {

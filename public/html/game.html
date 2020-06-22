@@ -10,7 +10,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body id="gamePage">
-
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-11">
@@ -36,6 +35,9 @@
     <script> 
       const canvas = new GameCanvas();
       const socket = new GameSocket(canvas);
+      var ambiantSound = new Audio('../sounds/no-return.mp3');
+      ambiantSound.play();
+      ambiantSound.volume  = 0.1;
     </script>
   </body>
 </html>
