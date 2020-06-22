@@ -18,7 +18,11 @@ class Tank extends Entity {
         this.gun.push(new Gun(this.mapSize, Math.PI));
         this.chrono = new Chrono();
         this.level = new Level();
-        this.attackSpeed = 100;
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.pseudo = "noname";
+        this.score = 0;
+        this.isMoving = false;
     }
 
     isOut(x, y) {
@@ -47,6 +51,7 @@ class Tank extends Entity {
             this.gun.forEach(canon => {
                 canon.shoot(new Bullet(this, canon.direction));
             });
+            //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
         }
     }
