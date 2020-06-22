@@ -71,6 +71,11 @@ class ControlsSocket {
       document.getElementById("speedUpgrade").style.display = "block";
       document.getElementById("sizeUpgrade").style.display = "block";
       document.getElementById("attackSpeedUpgrade").style.display = "block";
+      console.log(player);
+      document.getElementById("attackUpgrade").innerHTML = player.myUpgrade[0];
+      document.getElementById("speedUpgrade").innerHTML = player.myUpgrade[1];
+      document.getElementById("sizeUpgrade").innerHTML = player.myUpgrade[2];
+      document.getElementById("attackSpeedUpgrade").innerHTML = player.myUpgrade[3];
     }
   }
 }
