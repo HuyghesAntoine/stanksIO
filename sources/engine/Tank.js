@@ -126,13 +126,13 @@ class Tank extends Entity {
         if (value == "ATTACK") {
             this.attack += 0.5;
         } else if (value == "SPEED") {
-            this.speed += 1;
+            this.speed += 0.25;
         } else if (value == "BULLETSIZE") {
-            this.bulletSize += 1;
+            this.bulletSize += 0.5;
         } else if (value == "ATTACKSPEED") {
-            this.attackSpeed *= 0.9;
+            this.attackSpeed *= 0.95;
         } else if (value=="BULLETSPEED"){
-            this.bulletSpeed += 1;
+            this.bulletSpeed += 0.5;
         } else if (value=="HEALTH"){
             this.healh += 2;
             this.maxHealth += 2;
@@ -141,7 +141,7 @@ class Tank extends Entity {
         } else if (value=="ALPHA"){
             this.alpha *= 0.8;
         }
-        this.size += 2;
+        this.size += 0.5;
         this.level.xpPoint--;
     }
 
