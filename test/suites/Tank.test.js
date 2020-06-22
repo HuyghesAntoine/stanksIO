@@ -67,7 +67,6 @@ describe('Tank test', () => {
     expect(this.tank.attackSpeed).toBe(1000);
     this.tank.upgrade(3);
     expect(this.tank.attackSpeed).toBe(1000*0.8);
-
   });
 
 });
