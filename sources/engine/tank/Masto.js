@@ -1,11 +1,12 @@
 const Chrono = require('../Entity');
 const Tank = require('../Tank');
 const Level = require('../Level');
+const Evolution = require('../Evolution');
 
 class Masto extends Tank {
     constructor(id, socket, color){
         super(id, socket, color);
-        this.myUpgrade = ["HEALTH UP", "SPEED UP", "ATTACK UP", "ATK SPEED UP"];
+        this.myUpgrade = ["HEALTH", "SPEED", "ATTACK", "ATTACKSPEED"];
         this.maxHealth = 15;
         this.health = 15;
         this.size = 25;
@@ -14,17 +15,14 @@ class Masto extends Tank {
         this.bulletSize = 9;
         this.bulletSpeed = 6;
         this.attackSpeed = 1500;
+        this.evolution = new Evolution([Math.PI,Math.PI/2,3*Math.PI/2,Math.PI/4,3*Math.PI/4,5*Math.PI/4,7*Math.PI/4]);
     }
+
     upgrade(i){
         super.upgrade(i);
-        if (this.level.levelNumber == 5){
-            this.addCanon(Math.PI/2);
-        }
-        if (this.level.levelNumber == 10){
-            this.addCanon(-Math.PI/2);
-        }
-        if (this.level.levelNumber == 20){
-            this.addCanon(Math.PI);
+        let evolutions = this.evolution.evolute(this.level.levelNumber);
+        for (let i=0 ; i<evolutions.length ; i++){
+            this.addCanon(evolutions[i]);
         }
     }
 }

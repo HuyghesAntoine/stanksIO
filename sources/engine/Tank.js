@@ -142,7 +142,7 @@ class Tank extends Entity {
         } else if (value=="ALPHA"){
 
         }
-        this.size += 2;
+        this.size += 0.5;
         this.level.xpPoint--;
     }
 
