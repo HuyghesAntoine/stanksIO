@@ -127,7 +127,7 @@ class Tank extends Entity {
         if (value == "ATTACK") {
             this.attack += 0.5;
         } else if (value == "SPEED") {
-            this.speed += 1;
+            this.speed += 0.25;
         } else if (value == "BULLETSIZE") {
             this.bulletSize += 0.5;
         } else if (value == "ATTACKSPEED") {

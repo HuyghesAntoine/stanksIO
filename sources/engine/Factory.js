@@ -7,10 +7,10 @@ class Factory {
     constructor(mapSize) {
         this.entities = new Array();
         this.mapSize = mapSize;
-        this.delay = 2000;
+        this.delay = 800;
         this.chrono = new Chrono();
         this.score = 100;
-        this.xp = 100;
+        this.xp = 10;
     }
 
     // Function that add a factory entity in an array?
