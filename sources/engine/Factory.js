@@ -4,9 +4,10 @@ const Chrono = require('./Chrono');
 // Factory class
 class Factory {
     // Constructor that take mapSize parameter.
-    constructor(mapSize) {
+    constructor(mapSizeX, mapSizeY) {
         this.entities = new Array();
-        this.mapSize = mapSize;
+        this.mapSizeX = mapSizeX;
+        this.mapSizeY = mapSizeY;
         this.delay = 800;
         this.chrono = new Chrono();
         this.score = 100;
@@ -18,7 +19,7 @@ class Factory {
         // 10 factory entites maximum in the map.
         if (this.chrono.isOver(this.delay) && this.entities.length <= 50) {
             // Add the entity in the array with given properties.
-            this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#1FE400', this.mapSize));
+            this.entities.push(new Entity(5, getRandom(0, this.mapSizeX), getRandom(0, this.mapSizeY), 1, '#1FE400', this.mapSizeX, this.mapSizeY));
             // Reset the chrono for a new factory entity to spawn.
             this.chrono.reset();
         }
@@ -36,13 +37,15 @@ class Factory {
             else {
                 let rm = false;
                 tank.gun.forEach(canon => {
-                    if (rm==false){
+                    if (rm == false) {
                         for (let j = 0; j < canon.ammos.length; j++) {
                             if (this.entities[i].touch(canon.ammos[j])) {
                                 // If a bullet touch a factory dot, the add exp and score points and remove the factory.
-                                tank.level.addXp(this.xp);
-                                tank.score += this.score;
-                                this.entities[i].health-=1;
+                                this.entities[i].health -= 1;
+                                if (this.entities[i].isDead()) {
+                                    tank.level.addXp(this.xp);
+                                    tank.score += this.score;
+                                }
                                 rm = true;
                                 break;
                             }
@@ -58,9 +61,9 @@ class Factory {
         this.entities.splice(i, 1);
     }
 
-    removeAll(){
+    removeAll() {
         for (let i = 0; i < this.entities.length; i++) {
-            if (this.entities[i].isDead()){
+            if (this.entities[i].isDead()) {
                 this.remove(i);
             }
         }
