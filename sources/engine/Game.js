@@ -83,6 +83,7 @@ class Game {
       }
       player.shoot();
       this.bonus.removeAll();
+      this.factory.removeAll();
 
       this.factory.touchAll(player);
       this.bonus.touchAll(player);

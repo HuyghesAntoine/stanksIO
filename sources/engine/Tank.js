@@ -14,7 +14,7 @@ class Tank extends Entity {
         this.socketId = socketid;
         this.gun = new Array();
         this.gun.push(new Gun(this.mapSize, 0));
-        this.gun.push(new Gun(this.mapSize, 1));
+        this.gun.push(new Gun(this.mapSize, Math.PI));
         if (cls == "cls1") this.masto();
         if (cls == "cls2") this.hunter();
         if (cls == "cls3") this.farmer();
