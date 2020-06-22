@@ -154,6 +154,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 5;
+        this.health = 5;
         this.size = 30;
         this.speed = 2;
         this.attack = 1.5;
@@ -170,6 +171,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 3;
+        this.health = 3;
         this.size = 20;
         this.speed = 8;
         this.attack = 0.7;
@@ -186,6 +188,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 2;
+        this.health = 2;
         this.size = 20;
         this.speed = 3;
         this.attack = 0.5;
@@ -202,6 +205,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 3;
+        this.health = 3;
         this.size = 15;
         this.speed = 5;
         this.attack = 2;

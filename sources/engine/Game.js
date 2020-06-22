@@ -84,22 +84,14 @@ class Game {
       player.shoot();
       this.bonus.removeAll();
       this.factory.removeAll();
-
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
-      //console.log(player);
       player.gun.forEach(canon => {
         canon.moveAll();
       });
-
       Object.values(this.players).forEach(tank => {
-        if (tank != player)
-          player.touchAll(tank);
-      });
-
-      if (player.Alive() == false)
-        this.delist(player.id, player.socketId);
-    });
+        if (tank != player) player.touchAll(tank);});
+        if (player.Alive() == false) this.delist(player.id, player.socketId);});
   }
 
   getRandomColor() {
