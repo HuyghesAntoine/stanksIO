@@ -17,19 +17,18 @@ class Farmer extends Tank {
         this.attackSpeed = 1000;
     }
     
-    upgrade(value) {
-        if (this.level.xpPoint <= 0) return;
-        if (value == 0) {
-            this.level.changeMult(this.level.mult*1.1);
-        } else if (value == 1) {
-            this.speed += 0.3;
-        } else if (value == 2) {
-            this.attack *= 1.1;
-        } else if (value == 3) {
-            this.attackSpeed *= 0.8;
+    upgrade(i){
+        super.upgrade(i);
+        if (this.level.levelNumber == 2){
+            this.addCanon(Math.PI/4);
         }
-        this.size += 2;
-        this.level.xpPoint--;
+        if (this.level.levelNumber == 3){
+            this.addCanon(-Math.PI/4);
+        }
+        if (this.level.levelNumber == 4){
+            this.addCanon(3*Math.PI/4);
+            this.addCanon(5*Math.PI/4)
+        }
     }
 }
 

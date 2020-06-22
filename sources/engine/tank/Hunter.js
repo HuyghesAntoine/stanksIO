@@ -15,6 +15,19 @@ class Hunter extends Tank {
         this.bulletSpeed = 5;
         this.attackSpeed = 850;
     }
+    upgrade(i){
+        super.upgrade(i);
+        if (this.level.levelNumber == 5){
+            this.addCanon(Math.PI/6);
+        }
+        if (this.level.levelNumber == 10){
+            this.addCanon(Math.PI/2);
+        }
+        if (this.level.levelNumber == 20){
+            this.addCanon(-Math.PI/2);
+            this.addCanon(-Math.PI/6)
+        }
+    }
 }
 
 function getRandom(min, max) {

@@ -21,9 +21,13 @@ class Sniper extends Tank {
         if (this.level.levelNumber == 5){
             this.addCanon(Math.PI);
         }
-
+        if (this.level.levelNumber == 10){
+            this.addCanon(Math.PI/6);
+        }
+        if (this.level.levelNumber == 20){
+            this.addCanon(7*Math.PI/6);
+        }
     }
-    
 }
 
 function getRandom(min, max) {

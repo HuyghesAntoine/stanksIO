@@ -42,40 +42,33 @@ class ControlsSocket {
         this.leveling(player);
       }
     });
-    if (exist == false){
-      var url = location.protocol+ '//' + location.host + location.pathname + '?pseudo=' + this.me.pseudo;
+    if (exist == false) {
+      var url = location.protocol + '//' + location.host + location.pathname + '?pseudo=' + this.me.pseudo;
       window.location.href = url;
     }
   }
 
   leveling(player) {
-    if (player.bulletSize >= 15)
-      document.getElementById("sizeUpgrade").disabled = true;
-    if (player.attackSpeed <= 500)
-      document.getElementById("attackSpeedUpgrade").disabled = true;
-    if (player.speed >= 10)
-      document.getElementById("speedUpgrade").disabled = true;
-    if (player.attack >= 3)
-      document.getElementById("attackUpgrade").disabled = true;
     if (player.level.xpPoint == 0) {
-      if (document.getElementById("attackUpgrade").disabled == false)
-        document.getElementById("attackUpgrade").style.display = "none";
-      if (document.getElementById("speedUpgrade").disabled == false)
-        document.getElementById("speedUpgrade").style.display = "none";
-      if (document.getElementById("sizeUpgrade").disabled == false)
-        document.getElementById("sizeUpgrade").style.display = "none";
-      if (document.getElementById("attackSpeedUpgrade").disabled == false)
-        document.getElementById("attackSpeedUpgrade").style.display = "none";
+      document.getElementById("attackUpgrade").style.display = "none";
+      document.getElementById("speedUpgrade").style.display = "none";
+      document.getElementById("sizeUpgrade").style.display = "none";
+      document.getElementById("attackSpeedUpgrade").style.display = "none";
     } else {
-      document.getElementById("attackUpgrade").style.display = "block";
-      document.getElementById("speedUpgrade").style.display = "block";
-      document.getElementById("sizeUpgrade").style.display = "block";
-      document.getElementById("attackSpeedUpgrade").style.display = "block";
-      console.log(player);
-      document.getElementById("attackUpgrade").innerHTML = player.myUpgrade[0];
-      document.getElementById("speedUpgrade").innerHTML = player.myUpgrade[1];
-      document.getElementById("sizeUpgrade").innerHTML = player.myUpgrade[2];
-      document.getElementById("attackSpeedUpgrade").innerHTML = player.myUpgrade[3];
+      this.displayUpgrade(player);
     }
+  }
+
+  displayUpgrade(player) {
+    document.getElementById("attackUpgrade").style.display = "block";
+    document.getElementById("speedUpgrade").style.display = "block";
+    document.getElementById("sizeUpgrade").style.display = "block";
+    document.getElementById("attackSpeedUpgrade").style.display = "block";
+
+    var i = 0;
+    document.querySelectorAll('.btnUpgr').forEach((upgrade)=>{
+      upgrade.innerHTML = player.myUpgrade[i];
+      i++;
+    });
   }
 }
