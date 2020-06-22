@@ -5,14 +5,10 @@ const Level = require('../Level');
 class Farmer extends Tank {
     constructor(id, socket, color, cls){
         super(id, socket, color, cls);
-        this.myUpgrade = ["XP", "SPEED", "ATTACK", "FARMER"];
-        this.pseudo = "noname";
-        this.direction = 0;
-        this.look = getRandom(0, 2 * Math.PI);
+        this.myUpgrade = ["XP", "SPEED", "ATTACK", "ATTACKSPEED"];
         this.level = new Level(2);
-        this.score = 0;
-        this.isMoving = false;
         this.maxHealth = 10;
+        this.health = 10;
         this.size = 20;
         this.speed = 2;
         this.attack = 1;

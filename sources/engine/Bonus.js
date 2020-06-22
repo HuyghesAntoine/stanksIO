@@ -17,7 +17,7 @@ class Bonus {
             this.entities.push(new Entity(10, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#E40000', this.mapSize));
             // Reset the chrono and get a random number for the delay.
             this.chrono.reset();
-            this.delay = getRandom(10000, 30000);
+            this.delay = getRandom(10000, 20000);
         }
     }
 

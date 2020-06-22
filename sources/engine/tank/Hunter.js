@@ -4,7 +4,6 @@ const Level = require('../Level');
 
 class Hunter extends Tank {
     constructor(id, socket, color, cls){
-        console.log("Hunter");
         super(id, socket, color, cls);
         this.myUpgrade = ["ATTACK", "ATTACKSPEED", "SPEED", "BULLETSIZE"];
         this.maxHealth = 10;
