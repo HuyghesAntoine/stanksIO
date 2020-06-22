@@ -6,15 +6,15 @@ const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
 class Tank extends Entity {
-    constructor(id, socketid, color) {
-        super(20, 800 / 2, 800 / 2, 3, color, 800);
+    constructor(id, socketid, color, mapSizeX, mapSizeY) {
+        super(20, 800 / 2, 800 / 2, 3, color, mapSizeX, mapSizeY);
         const myUpgrade = ["TANK", "TANK", "TANK", "TANK"];
-        this.x = getRandom(0 + this.size, this.mapSize - this.size);
-        this.y = getRandom(0 + this.size, this.mapSize - this.size);
+        this.x = getRandom(0 + this.size, this.mapSizeX - this.size);
+        this.y = getRandom(0 + this.size, this.mapSizeY - this.size);
         this.id = id;
         this.socketId = socketid;
         this.gun = new Array();
-        this.gun.push(new Gun(this.mapSize, 0));
+        this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, 0));
         this.chrono = new Chrono();
         this.level = new Level();
         this.direction = 0;
@@ -25,7 +25,7 @@ class Tank extends Entity {
     }
 
     isOut(x, y) {
-        return !(x > (this.size / 2) && x < (this.mapSize - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSize - (this.size / 2)));
+        return !(x > (this.size / 2) && x < (this.mapSizeX - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSizeY - (this.size / 2)));
     }
 
     move() {
@@ -132,14 +132,14 @@ class Tank extends Entity {
             this.bulletSize += 0.5;
         } else if (value == "ATTACKSPEED") {
             this.attackSpeed *= 0.95;
-        } else if (value=="BULLETSPEED"){
+        } else if (value == "BULLETSPEED") {
             this.bulletSpeed += 0.25;
-        } else if (value=="HEALTH"){
+        } else if (value == "HEALTH") {
             this.healh += 2;
             this.maxHealth += 2;
-        } else if(value=="XP"){
+        } else if (value == "XP") {
             this.level.changeMult(this.level.mult * 1.1);
-        } else if (value=="ALPHA"){
+        } else if (value == "ALPHA") {
 
         }
         this.size += 0.5;
@@ -147,19 +147,19 @@ class Tank extends Entity {
     }
 
     heal() {
-        if (this.health < this.maxHealth){
+        if (this.health < this.maxHealth) {
             this.health += 1;
         }
     }
 
     getScore() {
-        return (this.score / 2) + 500;
+        return Math.floor((this.score / 2) + 500);
     }
     getXp() {
         return this.level.levelNumber * 100;
     }
-    addCanon(direction){
-        this.gun.push(new Gun(this.mapSize,direction));
+    addCanon(direction) {
+        this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, direction));
     }
 }
 

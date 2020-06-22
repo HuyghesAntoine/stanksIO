@@ -20,11 +20,13 @@ const Leaderboard = require('./Leaderboard');
 class Game {
   // Constructor that take a name parameter
   constructor(name) {
+    this.mapSizeX = 1200;
+    this.mapSizeY = 800;
     this.nbJ = 1;
     this.name = name;
     this.players = {};
-    this.factory = new Factory(800);
-    this.bonus = new Bonus(800);
+    this.factory = new Factory(this.mapSizeX, this.mapSizeY);
+    this.bonus = new Bonus(this.mapSizeX, this.mapSizeY);
     this.leaderboard = new Leaderboard();
     // Array for tank colors.
     this.colors = ['#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
@@ -35,13 +37,13 @@ class Game {
 
 
     if (cls == "cls1")
-      this.players[id] = new Masto(id, socket, this.getRandomColor(), cls);
+      this.players[id] = new Masto(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     else if (cls == "cls2")
-      this.players[id] = new Hunter(id, socket, this.getRandomColor(), cls);
+      this.players[id] = new Hunter(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     else if (cls == "cls3")
-      this.players[id] = new Farmer(id, socket, this.getRandomColor(), cls);
+      this.players[id] = new Farmer(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     else if (cls == "cls4")
-      this.players[id] = new Sniper(id, socket, this.getRandomColor(), cls);
+      this.players[id] = new Sniper(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     this.nbJ += 1;
   }
 
