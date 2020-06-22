@@ -1,6 +1,7 @@
 // Level class
 class Level {
-    constructor() {
+    constructor(bonus = 1) {
+        this.mult = bonus;
         this.levelNumber = 1;
         this.xp = 0;
         this.xpNeeded = 100;
@@ -8,8 +9,12 @@ class Level {
     }
     // Function that add exp points 
     addXp(xp){
-        this.xp += xp;
+        this.xp += xp*this.mult;
         this.levelUp();
+    }
+
+    changeMult(mult){
+        this.mult = mult;
     }
     // Function that check if the amount of exp is enough to gain a level. 
     levelUp(){

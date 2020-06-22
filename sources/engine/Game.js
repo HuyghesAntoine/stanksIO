@@ -5,6 +5,10 @@
  */
 
 const Tank = require('./Tank');
+const Farmer = require('./tank/Farmer');
+const Hunter = require('./tank/Hunter');
+const Masto = require('./tank/Masto');
+const Sniper = require('./tank/Sniper');
 const Factory = require('./Factory');
 const Bonus = require('./Bonus');
 const Leaderboard = require('./Leaderboard');
@@ -25,10 +29,19 @@ class Game {
     // Array for tank colors.
     this.colors = ['#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
   }
-  
+
   register(id, socket, cls) {
-    console.log("Création d'un tank : "+ cls);
-    this.players[id] = new Tank(id, socket, this.getRandomColor(), cls);
+    console.log("Création d'un tank : " + cls);
+
+
+    if (cls == "cls1")
+      this.players[id] = new Masto(id, socket, this.getRandomColor(), cls);
+    else if (cls == "cls2")
+      this.players[id] = new Hunter(id, socket, this.getRandomColor(), cls);
+    else if (cls == "cls3")
+      this.players[id] = new Farmer(id, socket, this.getRandomColor(), cls);
+    else if (cls == "cls4")
+      this.players[id] = new Sniper(id, socket, this.getRandomColor(), cls);
     this.nbJ += 1;
   }
 
@@ -90,12 +103,14 @@ class Game {
         canon.moveAll();
       });
       Object.values(this.players).forEach(tank => {
-        if (tank != player) player.touchAll(tank);});
-        if (player.Alive() == false) this.delist(player.id, player.socketId);});
+        if (tank != player) player.touchAll(tank);
+      });
+      if (player.Alive() == false) this.delist(player.id, player.socketId);
+    });
   }
 
   getRandomColor() {
-    return this.colors[Math.floor(getRandom(0,this.colors.length-1))];
+    return this.colors[Math.floor(getRandom(0, this.colors.length - 1))];
   }
 }
 
