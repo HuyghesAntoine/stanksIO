@@ -64,7 +64,6 @@ class Game {
 
   testPlayer() {
     Object.values(this.players).forEach(player => {
-      //console.log(player);
     });
   }
 
