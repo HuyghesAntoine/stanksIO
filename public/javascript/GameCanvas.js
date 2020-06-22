@@ -9,7 +9,6 @@ class GameCanvas {
 
     }
 
-
     drawCannon(tank, canonDirection) {
         const { x, y, size, look } = tank;
         this.context.beginPath();
