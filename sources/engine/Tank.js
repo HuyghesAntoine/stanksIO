@@ -117,16 +117,26 @@ class Tank extends Entity {
         });
     }
 
-    upgrade(value) {
+    upgrade(i) {
         if (this.level.xpPoint <= 0) return;
-        if (value == 0) {
+        let value = this.myUpgrade[i];
+        if (value == "ATTACK") {
             this.attack += 0.5;
-        } else if (value == 1) {
+        } else if (value == "SPEED") {
             this.speed += 1;
-        } else if (value == 2) {
-            this.bulletSize *= 1.5;
-        } else if (value == 3) {
-            this.attackSpeed *= 0.8;
+        } else if (value == "BULLETSIZE") {
+            this.bulletSize += 1;
+        } else if (value == "ATTACKSPEED") {
+            this.attackSpeed *= 0.9;
+        } else if (value=="BULLETSPEED"){
+            this.bulletSpeed += 1;
+        } else if (value=="HEALTH"){
+            this.healh += 2;
+            this.maxHealth += 2;
+        } else if(value=="XP"){
+            this.level.changeMult(this.level.mult * 1.1);
+        } else if (value=="ALPHA"){
+
         }
         this.size += 2;
         this.level.xpPoint--;

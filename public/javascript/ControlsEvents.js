@@ -15,10 +15,10 @@ class ControlsEvents {
                 this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY());
             }
         },1000/60);
-        document.getElementById("attackUpgrade").addEventListener("click", () => this.attackUp());
-        document.getElementById("speedUpgrade").addEventListener("click", () => this.speedUp());
-        document.getElementById("sizeUpgrade").addEventListener("click", () => this.sizeUp());
-        document.getElementById("attackSpeedUpgrade").addEventListener("click", () => this.attackSpeedUp());
+        document.getElementById("attackUpgrade").addEventListener("click", () => this.upgrade(0));
+        document.getElementById("speedUpgrade").addEventListener("click", () => this.upgrade(1));
+        document.getElementById("sizeUpgrade").addEventListener("click", () => this.upgrade(2));
+        document.getElementById("attackSpeedUpgrade").addEventListener("click", () => this.upgrade(3));
     }
 
     onSubPseudo(event, pseudo) {
@@ -38,6 +38,10 @@ class ControlsEvents {
         var angle = Math.atan2(x,y);
         //console.log(this.socket);
         this.socket.shoot(angle - Math.PI/2);
+    }
+
+    upgrade(i){
+        this.socket.upgrade(i);
     }
 
     attackUp(){
