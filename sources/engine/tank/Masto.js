@@ -15,20 +15,17 @@ class Masto extends Tank {
         this.bulletSpeed = 6;
         this.attackSpeed = 1500;
     }
-
-    upgrade(value) {
-        if (this.level.xpPoint <= 0) return;
-        if (value == 0) {
-            this.maxHealth += 0.2;
-        } else if (value == 1) {
-            this.speed += 0.3;
-        } else if (value == 2) {
-            this.attack *= 1.1;
-        } else if (value == 3) {
-            this.attackSpeed *= 0.9;
+    upgrade(i){
+        super.upgrade(i);
+        if (this.level.levelNumber == 5){
+            this.addCanon(Math.PI/2);
         }
-        this.size += 2;
-        this.level.xpPoint--;
+        if (this.level.levelNumber == 10){
+            this.addCanon(-Math.PI/2);
+        }
+        if (this.level.levelNumber == 20){
+            this.addCanon(Math.PI);
+        }
     }
 }
 
