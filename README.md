@@ -24,7 +24,7 @@ Use the joysticks to move and shoot towards a specific direction.
 * Collect **green dots** to gain experience and score points.
 * Collect **red hearth** to regain life point. 
 * Upgrade your tank with your levels. They are different according to the class.
-* Multiple canons.
+* Multiple tank evolutions.
 
 ## Development team  
 
@@ -41,24 +41,17 @@ We can help each others if someone is stuck on a problem for to long.
 ## Install the game on local network 
 
 ```sh
-# fork and clone project
-
-# install
 cd l3_projet_etudiant/
 npm install
-
-# serve at 'localhost:3000'
 npm run devstart
+#Run on localhost:3000
 ```
 
 ## Run the tests
 
 ```sh
-# install
 cd test/
 npm install
-
-# run
 npm run test
 ```
 
@@ -68,4 +61,13 @@ npm run test
 
 ## Conclusion 
 
+* Self-critism : 
+    * Not enough organisation at the begining of the project.
+    * Everyone was working on the same things. 
+    * But at the end of the first / second day, everyone was focus on his own objectives for the project. 
+    * Maybe we should have spend more time on the *project management*.
+    * But our branch organisation was perfect for us. 
 
+* If we had to redo it : 
+    * Keep the same developer team, we had good communications and it was fun to do. 
+    * Chose another game to make. The snake was our second choice to be honest. 
