@@ -3,6 +3,10 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #C1C0AC;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #lifeBar{
@@ -108,7 +112,7 @@ body {
     display: none;
 }
 
-.descriClass{
+#descriClass{
     width: 400px;
     text-align:center;
     margin-left: auto;
