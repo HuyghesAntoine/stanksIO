@@ -45,7 +45,7 @@ class Tank extends Entity {
     shoot() {
         if (this.chrono.isOver(this.attackSpeed)) {
             this.gun.forEach(canon => {
-                canon.shoot(new Bullet(this,canon.direction));
+                canon.shoot(new Bullet(this, canon.direction));
             });
             //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
@@ -92,7 +92,6 @@ class Tank extends Entity {
             if (canon.ammos.length > 0) {
                 let rm = false;
                 for (let i = 0; i < canon.ammos.length; i++) {
-                    // bullet vs entity bullet
                     entity.gun.forEach(canonEntity => {
                         for (let j = 0; j < canonEntity.ammos.length; j++) {
                             if (canon.ammos[i].touch(canonEntity.ammos[j])) {
@@ -102,7 +101,6 @@ class Tank extends Entity {
                             }
                         }
                     });
-                    // bullet vs entity
                     if (canon.ammos[i].touch(entity)) {
                         entity.health -= canon.ammos[i].damage;
                         if (entity.isDead()) {
@@ -156,6 +154,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 5;
+        this.health = 5;
         this.size = 30;
         this.speed = 2;
         this.attack = 1.5;
@@ -172,6 +171,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 3;
+        this.health = 3;
         this.size = 20;
         this.speed = 8;
         this.attack = 0.7;
@@ -188,6 +188,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 2;
+        this.health = 2;
         this.size = 20;
         this.speed = 3;
         this.attack = 0.5;
@@ -204,6 +205,7 @@ class Tank extends Entity {
         this.chrono = new Chrono();
         this.isMoving = false;
         this.maxHealth = 3;
+        this.health = 3;
         this.size = 15;
         this.speed = 5;
         this.attack = 2;
