@@ -18,7 +18,11 @@ class Tank extends Entity {
         this.gun.push(new Gun(this.mapSize, Math.PI));
         this.chrono = new Chrono();
         this.level = new Level();
-        this.attackSpeed = 100;
+        this.direction = 0;
+        this.look = getRandom(0, 2 * Math.PI);
+        this.pseudo = "noname";
+        this.score = 0;
+        this.isMoving = false;
     }
 
     isOut(x, y) {
@@ -47,6 +51,7 @@ class Tank extends Entity {
             this.gun.forEach(canon => {
                 canon.shoot(new Bullet(this, canon.direction));
             });
+            //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
         }
     }
@@ -116,16 +121,26 @@ class Tank extends Entity {
         });
     }
 
-    upgrade(value) {
+    upgrade(i) {
         if (this.level.xpPoint <= 0) return;
-        if (value == 0) {
+        let value = this.myUpgrade[i];
+        if (value == "ATTACK") {
             this.attack += 0.5;
-        } else if (value == 1) {
+        } else if (value == "SPEED") {
             this.speed += 1;
-        } else if (value == 2) {
-            this.bulletSize *= 1.5;
-        } else if (value == 3) {
-            this.attackSpeed *= 0.8;
+        } else if (value == "BULLETSIZE") {
+            this.bulletSize += 1;
+        } else if (value == "ATTACKSPEED") {
+            this.attackSpeed *= 0.9;
+        } else if (value=="BULLETSPEED"){
+            this.bulletSpeed += 1;
+        } else if (value=="HEALTH"){
+            this.healh += 2;
+            this.maxHealth += 2;
+        } else if(value=="XP"){
+            this.level.changeMult(this.level.mult * 1.1);
+        } else if (value=="ALPHA"){
+
         }
         this.size += 2;
         this.level.xpPoint--;
