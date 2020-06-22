@@ -18,7 +18,6 @@ class Tank extends Entity {
         this.gun.push(new Gun(this.mapSize, Math.PI));
         this.chrono = new Chrono();
         this.level = new Level();
-
         this.attackSpeed = 100;
     }
 
