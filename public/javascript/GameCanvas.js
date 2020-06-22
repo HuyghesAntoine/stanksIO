@@ -42,9 +42,6 @@ class GameCanvas {
         const { players, factory, bonus } = data;
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
-        /*factory.entities.forEach((entity) => {
-            console.log('ah');
-            this.drawBullet(entity)});*/
         players.forEach((player) => {
             player.gun.forEach( canon => {
                 for (let i = 0; i < canon.ammos.length; i++) {
@@ -54,8 +51,6 @@ class GameCanvas {
             });
             this.drawTank(player);
         });
-        /*const {bullets} = data;
-        bullets.forEach((bullet)=> this.drawBullet(bullet));*/
     }
 
     update(data) {

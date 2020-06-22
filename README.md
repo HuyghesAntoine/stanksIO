@@ -7,23 +7,22 @@ This is the final project of our last year in Bachelor Degree in ULCO Calais.
 
 ## How to play 
 
-Launch [this link(empty)][] to access the home page of the game.
-Click on [the play button(empty)][] to access the game page, and click on [the controler(empty)][] to access the control page.
+Launch [this link(empty)]() to access the home page of the game.
+Click on [the play button(empty)]() to access the game page, and click on [the controler(empty)]() to access the control page.
 You have to use the control page on your mobile phone.
 Use the joysticks to move and shoot towards a specific direction.
 
 ## functionalitys
 
 * Each player **control** a tank.
+* Chose a class and a name.
 * Each tank can **move** and **aim** with the two joysticks.
 * **Left** joystick to move.
 * **Right** joystick to aim.
 * Collect **green dots** to gain experience and score points.
 * Collect **red hearth** to regain life point. 
-* Improve skills on your mobile screen. 
-* Try to be on the top of the leaderboard. 
-* Log in to your personnal account to save your best performances. 
-* Use our **fake** shop to buy skins.
+* Upgrade your tank with your levels.
+* Multiple canons.
 
 ## Development team  
 

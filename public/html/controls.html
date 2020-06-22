@@ -19,7 +19,7 @@
 <body id="controlPage">
 
   <div id="pseudal_page" class="row">
-    <input class="form-control" type="text" id="Pseudal">
+    <input class="form-control" type="text" id="Pseudal" autocomplete="off">
     <button class="btn btn-dark" id="btnPseudo" onclick="displayte()" disabled>Validate</button>
   </div>
 
@@ -30,7 +30,7 @@
     <button id="cls4" class="btn btn-outline-dark btnCls"> Sniper </button>
   </div>
 
-  <div class="card bg-light mb-3 descriClass">
+  <div id="descriClass" class="card bg-light mb-3">
     <div class="card-header">Class description</div>
       <div class="card-body">
         <ul>
@@ -161,6 +161,7 @@
         var x = document.getElementById("Pseudal").value;
         document.getElementById("pseudal_page").style.display = "none";
         document.getElementById("classPage").style.display = "none";
+        document.getElementById("descriClass").style.display = "none";
         document.getElementById("control_pading").style.display = "block";
         document.getElementById("hide_joy").style.visibility = "visible";
         const socket = new ControlsSocket(myCls);
