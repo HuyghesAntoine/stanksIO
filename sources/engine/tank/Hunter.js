@@ -1,6 +1,7 @@
 const Chrono = require('../Entity');
 const Tank = require('../Tank');
 const Level = require('../Level');
+const Evolution = require('../Evolution');
 
 class Hunter extends Tank {
     constructor(id, socket, color, cls){
@@ -14,18 +15,14 @@ class Hunter extends Tank {
         this.bulletSize = 6;
         this.bulletSpeed = 5;
         this.attackSpeed = 850;
+        this.evolution = new Evolution([Math.PI/6,Math.PI/2,-Math.PI/2,-Math.PI/6]);
+
     }
     upgrade(i){
         super.upgrade(i);
-        if (this.level.levelNumber == 5){
-            this.addCanon(Math.PI/6);
-        }
-        if (this.level.levelNumber == 10){
-            this.addCanon(Math.PI/2);
-        }
-        if (this.level.levelNumber == 20){
-            this.addCanon(-Math.PI/2);
-            this.addCanon(-Math.PI/6)
+        let evolutions = this.evolution.evolute(this.level.levelNumber);
+        for (let i=0 ; i<evolutions.length ; i++){
+            this.addCanon(evolutions[i]);
         }
     }
 }
