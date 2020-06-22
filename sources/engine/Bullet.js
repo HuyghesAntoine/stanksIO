@@ -2,11 +2,13 @@ const Entity = require("./Entity");
 // Bullet class 
 class Bullet extends Entity{
     // Constructor for bullet, need a tank parameter.
-    constructor(tank){
+    constructor(tank, gunDirection){
         // Apply properties of the bullet, in function of the given tank.
-        super(tank.bulletSize, tank.x, tank.y, 1, tank.color, tank.mapSize);
+        let direction  = tank.look + gunDirection;
+        super(tank.bulletSize, (tank.x + (Math.cos(direction) * (tank.size*1.2))), (tank.y + (Math.sin(direction) * (tank.size*1.2))), 1, tank.color, tank.mapSize);
         this.damage = tank.attack;
-        this.direction = tank.look;
+        this.direction = direction;
+        
         this.speed = 2*tank.speed;
     }
 

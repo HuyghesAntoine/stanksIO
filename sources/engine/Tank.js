@@ -12,10 +12,13 @@ class Tank extends Entity {
         this.y = getRandom(0 + this.size, this.mapSize - this.size);
         this.id = id;
         this.socketId = socketid;
-        if(cls == "cls1") this.masto();
-        if(cls == "cls2") this.hunter();
-        if(cls == "cls3") this.farmer();
-        if(cls == "cls4") this.sniper();
+        this.gun = new Array();
+        this.gun.push(new Gun(this.mapSize, 0));
+        this.gun.push(new Gun(this.mapSize, Math.PI));
+        if (cls == "cls1") this.masto();
+        if (cls == "cls2") this.hunter();
+        if (cls == "cls3") this.farmer();
+        if (cls == "cls4") this.sniper();
     }
 
     isOut(x, y) {
@@ -29,11 +32,22 @@ class Tank extends Entity {
             this.x = xMove;
             this.y = yMove;
         }
+        else if (this.isOut(xMove, this.x) && !this.isOut(this.x, yMove)) {
+            console.log('depasse en x');
+            this.y = yMove;
+        }
+        else if (this.isOut(this.x, yMove) && !this.isOut(xMove, this.y)) {
+            console.log('depasse en y');
+            this.x = xMove;
+        }
     }
 
     shoot() {
         if (this.chrono.isOver(this.attackSpeed)) {
-            this.gun.shoot(new Bullet(this));
+            this.gun.forEach(canon => {
+                canon.shoot(new Bullet(this,canon.direction));
+            });
+            //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
         }
 
@@ -47,9 +61,9 @@ class Tank extends Entity {
             this.attackSpeed = 250;
             this.color = "#ffd700";
         }
-        if(val == "grimtous"){
+        if (val == "grimtous") {
             this.health = 6;
-            this.healthMax = 6;
+            this.maxHealth = 6;
             this.attack = 3;
             this.speed = 2;
             this.bulletSize = 15;
@@ -74,28 +88,38 @@ class Tank extends Entity {
     }
 
     touchAll(entity) {
-        if (this.gun.ammos.length > 0) {
-            let rm = false;
-            for (let i = 0; i < this.gun.ammos.length; i++) {
-                for (let j = 0; j < entity.gun.ammos.length; j++) {
-                    if (this.gun.ammos[i].touch(entity.gun.ammos[j])) {
-                        entity.gun.remove(j);
+        this.gun.forEach(canon => {
+            if (canon.ammos.length > 0) {
+                let rm = false;
+                for (let i = 0; i < canon.ammos.length; i++) {
+
+                    // bullet vs entity bullet
+                    entity.gun.forEach(canonEntity => {
+                        for (let j = 0; j < canonEntity.ammos.length; j++) {
+                            if (canon.ammos[i].touch(canonEntity.ammos[j])) {
+                                canonEntity.remove(j);
+                                rm = true;
+                                break;
+                            }
+                        }
+                    });
+
+                    // bullet vs entity
+                    if (canon.ammos[i].touch(entity)) {
+                        entity.health -= canon.ammos[i].damage;
+                        if (entity.isDead()) {
+                            this.score += entity.getScore();
+                            this.level.addXp(entity.getXp());
+                        }
                         rm = true;
-                        break;
                     }
+                    if (rm)
+                        canon.remove(i);
                 }
-                if (this.gun.ammos[i].touch(entity)) {
-                    entity.health -= this.gun.ammos[i].damage;
-                    if (entity.isDead()) {
-                        this.score += entity.getScore();
-                        this.level.addXp(entity.getXp());
-                    }
-                    rm = true;
-                }
-                if (rm)
-                    this.gun.remove(i);
             }
-        }
+
+        });
+
     }
 
     upgrade(value) {
@@ -127,9 +151,8 @@ class Tank extends Entity {
         return this.level.levelNumber * 100;
     }
 
-    masto(){
+    masto() {
         this.pseudo = "noname";
-        this.gun = new Gun(this.mapSize);
         this.direction = 0;
         this.look = getRandom(0, 2 * Math.PI);
         this.level = new Level();
@@ -140,13 +163,12 @@ class Tank extends Entity {
         this.size = 30;
         this.speed = 2;
         this.attack = 1.5;
-        this.bulletSize = 10; 
+        this.bulletSize = 10;
         this.attackSpeed = 1000;
     }
 
-    hunter(){
+    hunter() {
         this.pseudo = "noname";
-        this.gun = new Gun(this.mapSize);
         this.direction = 0;
         this.look = getRandom(0, 2 * Math.PI);
         this.level = new Level();
@@ -157,13 +179,12 @@ class Tank extends Entity {
         this.size = 20;
         this.speed = 8;
         this.attack = 0.7;
-        this.bulletSize = 5; 
+        this.bulletSize = 5;
         this.attackSpeed = 500;
     }
 
-    farmer(){
+    farmer() {
         this.pseudo = "noname";
-        this.gun = new Gun(this.mapSize);
         this.direction = 0;
         this.look = getRandom(0, 2 * Math.PI);
         this.level = new Level();
@@ -174,13 +195,12 @@ class Tank extends Entity {
         this.size = 20;
         this.speed = 3;
         this.attack = 0.5;
-        this.bulletSize = 5; 
+        this.bulletSize = 5;
         this.attackSpeed = 1500;
     }
 
-    sniper(){
+    sniper() {
         this.pseudo = "noname";
-        this.gun = new Gun(this.mapSize);
         this.direction = 0;
         this.look = getRandom(0, 2 * Math.PI);
         this.level = new Level();
@@ -191,7 +211,7 @@ class Tank extends Entity {
         this.size = 15;
         this.speed = 5;
         this.attack = 2;
-        this.bulletSize = 17; 
+        this.bulletSize = 17;
         this.attackSpeed = 3000;
     }
 }

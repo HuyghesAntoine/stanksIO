@@ -16,7 +16,7 @@ class Factory {
     // Function that add a factory entity in an array?
     addEntity() {
         // 10 factory entites maximum in the map.
-        if (this.chrono.isOver(this.delay) && this.entities.length <= 10) { 
+        if (this.chrono.isOver(this.delay) && this.entities.length <= 10) {
             // Add the entity in the array with given properties.
             this.entities.push(new Entity(5, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#1FE400', this.mapSize));
             // Reset the chrono for a new factory entity to spawn.
@@ -34,15 +34,21 @@ class Factory {
                 this.remove(i);
             }
             else {
-                for (let j = 0; j < tank.gun.ammos.length; j++) {
-                    if (this.entities[i].touch(tank.gun.ammos[j])) {
-                        // If a bullet touch a factory dot, the add exp and score points and remove the factory.
-                        tank.level.addXp(this.xp);
-                        tank.score += this.score;
-                        this.remove(i);
-                        break;
+                let rm = false;
+                tank.gun.forEach(canon => {
+                    if (rm==false){
+                        for (let j = 0; j < canon.ammos.length; j++) {
+                            if (this.entities[i].touch(canon.ammos[j])) {
+                                // If a bullet touch a factory dot, the add exp and score points and remove the factory.
+                                tank.level.addXp(this.xp);
+                                tank.score += this.score;
+                                this.entities[i].health-=1;
+                                rm = true;
+                                break;
+                            }
+                        }
                     }
-                }
+                });
             }
         }
     }
@@ -50,6 +56,14 @@ class Factory {
     // Function that remove a factory entity from the array.
     remove(i) {
         this.entities.splice(i, 1);
+    }
+
+    removeAll(){
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.entities[i].isDead()){
+                this.remove(i);
+            }
+        }
     }
 
 }

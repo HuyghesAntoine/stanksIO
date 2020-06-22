@@ -2,9 +2,10 @@ const Bullet = require('./Bullet');
 
 // une arme est un tableau de balles
 class Gun {
-    constructor(mapSize) {
+    constructor(mapSize, direction) {
         this.ammos = new Array();
         this.mapSize = mapSize;
+        this.direction = direction;
     }
 
     // tirer avec une arme revient à ajouter une balle dans le tableau ammos

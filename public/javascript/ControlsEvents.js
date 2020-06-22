@@ -36,7 +36,7 @@ class ControlsEvents {
 
     onTouchShoot(x,y) {
         var angle = Math.atan2(x,y);
-        console.log(this.socket);
+        //console.log(this.socket);
         this.socket.shoot(angle - Math.PI/2);
     }
 
