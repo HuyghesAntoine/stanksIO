@@ -82,10 +82,14 @@ class Game {
         player.move();
       }
       player.shoot();
+      this.bonus.removeAll();
+
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
       //console.log(player);
-      player.gun.moveAll();
+      player.gun.forEach(canon => {
+        canon.moveAll();
+      });
 
       Object.values(this.players).forEach(tank => {
         if (tank != player)

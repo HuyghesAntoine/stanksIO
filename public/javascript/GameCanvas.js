@@ -10,11 +10,11 @@ class GameCanvas {
     }
 
 
-    drawCannon(tank) {
+    drawCannon(tank, canonDirection) {
         const { x, y, size, look } = tank;
         this.context.beginPath();
-        this.context.arc((x + Math.cos(look) * (size)), (y + Math.sin(look) * (size)), size / 2, 0, 2 * Math.PI, false);
-        this.context.arc((x + Math.cos(look) * (size*1.2)), (y + Math.sin(look) * (size*1.2)), size / 2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look+canonDirection) * (size)), (y + Math.sin(look+canonDirection) * (size)), size / 2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look+canonDirection) * (size*1.2)), (y + Math.sin(look+canonDirection) * (size*1.2)), size / 2, 0, 2 * Math.PI, false);
         this.context.fillStyle = '#777777';
         this.context.fill();
     }
@@ -46,13 +46,13 @@ class GameCanvas {
             console.log('ah');
             this.drawBullet(entity)});*/
         players.forEach((player) => {
-            for (let i = 0; i < player.gun.ammos.length; i++) {
-                this.drawBullet(player.gun.ammos[i]);
-            }
-        });
-        players.forEach((tank) => {
-            this.drawCannon(tank);
-            this.drawTank(tank);
+            player.gun.forEach( canon => {
+                for (let i = 0; i < canon.ammos.length; i++) {
+                    this.drawBullet(canon.ammos[i]);
+                }
+                this.drawCannon(player,canon.direction);
+            });
+            this.drawTank(player);
         });
         /*const {bullets} = data;
         bullets.forEach((bullet)=> this.drawBullet(bullet));*/
