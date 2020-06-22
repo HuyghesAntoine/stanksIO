@@ -59,15 +59,15 @@ describe('Hunter test', () => {
 
     expect(this.tank.attackSpeed).toBe(850);
     this.tank.upgrade(1);
-    expect(this.tank.attackSpeed).toBe(850*0.9);
+    expect(this.tank.attackSpeed).toBe(850*0.95);
 
     expect(this.tank.speed).toBe(3);
     this.tank.upgrade(2);
-    expect(this.tank.speed).toBe(3+1);    
+    expect(this.tank.speed).toBe(3+0.25);    
     
     expect(this.tank.bulletSize).toBe(6);
     this.tank.upgrade(3);
-    expect(this.tank.bulletSize).toBe(6+1);
+    expect(this.tank.bulletSize).toBe(6+0.5);
 
     expect(this.tank.bulletSize).toBe(7);
     this.tank.upgrade(3);//plus de point d'xp
