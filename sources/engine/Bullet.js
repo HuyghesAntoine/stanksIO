@@ -9,7 +9,7 @@ class Bullet extends Entity{
         this.damage = tank.attack;
         this.direction = direction;
         
-        this.speed = 2*tank.speed;
+        this.speed = tank.bulletSpeed;
     }
 
     // Function that allow the bullet to move in the map, with his own speed.
