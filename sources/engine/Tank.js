@@ -133,7 +133,7 @@ class Tank extends Entity {
         } else if (value == "ATTACKSPEED") {
             this.attackSpeed *= 0.95;
         } else if (value=="BULLETSPEED"){
-            this.bulletSpeed += 0.5;
+            this.bulletSpeed += 0.25;
         } else if (value=="HEALTH"){
             this.healh += 2;
             this.maxHealth += 2;
@@ -147,10 +147,9 @@ class Tank extends Entity {
     }
 
     heal() {
-        if (this.health == this.maxHealth) {
-            this.maxHealth++;
+        if (this.health < this.maxHealth){
+            this.health += 1;
         }
-        this.health++;
     }
 
     getScore() {

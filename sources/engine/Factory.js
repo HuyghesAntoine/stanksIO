@@ -40,9 +40,11 @@ class Factory {
                         for (let j = 0; j < canon.ammos.length; j++) {
                             if (this.entities[i].touch(canon.ammos[j])) {
                                 // If a bullet touch a factory dot, the add exp and score points and remove the factory.
-                                tank.level.addXp(this.xp);
-                                tank.score += this.score;
                                 this.entities[i].health-=1;
+                                if (this.entities[i].isDead()){
+                                    tank.level.addXp(this.xp);
+                                    tank.score += this.score;
+                                }
                                 rm = true;
                                 break;
                             }

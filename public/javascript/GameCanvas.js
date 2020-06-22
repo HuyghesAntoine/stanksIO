@@ -12,17 +12,32 @@ class GameCanvas {
     drawCannon(tank, canonDirection) {
         const { x, y, size, look, alpha } = tank;
         this.context.beginPath();
-        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), size / 2, 0, 2 * Math.PI, false);
-        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), size / 2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), (size / 2), 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), (size / 2), 0, 2 * Math.PI, false);
+        
         if (typeof(tank.alpha) != "undefined")
-            this.context.fillStyle = 'rgba(77,77,77,'+alpha+')';
+            this.context.fillStyle = 'rgba(0,0,0,'+alpha+')';
         else
-            this.context.fillStyle = 'rgba(77,77,77,1)';
+            this.context.fillStyle = 'rgba(0,0,0,1)';
+        this.context.fill();
+    }
+
+    drawBorders(x,y,size){
+        this.context.beginPath();
+        this.context.arc(x, y, size+2, 0, 2 * Math.PI, false);
+        this.context.fillStyle = '#000000';
         this.context.fill();
     }
 
     drawTank(tank) {
         const { x, y, size, color, alpha } = tank;
+        tank.gun.forEach(canon => {
+            for (let i = 0; i < canon.ammos.length; i++) {
+                this.drawBullet(canon.ammos[i]);
+            }
+            this.drawCannon(tank, canon.direction);
+        });
+        this.drawBorders(x,y,size);
         this.context.beginPath();
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         console.log(alpha);
@@ -49,12 +64,12 @@ class GameCanvas {
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
         players.forEach((player) => {
-            player.gun.forEach(canon => {
+            /*player.gun.forEach(canon => {
                 for (let i = 0; i < canon.ammos.length; i++) {
                     this.drawBullet(canon.ammos[i]);
                 }
                 this.drawCannon(player, canon.direction);
-            });
+            });*/
             this.drawTank(player);
         });
     }
