@@ -78,8 +78,27 @@ class GameCanvas {
     drawBullet(bullet) {
         const { x, y, size, color } = bullet;
         this.context.beginPath();
+        this.context.strokeStyle = "#000000";
+
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         this.context.fillStyle = color;
+        this.context.fill();
+    }
+
+    drawHearth(bullet){
+        const { x, y, size, color } = bullet;
+
+        this.context.beginPath();
+
+        this.context.fillStyle = color;
+        var prop = 8;
+        this.context.moveTo(x,y);
+        this.context.bezierCurveTo(x, y-3/prop, x-5/prop, y-15/prop, x-20/prop, y-15/prop);
+        this.context.bezierCurveTo(x-55/prop, y-15/prop, x-55/prop, y+22.5/prop, x-55/prop, y+22.5/prop);
+        this.context.bezierCurveTo(x-55/prop, y+40/prop, x-35/prop, y+62/prop, x, y+80/prop);
+        this.context.bezierCurveTo(x+35/prop, y+62/prop, x+55/prop, y+40/prop, x+55/prop, y+22.5/prop);
+        this.context.bezierCurveTo(x+55/prop, y+22.5/prop, x+55/prop, y-15/prop, x+25/prop, y-15/prop);
+        this.context.bezierCurveTo(x+10/prop, y-15/prop, x, y-3/prop, x, y);
         this.context.fill();
     }
 
@@ -88,8 +107,8 @@ class GameCanvas {
         this.context.fillStyle = this.backGroundColor;
         this.context.fillRect(0,0,this.mapSizeX, this.mapSizeY);
         const { players, factory, bonus } = data;
+        bonus[0].forEach((entity) => this.drawHearth(entity));
         factory[0].forEach((entity) => this.drawBullet(entity));
-        bonus[0].forEach((entity) => this.drawBullet(entity));
         players.forEach((player) => {
             this.drawTank(player);
         });
