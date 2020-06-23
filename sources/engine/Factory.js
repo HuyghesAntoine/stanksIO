@@ -13,7 +13,7 @@ class Factory {
         this.max = 100;
         this.chrono = new Chrono();
         this.score = 100;
-        this.xp = 20;
+        this.xp = 15;
         this.color = color;
     }
 
