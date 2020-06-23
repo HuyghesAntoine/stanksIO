@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
     <link rel="stylesheet" href="/stylesheets/game.css">
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -13,14 +14,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body id="gamePage">
-    <!-- Canvas -->
-    <div id="wrap">
+
           <canvas id="game-canvas" width="1200" height="750"></canvas>
-        </div>
-      <div>
-          <table classe="table table-striped" id="leaderboard"> </table>
-      </div>
-    <!-- JS -->
+          <table id="leaderboard"> </table>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="../javascript/GameCanvas.js"></script>
     <script src="../javascript/GameSocket.js"></script>

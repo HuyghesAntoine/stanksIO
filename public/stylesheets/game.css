@@ -5,22 +5,16 @@
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
     font-family: 'Roboto', Arial, sans-serif;
 }
-
-#game-title{
-    text-align: center;
-}
 #game-canvas{
     background-color: #ffffff;
     float: right;
-    margin-top: 1%;
+    margin-top: 0%;
     margin-bottom: 1%;
     margin-right: 1%;
 }
 
-#wrap{
-    transform-origin: top left;
-}
 #leaderboard{
     margin-left: 1vw; 
+    margin-top: 1vh;
     width: 200px;
 }
