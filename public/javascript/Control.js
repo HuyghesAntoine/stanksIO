@@ -45,7 +45,7 @@ function cls4() {//fourth classes (sniper)
     myCls = "cls4";
 }
 
-//management of joysticks
+//management of joysticks with joystick options
 var joyMove = new JoyStick('joyMove', {
     internalFillColor: '#4D221E',
     internalLineWidth: 1,

@@ -123,7 +123,7 @@ class Tank extends Entity {
         if (this.level.xpPoint <= 0) return;
         let value = this.myUpgrade[i];
         if (value == "ATTACK") {
-            this.attack += 0.5;
+            this.attack += 0.15;
         } else if (value == "SPEED") {
             this.speed += 0.25;
         } else if (value == "BULLETSIZE") {
@@ -144,7 +144,7 @@ class Tank extends Entity {
 
     heal() {
         if (this.health < this.maxHealth) {
-            this.health += 1;
+            this.health += 2.5;
         }
     }
 
