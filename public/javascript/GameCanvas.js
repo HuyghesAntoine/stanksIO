@@ -52,7 +52,7 @@ class GameCanvas {
     }
 
     drawTank(tank) {
-        const { x, y, size, color, alpha, health, maxHealth, level } = tank;
+        const { x, y, size, color, health, maxHealth, level } = tank;
         this.drawLife(x, y, size, health, maxHealth, level);
         tank.gun.forEach(canon => {
             for (let i = 0; i < canon.ammos.length; i++) {
@@ -61,7 +61,6 @@ class GameCanvas {
             this.drawCannon(tank, canon.direction);
         });
         this.drawBorders(x, y, size);
-        //this.drawHealthBar(x,y,size);
         this.context.beginPath();
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         this.context.fillStyle = color;

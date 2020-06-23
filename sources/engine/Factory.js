@@ -23,7 +23,7 @@ class Factory {
             this.delay -= 100;
         if (this.chrono.isOver(this.delay)) {
             // Add the entity in the array with given properties.
-            this.entities.push(new Entity(5, getRandom(0, this.mapSizeX), getRandom(0, this.mapSizeY), 1, '#1FE400', this.mapSizeX, this.mapSizeY));
+            this.entities.push(new Entity(5, getRandom(0, this.mapSizeX), getRandom(0, this.mapSizeY), 1, '#00a86b', this.mapSizeX, this.mapSizeY));
             // Reset the chrono for a new factory entity to spawn.
             this.chrono.reset();
         }
