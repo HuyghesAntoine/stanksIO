@@ -67,6 +67,7 @@ npm run test
     * But at the end of the first / second day, everyone was focus on his own objectives for the project. 
     * Maybe we should have spend more time on the *project management*.
     * But our branch organisation was perfect for us. 
+    * That's new to us to create something from A to Z and it's a good source of experience for the futur.
 
 * If we had to redo it : 
     * Keep the same developer team, we had good communications and it was fun to do. 

@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Game</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/game.css">
     <!-- JavaScripts -->
@@ -13,7 +15,7 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-11">
-        <h1 id="game-title">Game</h1>
+        <h1 id="game-title">Stanks.io</h1>
       </div>
     </div>
     
@@ -35,9 +37,10 @@
     <script> 
       const canvas = new GameCanvas();
       const socket = new GameSocket(canvas);
-      var ambiantSound = new Audio('../sounds/no-return.mp3');
+      var ambiantSound = new Audio('../sounds/music.mp3');
       ambiantSound.play();
       ambiantSound.volume  = 0.05;
+      ambiantSound.loop = true;
     </script>
   </body>
 </html>
