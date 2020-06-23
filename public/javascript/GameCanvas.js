@@ -29,6 +29,13 @@ class GameCanvas {
         this.context.fill();
     }
 
+   /* drawHealthBar(x,y,size){
+        this.beginPath();
+        this.context.fillRect(x,y, size, size/2);
+        this.context.fillStyle = '#123123';
+        this.context.fill();
+    } */
+
     drawTank(tank) {
         const { x, y, size, color, alpha } = tank;
         tank.gun.forEach(canon => {
@@ -38,6 +45,7 @@ class GameCanvas {
             this.drawCannon(tank, canon.direction);
         });
         this.drawBorders(x,y,size);
+        //this.drawHealthBar(x,y,size);
         this.context.beginPath();
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         console.log(alpha);
@@ -47,7 +55,7 @@ class GameCanvas {
             this.context.fillStyle = color;
         this.context.fill();
         this.context.textAlign = "center";
-        this.context.fillText(tank.pseudo, x, y + (2 * size));
+        this.context.fillText(tank.pseudo, x, y - (2 * size - 5));
     }
 
     drawBullet(bullet) {
