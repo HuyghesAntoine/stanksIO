@@ -13,10 +13,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
-  <body>
-
+  <body >
+    <p align="center">
           <canvas id="game-canvas" width="1200" height="700"></canvas>
           <table id="leaderboard"> </table>
+        </p>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="../javascript/GameCanvas.js"></script>
@@ -28,6 +29,28 @@
       ambiantSound.play();
       ambiantSound.volume  = 0.05;
       ambiantSound.loop = true;
+
+      function resize() {
+
+var canvas = document.getElementById('game-canvas');
+var canvasRatio = canvas.height / canvas.width;
+var windowRatio = window.innerHeight / window.innerWidth;
+var width;
+var height;
+
+if (windowRatio < canvasRatio) {
+    height = window.innerHeight - 100;
+    width = height / canvasRatio;
+} else {
+    width = window.innerWidth - 100;
+    height = width * canvasRatio;
+}
+
+canvas.style.width = width + 'px';
+canvas.style.height = height + 'px';
+};
+
+window.addEventListener('resize', resize, false);
     </script>
   </body>
 </html>
