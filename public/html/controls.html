@@ -19,9 +19,9 @@
 
 <body id="controlPage">
 
-    <button id="btnDescri" class="btn btn-outline-dark" data-toggle="modal" data-target="#desc">
-        <i class="fas fa-question"></i>
-      </button>
+  <button id="btnDescri" class="btn btn-outline-dark" data-toggle="modal" data-target="#desc">
+    <i class="fas fa-question"></i>
+  </button>
 
   <div id="pseudal_page" class="row">
     <input class="form-control" type="text" id="Pseudal" autocomplete="off" maxlength="8" placeholder="8 characters max" >
@@ -59,32 +59,33 @@
         <button class="btn btn-outline-dark btnUpgr" id="attackSpeedUpgrade">  </button>
     </div>
   </div>
+
   <div id="hide_joy">
     <div id="joyMove"> </div>
     <div id="joyShoot"> </div>
   </div>
   
-      <!-- Modal -->
-      <div class="modal fade" id="desc" tabindex="-1" role="dialog" aria-labelledby="desc" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Class description</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>Masto : Heavy but big damages</li>
-                        <li>Hunter : Faster movement and shot</li>
-                        <li>Farmer : Poor stats but better exp amount</li>
-                        <li>Sniper : Slow shoot but big damages</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Modal -->
+  <div class="modal fade" id="desc" tabindex="-1" role="dialog" aria-labelledby="desc" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Class description</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
+          <div class="modal-body">
+            <ul>
+              <li>Masto : Heavy but big damages</li>
+              <li>Hunter : Faster movement and shot</li>
+              <li>Farmer : Poor stats but better exp amount</li>
+              <li>Sniper : Slow shoot but big damages</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScripts -->
   <script src="/socket.io/socket.io.js"></script>

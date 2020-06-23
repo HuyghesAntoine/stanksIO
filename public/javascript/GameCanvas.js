@@ -91,12 +91,6 @@ class GameCanvas {
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
         players.forEach((player) => {
-            /*player.gun.forEach(canon => {
-                for (let i = 0; i < canon.ammos.length; i++) {
-                    this.drawBullet(canon.ammos[i]);
-                }
-                this.drawCannon(player, canon.direction);
-            });*/
             this.drawTank(player);
         });
     }

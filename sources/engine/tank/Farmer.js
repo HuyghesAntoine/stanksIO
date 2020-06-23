@@ -2,7 +2,7 @@ const Chrono = require('../Entity');
 const Tank = require('../Tank');
 const Level = require('../Level');
 const Evolution = require('../Evolution');
-
+// Farmer class with his own stats and upgrades
 class Farmer extends Tank {
     constructor(id, socket, color, mapSizeX, mapSizeY) {
         super(id, socket, color, mapSizeX, mapSizeY);
@@ -22,13 +22,8 @@ class Farmer extends Tank {
         super.upgrade(i);
         let evolutions = this.evolution.evolute(this.level.levelNumber);
         for (let i = 0; i < evolutions.length; i++) {
-            this.addCanon(evolutions[i]);
+            this.addCanon(evolutions[i]); // Evolve the tank and pick a canon to add in the array. ( same for hunter, masto and sniper)
         }
     }
 }
-
-function getRandom(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 module.exports = Farmer;

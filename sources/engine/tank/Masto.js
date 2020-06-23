@@ -26,9 +26,4 @@ class Masto extends Tank {
         }
     }
 }
-
-function getRandom(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 module.exports = Masto;
