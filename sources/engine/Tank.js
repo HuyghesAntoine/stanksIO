@@ -36,11 +36,9 @@ class Tank extends Entity {
             this.y = yMove;
         }
         else if (this.isOut(xMove, this.x) && !this.isOut(this.x, yMove)) {
-            console.log('depasse en x');
             this.y = yMove;
         }
         else if (this.isOut(this.x, yMove) && !this.isOut(xMove, this.y)) {
-            console.log('depasse en y');
             this.x = xMove;
         }
     }
@@ -99,22 +97,23 @@ class Tank extends Entity {
                     entity.gun.forEach(canonEntity => {
                         for (let j = 0; j < canonEntity.ammos.length; j++) {
                             if (canon.ammos[i].touch(canonEntity.ammos[j])) {
-                                canonEntity.remove(j);
-                                rm = true;
+                                canon.ammos[i].size -= 2;
+                                canonEntity.ammos[j].size -= 2;
+                                if (canon.ammos[i].size <= 3) rm = true;
+                                if (canonEntity.ammos[j].size <= 3) canonEntity.remove(j);
                                 break;
                             }
                         }
                     });
-                    if (canon.ammos[i].touch(entity)) {
+                    if (rm == false && canon.ammos[i].touch(entity)) {
+                        rm = true;
                         entity.health -= canon.ammos[i].damage;
                         if (entity.isDead()) {
                             this.score += entity.getScore();
                             this.level.addXp(entity.getXp());
                         }
-                        rm = true;
                     }
-                    if (rm)
-                        canon.remove(i);
+                    if (rm) canon.remove(i);
                 }
             }
         });
