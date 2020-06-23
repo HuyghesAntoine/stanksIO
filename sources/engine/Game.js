@@ -22,7 +22,8 @@ class Game {
   constructor(name) {
     this.mapSizeX = 1200;
     this.mapSizeY = 700;
-    this.nbJ = 0;
+    this.nbJ = 1;
+    this.totalPlayers = 0;
     this.name = name;
     this.players = {};
     this.factory = new Factory(this.mapSizeX, this.mapSizeY, '#63d07b');
@@ -44,6 +45,7 @@ class Game {
     else if (cls == "cls4")
       this.players[id] = new Sniper(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     this.nbJ += 1;
+    this.totalPlayers +=1;
   }
 
   move(id, direction) {
@@ -77,7 +79,7 @@ class Game {
     if (typeof (this.players[id]) != 'undefined') {
       if (this.players[id].socketId == socket){
         delete this.players[id];
-        this.nbJ-=1;
+        this.totalPlayers-=1;
       }
     }
   }
@@ -92,8 +94,8 @@ class Game {
     //refresh the leaderboard
     this.leaderboard.refresh(this.players);
     //try to add xppoint or bonus
-    this.factory.addEntity(30*this.nbJ);
-    this.bonus.addEntity(this.nbJ);
+    this.factory.addEntity(30*this.totalPlayers);
+    this.bonus.addEntity(this.totalPlayers);
     //move all the players, their shoots and remove useless shoots
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {

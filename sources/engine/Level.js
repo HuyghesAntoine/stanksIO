@@ -9,8 +9,20 @@ class Level {
     }
     // Function that add exp points 
     addXp(xp){
-        this.xp += xp*this.mult;
-        this.levelUp();
+        let realXp = xp*this.mult;
+        while (true){
+            if (this.xp + realXp >= this.xpNeeded){
+                realXp -= (this.xpNeeded - this.xp);
+                this.xp = this.xpNeeded;
+                this.levelUp();
+            }
+            else {
+                this.xp += realXp;
+                this.levelUp();
+                break;
+            }
+
+        }
     }
 
     changeMult(mult){
