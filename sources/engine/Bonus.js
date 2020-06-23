@@ -12,8 +12,12 @@ class Bonus {
     }
     // Add a bonus in the entities array when the chrono is over.
     addEntity() {
+        if (this.entities.length > 3 && this.delay <= 20000)
+            this.delay += 100;
+        else if (this.delay > 300)
+            this.delay -= 100;
         // 5 bonus maximum on the map.
-        if (this.chrono.isOver(this.delay) && this.entities.length <= 5) {
+        if (this.chrono.isOver(this.delay)) {
             // Add a new Entity in the array, with this properties. 
             this.entities.push(new Entity(10, getRandom(0, this.mapSizeX), getRandom(0, this.mapSizeY), 1, '#E40000', this.mapSizeX, this.mapSizeY));
             // Reset the chrono and get a random number for the delay.
