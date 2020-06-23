@@ -3,18 +3,20 @@ class ControlsEvents {
 
         this.socket = socket;
 
-        setInterval( ()=> {
+        setInterval( ()=> { //60 times per seconds
             if (joyMove.GetDir() == "C"){
-                this.onTouchEnd();
+                this.onTouchEnd(); //check if joystick is release
             }
             else {
-                this.onTouch(joyMove.GetX(),joyMove.GetY());
+                this.onTouch(joyMove.GetX(),joyMove.GetY()); //refresh the position of joystick and move
             }
             if (joyShoot.GetDir() == "C"){ }
             else {
-                this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY());
+                this.onTouchShoot(joyShoot.GetX(),joyShoot.GetY()); //refresh the position of joystick and shoot
             }
         },1000/60);
+
+        //listener for upgrades
         document.getElementById("attackUpgrade").addEventListener("click", () => this.upgrade(0));
         document.getElementById("speedUpgrade").addEventListener("click", () => this.upgrade(1));
         document.getElementById("sizeUpgrade").addEventListener("click", () => this.upgrade(2));
@@ -41,18 +43,5 @@ class ControlsEvents {
 
     upgrade(i){
         this.socket.upgrade(i);
-    }
-
-    attackUp(){
-        this.socket.upgrade(0);
-    }
-    speedUp(){
-        this.socket.upgrade(1);
-    }
-    sizeUp(){
-        this.socket.upgrade(2);
-    }
-    attackSpeedUp(){
-        this.socket.upgrade(3);
     }
 }    

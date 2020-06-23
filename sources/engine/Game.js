@@ -34,8 +34,7 @@ class Game {
 
   register(id, socket, cls) {
     console.log("Création d'un tank : " + cls);
-
-
+    //create the right class
     if (cls == "cls1")
       this.players[id] = new Masto(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     else if (cls == "cls2")
@@ -88,9 +87,12 @@ class Game {
   }
 
   refresh() {
+    //refresh the leaderboard
     this.leaderboard.refresh(this.players);
+    //try to add xppoint or bonus
     this.factory.addEntity();
     this.bonus.addEntity();
+    //move all the players, their shoots and remove useless shoots
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {
         player.move();

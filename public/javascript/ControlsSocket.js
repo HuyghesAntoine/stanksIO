@@ -6,8 +6,8 @@
 class ControlsSocket {
   constructor(cls) {
     this.socket = io();
-    this.socket.emit('register', cls);
-    this.socket.on('control', (data) => this.barexp(data));
+    this.socket.emit('register', cls); //send the register request
+    this.socket.on('control', (data) => this.barexp(data)); //receive the refresh of data
   }
 
   stopMove() {
@@ -29,46 +29,42 @@ class ControlsSocket {
   }
 
   barexp(data) {
-    var exist = false;
+    var exist = false; 
     this.me;
-    data.players.forEach(player => {
-      if (this.socket.id == player.socketId) {
+    data.players.forEach(player => { //watch all the player
+      if (this.socket.id == player.socketId) { //if this player is me
         this.me = player;
+        //refresh all the data on controls.html
         document.querySelector('#expValue').style.width = player.level.xp / player.level.xpNeeded * 100 + "%";
         document.querySelector('#lifeValue').style.width = (player.health / player.maxHealth) * 100 + "%";
         document.querySelector('#score').innerHTML = player.score;
         document.querySelector('#level').innerHTML = "Level : " + player.level.levelNumber;
-        exist = true;
-        this.leveling(player);
+        exist = true; //i'm exist
+        this.leveling(player); //manage the upgrade button
       }
     });
-    if (exist == false) {
+    if (exist == false) { //if i'm dead
+      //refresh the page with my pseudo
       var url = location.protocol + '//' + location.host + location.pathname + '?pseudo=' + this.me.pseudo;
-      window.location.href = url;
+      window.location.href = url; 
     }
   }
 
   leveling(player) {
-    if (player.level.xpPoint == 0) {
+    if (player.level.xpPoint == 0) { //if i don't have any xpPoint
+      //hide all the upgrade button
       document.getElementById("attackUpgrade").style.display = "none";
       document.getElementById("speedUpgrade").style.display = "none";
       document.getElementById("sizeUpgrade").style.display = "none";
       document.getElementById("attackSpeedUpgrade").style.display = "none";
     } else {
-      this.displayUpgrade(player);
+      //display the upgrades of my class
+      var i = 0;
+      document.querySelectorAll('.btnUpgr').forEach((upgrade)=>{
+        upgrade.style.display = "block";
+        upgrade.innerHTML = player.myUpgrade[i];
+        i++;
+      });
     }
-  }
-
-  displayUpgrade(player) {
-    document.getElementById("attackUpgrade").style.display = "block";
-    document.getElementById("speedUpgrade").style.display = "block";
-    document.getElementById("sizeUpgrade").style.display = "block";
-    document.getElementById("attackSpeedUpgrade").style.display = "block";
-
-    var i = 0;
-    document.querySelectorAll('.btnUpgr').forEach((upgrade)=>{
-      upgrade.innerHTML = player.myUpgrade[i];
-      i++;
-    });
   }
 }

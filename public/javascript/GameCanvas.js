@@ -32,11 +32,7 @@ class GameCanvas {
         this.context.beginPath();
         this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), (size / 2), 0, 2 * Math.PI, false);
         this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), (size / 2), 0, 2 * Math.PI, false);
-
-        if (typeof (tank.alpha) != "undefined")
-            this.context.fillStyle = 'rgba(0,0,0,' + alpha + ')';
-        else
-            this.context.fillStyle = 'rgba(0,0,0,1)';
+        this.context.fillStyle = 'rgba(0,0,0,1)';
         this.context.fill();
     }
 
@@ -60,10 +56,7 @@ class GameCanvas {
         //this.drawHealthBar(x,y,size);
         this.context.beginPath();
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
-        if (typeof (tank.alpha) != "undefined")
-            this.context.fillStyle = "rgba(" + color.slice(1, 3) + ',' + color.slice(3, 5) + ',' + color.slice(5, 7) + ',' + alpha + ")";
-        else
-            this.context.fillStyle = color;
+        this.context.fillStyle = color;
         this.context.fill();
         this.context.font = "12px Arial";
         this.context.textAlign = "center";
