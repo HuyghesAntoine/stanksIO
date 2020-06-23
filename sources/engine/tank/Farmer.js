@@ -7,7 +7,7 @@ class Farmer extends Tank {
     constructor(id, socket, color, mapSizeX, mapSizeY) {
         super(id, socket, color, mapSizeX, mapSizeY);
         this.myUpgrade = ["XP", "SPEED", "ATTACK", "ATTACKSPEED"];
-        this.level = new Level(2);
+        this.level = new Level(1.5);
         this.maxHealth = 10;
         this.health = 10;
         this.size = 20;
