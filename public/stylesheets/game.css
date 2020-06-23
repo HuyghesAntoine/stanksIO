@@ -11,9 +11,13 @@
 }
 #game-canvas{
     background-color: #ffffff;
+    float: right;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 1%;
 }
 
 #leaderboard{
-    margin-left: 5vw; 
+    margin-left: 1vw; 
     width: 200px;
 }
