@@ -5,7 +5,7 @@ class Bullet extends Entity{
     constructor(tank, gunDirection){
         // Apply properties of the bullet, in function of the given tank.
         let direction  = tank.look + gunDirection;
-        super(tank.bulletSize, (tank.x + (Math.cos(direction) * (tank.size*1.2))), (tank.y + (Math.sin(direction) * (tank.size*1.2))), 1, tank.color, tank.mapSize);
+        super(tank.bulletSize, (tank.x + (Math.cos(direction) * (tank.size*1.2))), (tank.y + (Math.sin(direction) * (tank.size*1.2))), 1, tank.color, tank.mapSizeX, tank.mapSizeY);
         this.damage = tank.attack;
         this.direction = direction;
         
@@ -21,7 +21,7 @@ class Bullet extends Entity{
 
     // Check if the bullet goes out of of the map borders.
     isOut(){
-        if(this.x > this.mapSize || this.x < 0 || this.y > this.mapSize || this.y <0)
+        if(this.x > this.mapSizeX || this.x < 0 || this.y > this.mapSizeY || this.y <0)
             return true;
         else
             return false;

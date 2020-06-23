@@ -3,9 +3,10 @@ const Chrono = require('./Chrono');
 // Bonus class 
 class Bonus {
     // Constructor that take mapSize parameter.
-    constructor(mapSize) {
+    constructor(mapSizeX, mapSizeY) {
         this.entities = new Array();
-        this.mapSize = mapSize;
+        this.mapSizeX = mapSizeX;
+        this.mapSizeY = mapSizeY;
         this.delay = 10000;
         this.chrono = new Chrono();
     }
@@ -14,7 +15,7 @@ class Bonus {
         // 5 bonus maximum on the map.
         if (this.chrono.isOver(this.delay) && this.entities.length <= 5) {
             // Add a new Entity in the array, with this properties. 
-            this.entities.push(new Entity(10, getRandom(0, this.mapSize), getRandom(0, this.mapSize), 1, '#E40000', this.mapSize));
+            this.entities.push(new Entity(10, getRandom(0, this.mapSizeX), getRandom(0, this.mapSizeY), 1, '#E40000', this.mapSizeX, this.mapSizeY));
             // Reset the chrono and get a random number for the delay.
             this.chrono.reset();
             this.delay = getRandom(5000, 10000);
@@ -27,7 +28,7 @@ class Bonus {
             if (this.entities[i].touch(tank)) {
                 // If a bonus is touched by a tank, then apply heal on this tank, and remove the bonus from the array.
                 tank.heal();
-                this.entities[i].health-=1;
+                this.entities[i].health -= 1;
             }
             else {
                 let rm = false;
@@ -37,7 +38,7 @@ class Bonus {
                             if (this.entities[i].touch(canon.ammos[j])) {
                                 // If a bonus is touched by a bullet, then apply heal on the tank and remove the bonus from the array.
                                 tank.heal();
-                                this.entities[i].health-=1;
+                                this.entities[i].health -= 1;
                                 rm = true;
                                 break;
                             }
@@ -48,9 +49,9 @@ class Bonus {
         }
     }
 
-    removeAll(){
+    removeAll() {
         for (let i = 0; i < this.entities.length; i++) {
-            if (this.entities[i].isDead()){
+            if (this.entities[i].isDead()) {
                 this.remove(i);
             }
         }

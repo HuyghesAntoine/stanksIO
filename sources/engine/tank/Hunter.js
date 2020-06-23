@@ -4,8 +4,8 @@ const Level = require('../Level');
 const Evolution = require('../Evolution');
 
 class Hunter extends Tank {
-    constructor(id, socket, color, cls){
-        super(id, socket, color, cls);
+    constructor(id, socket, color, mapSizeX, mapSizeY) {
+        super(id, socket, color, mapSizeX, mapSizeY);
         this.myUpgrade = ["ATTACK", "ATTACKSPEED", "SPEED", "BULLETSIZE"];
         this.maxHealth = 10;
         this.health = 10;
@@ -15,13 +15,13 @@ class Hunter extends Tank {
         this.bulletSize = 6;
         this.bulletSpeed = 5;
         this.attackSpeed = 850;
-        this.evolution = new Evolution([Math.PI/6,Math.PI/2,-Math.PI/2,-Math.PI/6]);
+        this.evolution = new Evolution([Math.PI / 6, Math.PI / 2, -Math.PI / 2, -Math.PI / 6]);
 
     }
-    upgrade(i){
+    upgrade(i) {
         super.upgrade(i);
         let evolutions = this.evolution.evolute(this.level.levelNumber);
-        for (let i=0 ; i<evolutions.length ; i++){
+        for (let i = 0; i < evolutions.length; i++) {
             this.addCanon(evolutions[i]);
         }
     }
