@@ -21,7 +21,7 @@ class Game {
   // Constructor that take a name parameter
   constructor(name) {
     this.mapSizeX = 1200;
-    this.mapSizeY = 800;
+    this.mapSizeY = 750;
     this.nbJ = 1;
     this.name = name;
     this.players = {};
