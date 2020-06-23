@@ -2,28 +2,36 @@ class GameCanvas {
     constructor() {
         this.canvas = document.querySelector('#game-canvas');
         this.context = this.canvas.getContext('2d');
+        this.backGroundColor = '#eeeeee';
+        this.otherColor = '#000000';
+        this.lifeColor = '#00a86b';
+        this.redColor = '#8b0000';
+        this.xpColor = '#005b96';
+        this.emptyXpColor = '#cccccc';
+        this.mapSizeX = 1200;
+        this.mapSizeY = 700;
     }
 
     drawLife(x, y, size, health, maxHealth, level) {
         let width = 2*size;
         let height = 7;
-        let border = 3;
+        let border = 2;
         let ratio = health / maxHealth;
         let ratioXp = level.xp / level.xpNeeded;
         let X = x - (width / 2);
         let Y = y + size + 20;
 
-        this.context.fillStyle = '#000000';
+        this.context.fillStyle = this.otherColor;
         this.context.fillRect(X-border, Y-border, width+(2*border), height+(2*border));
 
-        this.context.fillStyle = '#00ff00';
+        this.context.fillStyle = this.lifeColor;
         this.context.fillRect(X, Y, ratio * width, height * (2 / 3));
-        this.context.fillStyle = '#ff0000';
+        this.context.fillStyle = this.redColor;
         this.context.fillRect(X + (ratio * width), Y, (1 - ratio) * width, height * (2 / 3));
 
-        this.context.fillStyle = '#0000ff';
+        this.context.fillStyle = this.xpColor;
         this.context.fillRect(X, Y+(height*2/3), ratioXp * width, height * (1 / 3));
-        this.context.fillStyle = '#cccccc';
+        this.context.fillStyle = this.emptyXpColor;
         this.context.fillRect(X + (ratioXp * width), Y+(height*2/3), (1-ratioXp) * width, height * (1 / 3));
     }
 
@@ -32,14 +40,14 @@ class GameCanvas {
         this.context.beginPath();
         this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), (size / 2), 0, 2 * Math.PI, false);
         this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), (size / 2), 0, 2 * Math.PI, false);
-        this.context.fillStyle = 'rgba(0,0,0,1)';
+        this.context.fillStyle = this.otherColor;
         this.context.fill();
     }
 
     drawBorders(x, y, size) {
         this.context.beginPath();
         this.context.arc(x, y, size + 2, 0, 2 * Math.PI, false);
-        this.context.fillStyle = '#000000';
+        this.context.fillStyle = this.otherColor;
         this.context.fill();
     }
 
@@ -77,7 +85,9 @@ class GameCanvas {
     }
 
     redraw(data) {
-        this.context.clearRect(0, 0, 1200, 750);
+        this.context.clearRect(0, 0, this.mapSizeX, this.mapSizeY);
+        this.context.fillStyle = this.backGroundColor;
+        this.context.fillRect(0,0,this.mapSizeX, this.mapSizeY);
         const { players, factory, bonus } = data;
         factory[0].forEach((entity) => this.drawBullet(entity));
         bonus[0].forEach((entity) => this.drawBullet(entity));
