@@ -152,7 +152,7 @@ class Tank extends Entity {
         return Math.floor((this.score / 2) + 500);
     }
     getXp() {
-        return this.level.levelNumber * 100;
+        return this.level.levelNumber * 50;
     }
     addCanon(direction) {
         this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, direction));
