@@ -36,10 +36,10 @@ class GameCanvas {
     }
 
     drawCannon(tank, canonDirection) {
-        const { x, y, size, look, alpha } = tank;
+        const { x, y, size, look, bulletSize } = tank;
         this.context.beginPath();
-        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), (size / 2), 0, 2 * Math.PI, false);
-        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), (size / 2), 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), bulletSize+2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), bulletSize+2, 0, 2 * Math.PI, false);
         this.context.fillStyle = this.otherColor;
         this.context.fill();
     }
@@ -52,7 +52,7 @@ class GameCanvas {
     }
 
     drawTank(tank) {
-        const { x, y, size, color, alpha, health, maxHealth, level } = tank;
+        const { x, y, size, color, health, maxHealth, level } = tank;
         this.drawLife(x, y, size, health, maxHealth, level);
         tank.gun.forEach(canon => {
             for (let i = 0; i < canon.ammos.length; i++) {
@@ -61,7 +61,6 @@ class GameCanvas {
             this.drawCannon(tank, canon.direction);
         });
         this.drawBorders(x, y, size);
-        //this.drawHealthBar(x,y,size);
         this.context.beginPath();
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         this.context.fillStyle = color;
@@ -111,12 +110,6 @@ class GameCanvas {
         bonus[0].forEach((entity) => this.drawHearth(entity));
         factory[0].forEach((entity) => this.drawBullet(entity));
         players.forEach((player) => {
-            /*player.gun.forEach(canon => {
-                for (let i = 0; i < canon.ammos.length; i++) {
-                    this.drawBullet(canon.ammos[i]);
-                }
-                this.drawCannon(player, canon.direction);
-            });*/
             this.drawTank(player);
         });
     }
