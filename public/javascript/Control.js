@@ -9,7 +9,7 @@ document.getElementById("cls4").addEventListener("click", () => cls4());
 
 //management for selection of the class
 var myCls = "undefined";
-function cls1() { //first classes
+function cls1() { //first classes (masto)
     document.querySelectorAll(".btnCls").forEach((btn) => {
         btn.classList.remove('btn-success');
     }); //remove all the btn-success classes
@@ -18,7 +18,7 @@ function cls1() { //first classes
     myCls = "cls1"; //save the selected classes
 }
 
-function cls2() { //second classes
+function cls2() { //second classes (hunter)
     document.querySelectorAll(".btnCls").forEach((btn) => {
     btn.classList.remove('btn-success');
     });
@@ -27,7 +27,7 @@ function cls2() { //second classes
     myCls = "cls2";
 }
 
-function cls3() {//third classes
+function cls3() {//third classes (farmer)
     document.querySelectorAll(".btnCls").forEach((btn) => {
     btn.classList.remove('btn-success');
     });
@@ -36,7 +36,7 @@ function cls3() {//third classes
     myCls = "cls3";
 }
 
-function cls4() {//fourth classes
+function cls4() {//fourth classes (sniper)
     document.querySelectorAll(".btnCls").forEach((btn) => {
     btn.classList.remove('btn-success');
     });
