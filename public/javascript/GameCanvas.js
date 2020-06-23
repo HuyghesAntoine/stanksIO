@@ -88,28 +88,18 @@ class GameCanvas {
 
     drawHearth(bullet){
         const { x, y, size, color } = bullet;
-        //this.canvas.x = 0;
-        //this.canvas.y = 0;
-        
-        var w = size, h = size;
-        this.context.strokeStyle = "#000000";
-        this.context.strokeWeight = 3;
-        this.context.shadowOffsetX = 4.0;
-        this.context.shadowOffsetY = 4.0;
-        this.context.lineWidth = 4.0;
+
+        this.context.beginPath();
+
         this.context.fillStyle = color;
-        var d = Math.min(w, h);
-        var k = x;
-        this.context.moveTo(x, y + d / 4);
-        this.context.quadraticCurveTo(x, y, x + d / 4, y);
-        this.context.quadraticCurveTo(x + d / 2, y, x + d / 2, y + d / 4);
-        this.context.quadraticCurveTo(x + d / 2, y, x + d * 3/4, y);
-        this.context.quadraticCurveTo(x + d, y, x + d, y + d / 4);
-        this.context.quadraticCurveTo(x + d, y + d / 2, x + d * 3/4, y + d * 3/4);
-        this.context.lineTo(x + d / 2, y + d);
-        this.context.lineTo(x + d / 4, y + d * 3/4);
-        this.context.quadraticCurveTo(x, y + d / 2, x, y + d / 4);
-        //this.context.stroke();
+        var prop = 8;
+        this.context.moveTo(x,y);
+        this.context.bezierCurveTo(x, y-3/prop, x-5/prop, y-15/prop, x-20/prop, y-15/prop);
+        this.context.bezierCurveTo(x-55/prop, y-15/prop, x-55/prop, y+22.5/prop, x-55/prop, y+22.5/prop);
+        this.context.bezierCurveTo(x-55/prop, y+40/prop, x-35/prop, y+62/prop, x, y+80/prop);
+        this.context.bezierCurveTo(x+35/prop, y+62/prop, x+55/prop, y+40/prop, x+55/prop, y+22.5/prop);
+        this.context.bezierCurveTo(x+55/prop, y+22.5/prop, x+55/prop, y-15/prop, x+25/prop, y-15/prop);
+        this.context.bezierCurveTo(x+10/prop, y-15/prop, x, y-3/prop, x, y);
         this.context.fill();
     }
 
