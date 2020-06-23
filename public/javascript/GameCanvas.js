@@ -36,10 +36,10 @@ class GameCanvas {
     }
 
     drawCannon(tank, canonDirection) {
-        const { x, y, size, look, alpha } = tank;
+        const { x, y, size, look, bulletSize } = tank;
         this.context.beginPath();
-        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), (size / 2), 0, 2 * Math.PI, false);
-        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), (size / 2), 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size)), (y + Math.sin(look + canonDirection) * (size)), bulletSize+2, 0, 2 * Math.PI, false);
+        this.context.arc((x + Math.cos(look + canonDirection) * (size * 1.2)), (y + Math.sin(look + canonDirection) * (size * 1.2)), bulletSize+2, 0, 2 * Math.PI, false);
         this.context.fillStyle = this.otherColor;
         this.context.fill();
     }
