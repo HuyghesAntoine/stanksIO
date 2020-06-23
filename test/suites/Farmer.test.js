@@ -59,7 +59,7 @@ describe('Farmer test', () => {
 
     expect(this.tank.speed).toBe(2);
     this.tank.upgrade(1);
-    expect(this.tank.speed).toBe(2+1);
+    expect(this.tank.speed).toBe(2+0.25);
 
     expect(this.tank.attack).toBe(1);
     this.tank.upgrade(2);
@@ -67,10 +67,10 @@ describe('Farmer test', () => {
     
     expect(this.tank.attackSpeed).toBe(1000);
     this.tank.upgrade(3);
-    expect(this.tank.attackSpeed).toBe(1000*0.9);
+    expect(this.tank.attackSpeed).toBe(1000*0.95);
 
     expect(this.tank.attack).toBe(1.5);
-    this.tank.upgrade(3);//plus de point d'xp
+    this.tank.upgrade(3);//no more xp point
     expect(this.tank.attack).toBe(1.5);
   });
 
