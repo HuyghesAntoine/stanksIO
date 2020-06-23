@@ -24,15 +24,5 @@ describe('Level test', () => {
         expect(this.level.levelNumber).toBe(2);
         expect(this.level.xp).toBe(0);
         expect(this.level.xpNeeded).toBe(100*1.1);
-        expect(this.level.levelUp()).toBeTruthy();
-    });
-});
-
-describe('Evolve Test', () =>{
-    test('contruct',() => {
-        this.evol = new Lead(test);
-        expect(this.evol.evolutions).toBe(test);
-        expect(this.evol.levelNeeded).toBe(5);
-        expect(this.evol.indice).toBe(0);
     });
 });
