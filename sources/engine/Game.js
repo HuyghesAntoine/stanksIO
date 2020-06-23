@@ -101,6 +101,7 @@ class Game {
       this.factory.touchAll(player);
       this.bonus.touchAll(player);
       player.gun.forEach(canon => {
+        canon.removeAll();
         canon.moveAll();
       });
       Object.values(this.players).forEach(tank => {
