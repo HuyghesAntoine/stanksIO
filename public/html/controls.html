@@ -3,6 +3,7 @@
 
 <head>
   <title>Controls</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png"/>
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -18,9 +19,13 @@
 
 <body id="controlPage">
 
+    <button id="btnDescri" class="btn btn-outline-dark" data-toggle="modal" data-target="#desc">
+        <i class="fas fa-question"></i>
+      </button>
+
   <div id="pseudal_page" class="row">
     <input class="form-control" type="text" id="Pseudal" autocomplete="off">
-    <button class="btn btn-dark" id="btnPseudo" onclick="displayte()" disabled>Validate</button>
+    <button class="btn btn-dark" id="btnPseudo" onclick="displayte()" disabled>Go !</button>
   </div>
 
   <div id="classPage" class="row btn-group">
@@ -28,17 +33,6 @@
     <button id="cls2" class="btn btn-outline-dark btnCls"> Hunter </button>
     <button id="cls3" class="btn btn-outline-dark btnCls"> Farmer </button>
     <button id="cls4" class="btn btn-outline-dark btnCls"> Sniper </button>
-  </div>
-
-  <div id="descriClass" class="card bg-light mb-3">
-    <div class="card-header">Class description</div>
-      <div class="card-body">
-        <ul>
-          <li>Masto : Heavy but big damages</li>
-          <li>Hunter : Faster movement and shot</li>
-          <li>Farmer : Poor stats but better exp amount</li>
-          <li>Sniper : Slow shoot but heavy damages</li>
-      </div>
   </div>
 
   <div id="control_pading">
@@ -58,39 +52,39 @@
     <div id="scoreDiv" class="row justify-content-center">
       Score : &nbsp <span id="score"> 0 </span>
     </div>
-    <div id="upgrades" class="row">
-      <div class="col-md-3">
-        <button class="btn btn-outline-dark btnUpgr" id="attackUpgrade"> ATTACK UP </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-outline-dark btnUpgr" id="speedUpgrade"> SPEED UP </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-outline-dark btnUpgr" id="sizeUpgrade"> SIZE UP </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-outline-dark btnUpgr" id="attackSpeedUpgrade"> ATTACK SPEED UP </button>
-      </div>
+    <div id="upgrades">
+        <button class="btn btn-outline-dark btnUpgr" id="attackUpgrade">  </button>
+        <button class="btn btn-outline-dark btnUpgr" id="speedUpgrade">  </button>
+        <button class="btn btn-outline-dark btnUpgr" id="sizeUpgrade"> </button>
+        <button class="btn btn-outline-dark btnUpgr" id="attackSpeedUpgrade">  </button>
     </div>
   </div>
   <div id="hide_joy">
     <div id="joyMove"> </div>
     <div id="joyShoot"> </div>
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="pseudoModal" tabindex="-1" role="dialog" aria-labelledby="pseudoModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <input autocomplete="off" class="form-control" type="text" id="Pseudo" onkeyup="changerP()">
-          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
-            Change
-          </button>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="desc" tabindex="-1" role="dialog" aria-labelledby="desc" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Class description</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Masto : Heavy but big damages</li>
+                        <li>Hunter : Faster movement and shot</li>
+                        <li>Farmer : Poor stats but better exp amount</li>
+                        <li>Sniper : Slow shoot but big damages</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
   <!-- JavaScripts -->
   <script src="/socket.io/socket.io.js"></script>

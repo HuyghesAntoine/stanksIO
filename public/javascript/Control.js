@@ -64,7 +64,7 @@ function displayte() {
         var x = document.getElementById("Pseudal").value;
         document.getElementById("pseudal_page").style.display = "none";
         document.getElementById("classPage").style.display = "none";
-        document.getElementById("descriClass").style.display = "none";
+        document.getElementById("btnDescri").style.display = "none";
         document.getElementById("control_pading").style.display = "block";
         document.getElementById("hide_joy").style.visibility = "visible";
         const socket = new ControlsSocket(myCls);

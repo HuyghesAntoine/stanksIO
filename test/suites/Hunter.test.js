@@ -69,9 +69,9 @@ describe('Hunter test', () => {
     this.tank.upgrade(3);
     expect(this.tank.bulletSize).toBe(6+0.5);
 
-    expect(this.tank.bulletSize).toBe(7);
+    expect(this.tank.bulletSize).toBe(6.5);
     this.tank.upgrade(3);//plus de point d'xp
-    expect(this.tank.bulletSize).toBe(7);
+    expect(this.tank.bulletSize).toBe(6.5);
   });
 
 });

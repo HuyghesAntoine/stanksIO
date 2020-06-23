@@ -53,25 +53,25 @@ describe('Masto test', () => {
     this.tank = new Masto(0, "socketid");
     this.tank.level.xpPoint = 4;
 
-    expect(this.tank.maxHealth).toBe(2);
+    expect(this.tank.maxHealth).toBe(15);
     this.tank.upgrade(0);
-    expect(this.tank.maxHealth).toBe(2+2);
+    expect(this.tank.maxHealth).toBe(15+2);
 
     expect(this.tank.speed).toBe(1.5);
     this.tank.upgrade(1);
-    expect(this.tank.speed).toBe(2.5);
+    expect(this.tank.speed).toBe(1.5+0.25);
 
     expect(this.tank.attack).toBe(2);
     this.tank.upgrade(2);
-    expect(this.tank.attack).toBe(2.5);    
+    expect(this.tank.attack).toBe(2+0.5);    
     
     expect(this.tank.attackSpeed).toBe(1500);
     this.tank.upgrade(3);
-    expect(this.tank.attackSpeed).toBe(1500*0.9);
+    expect(this.tank.attackSpeed).toBe(1500*0.95);
 
-    expect(this.tank.attack).toBe(2);
-    this.tank.upgrade(2);//plus de point d'xp
-    expect(this.tank.attack).toBe(2);
+    expect(this.tank.attack).toBe(2.5);
+    this.tank.upgrade(2);//no more xp point
+    expect(this.tank.attack).toBe(2.5);
   });
 
 });
