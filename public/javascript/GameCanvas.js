@@ -71,16 +71,45 @@ class GameCanvas {
     drawBullet(bullet) {
         const { x, y, size, color } = bullet;
         this.context.beginPath();
+        this.context.strokeStyle = "#000000";
+
         this.context.arc(x, y, size, 0, 2 * Math.PI, false);
         this.context.fillStyle = color;
+        this.context.fill();
+    }
+
+    drawHearth(bullet){
+        const { x, y, size, color } = bullet;
+        //this.canvas.x = 0;
+        //this.canvas.y = 0;
+        
+        var w = size, h = size;
+        this.context.strokeStyle = "#000000";
+        this.context.strokeWeight = 3;
+        this.context.shadowOffsetX = 4.0;
+        this.context.shadowOffsetY = 4.0;
+        this.context.lineWidth = 4.0;
+        this.context.fillStyle = color;
+        var d = Math.min(w, h);
+        var k = x;
+        this.context.moveTo(x, y + d / 4);
+        this.context.quadraticCurveTo(x, y, x + d / 4, y);
+        this.context.quadraticCurveTo(x + d / 2, y, x + d / 2, y + d / 4);
+        this.context.quadraticCurveTo(x + d / 2, y, x + d * 3/4, y);
+        this.context.quadraticCurveTo(x + d, y, x + d, y + d / 4);
+        this.context.quadraticCurveTo(x + d, y + d / 2, x + d * 3/4, y + d * 3/4);
+        this.context.lineTo(x + d / 2, y + d);
+        this.context.lineTo(x + d / 4, y + d * 3/4);
+        this.context.quadraticCurveTo(x, y + d / 2, x, y + d / 4);
+        //this.context.stroke();
         this.context.fill();
     }
 
     redraw(data) {
         this.context.clearRect(0, 0, 1200, 750);
         const { players, factory, bonus } = data;
+        bonus[0].forEach((entity) => this.drawHearth(entity));
         factory[0].forEach((entity) => this.drawBullet(entity));
-        bonus[0].forEach((entity) => this.drawBullet(entity));
         players.forEach((player) => {
             /*player.gun.forEach(canon => {
                 for (let i = 0; i < canon.ammos.length; i++) {
