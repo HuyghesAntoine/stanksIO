@@ -3,6 +3,7 @@
   <head>
     <title>Game</title>
     <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/game.css">
@@ -13,16 +14,12 @@
   </head>
   <body id="gamePage">
     <!-- Canvas -->
-    <div class="row">
-      <div class="col-md-1">
+    <div id="wrap">
+          <canvas id="game-canvas" width="1000" height="750"></canvas>
+        </div>
+      <div>
           <table classe="table table-striped" id="leaderboard"> </table>
       </div>
-      <div class="col-md-11">
-        <p align="center">
-          <canvas id="game-canvas" width="1200" height="800"></canvas>
-        </p>
-      </div>
-    </div>
     <!-- JS -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="../javascript/GameCanvas.js"></script>
