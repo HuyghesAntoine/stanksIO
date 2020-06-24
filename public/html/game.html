@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
-  <body >
+  <body onload="resize()" >
     <p align="center">
           <canvas id="game-canvas" width="1200" height="700"></canvas>
           <table id="leaderboard"> </table>
@@ -37,10 +37,10 @@
           var width;
           var height;
           if (windowRatio < canvasRatio) {
-            height = window.innerHeight - 100;
+            height = window.innerHeight - 30;
             width = height / canvasRatio;
           } else {
-            width = window.innerWidth - 100;
+            width = window.innerWidth -50;
             height = width * canvasRatio;
           }
           canvas.style.width = width + 'px';
