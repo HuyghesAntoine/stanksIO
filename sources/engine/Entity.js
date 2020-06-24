@@ -1,15 +1,15 @@
-// Entity class
+// Entity class : it represents an entity in the map (tank, bullet, xp bullets, hearts)
 class Entity {
     // Constructor that need a size, positions, health points, color, and the size of the map. 
     constructor(size, x, y, health, color, mapSizeX, mapSizeY) {
-        this.health = health;
-        this.healthMax = health;
-        this.size = size;
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.mapSizeX = mapSizeX;
-        this.mapSizeY = mapSizeY;
+        this.health = health; // entity's health
+        this.maxHealth = health; // entity's health
+        this.size = size; // entity's radius
+        this.x = x; // entity's x position
+        this.y = y; // entity's y position
+        this.color = color; // entity's color
+        this.mapSizeX = mapSizeX; // useful to know the map limits
+        this.mapSizeY = mapSizeY; // useful to know the map limits
     }
 
     // Allow an entity to move in x and y coordinate

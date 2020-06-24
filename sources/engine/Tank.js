@@ -5,30 +5,32 @@ const Entity = require('./Entity');
 const Gun = require('./Gun');
 const Chrono = require('./Chrono');
 
+// a tank is an entity with many other functions (shoot, upgrade, heal ...)
 class Tank extends Entity {
     constructor(id, socketid, color, mapSizeX, mapSizeY) {
         super(20, 800 / 2, 800 / 2, 3, color, mapSizeX, mapSizeY);
-        const myUpgrade = ["TANK", "TANK", "TANK", "TANK"];
-        this.x = getRandom(0 + this.size, this.mapSizeX - this.size);
+        this.x = getRandom(0 + this.size, this.mapSizeX - this.size); // to spawn with random position
         this.y = getRandom(0 + this.size, this.mapSizeY - this.size);
-        this.id = id;
-        this.socketId = socketid;
-        this.gun = new Array();
-        this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, 0));
-        this.chrono = new Chrono();
-        this.level = new Level();
-        this.direction = 0;
-        this.look = getRandom(0, 2 * Math.PI);
-        this.score = 0;
-        this.isMoving = false;
-        this.invincibleChrono = new Chrono();
+        this.id = id; // useful to gear socket
+        this.socketId = socketid; // useful to gear socket
+        this.gun = new Array(); // an array that contains all the tank's canons
+        this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, 0)); // add a primary canon to the gun
+        this.chrono = new Chrono(); // useful to shoot at every ammount of time
+        this.level = new Level(); // tank's level
+        this.direction = 0; // tank's diretion (in radians)
+        this.look = getRandom(0, 2 * Math.PI); // gun's direction (in radians)
+        this.score = 0; // tank's score
+        this.isMoving = false; // useful to know if the tank is moving
+        this.invincibleChrono = new Chrono(); // useful to be invicible many seconds when respawn
         this.invincible = true;
     }
 
+    // checks if the tank is out at x and y positions
     isOut(x, y) {
         return !(x > (this.size / 2) && x < (this.mapSizeX - (this.size / 2)) && y > (this.size / 2) && y < (this.mapSizeY - (this.size / 2)));
     }
 
+    // gears the movement of the tank: the tank slides on a border instead of stopping 
     move() {
         let xMove = this.x + (Math.cos(this.direction) * this.speed);
         let yMove = this.y + (Math.sin(this.direction) * this.speed);
@@ -44,16 +46,17 @@ class Tank extends Entity {
         }
     }
 
+    // add a munition to each canon of the tank's gun when the chrono is over, then reset the chrono
     shoot() {
         if (this.chrono.isOver(this.attackSpeed)) {
             this.gun.forEach(canon => {
                 canon.shoot(new Bullet(this, canon.direction));
             });
-            //this.gun.shoot(new Bullet(this));
             this.chrono.reset();
         }
     }
 
+    // gears when the pseudo is submitted
     changePseudo(val) {
         if (val == '') this.pseudo = 'noname';
         else {
@@ -78,12 +81,7 @@ class Tank extends Entity {
         }
     }
 
-    scorePlayer(value) {
-        const score = document.getElementById("score");
-        this.score += value;
-        score.innerHTML = this.score;
-    }
-
+    // return true if the tank is alive, false if not
     Alive() {
         if (this.health <= 0)
             return false;
@@ -91,6 +89,10 @@ class Tank extends Entity {
             return true;
     }
 
+    // checks if the tank's gun touches another tank body or tank bullet
+    // if a bullet touches the enemy tank, he loses hp
+    // if a bullet touches one of the enemy tank's bullets, both bullets lose size
+    // if a bullet is too small, delete it
     touchAll(entity) {
         this.gun.forEach(canon => {
             if (canon.ammos.length > 0) {
@@ -121,12 +123,14 @@ class Tank extends Entity {
         });
     }
 
+    // make the tank lose hp if not invincible
     loseHealth(damage){
         if (this.invincible == false){
             this.health -= damage;
         }
     }
 
+    // gear all the possible upgrades, increase tank's size and consume an xpPoint
     upgrade(i) {
         if (this.level.xpPoint <= 0) return;
         let value = this.myUpgrade[i];
@@ -150,6 +154,7 @@ class Tank extends Entity {
         this.level.xpPoint--;
     }
 
+    // after 2 seconds, the tank isn't invincible anymore
     isInvicible(){
         if (this.invincible){
             if (this.invincibleChrono.isOver(2000)){
@@ -158,17 +163,23 @@ class Tank extends Entity {
         }
     }
 
+    // heals 2 hp or less
     heal() {
         let heal = 2;
         this.health = (this.health + heal >= this.maxHealth) ? this.maxHealth : this.health + heal;
     }
 
+    // returns the tank's score when killed
     getScore() {
         return Math.floor((this.score / 2) + 500);
     }
+
+    // returns the tank's xp when killed
     getXp() {
         return this.level.levelNumber * 50;
     }
+
+    // add a canon to the tank's gun in a defined direction
     addCanon(direction) {
         this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, direction));
     }

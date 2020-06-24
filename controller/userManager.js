@@ -1,4 +1,5 @@
 const manager = require ('./manager');
+//first request to insert a new user into the database
 exports.insert_user = function (lastname,firstname,day,month,year,email,passwd){
     const db = manager.connect();
     var birthday=day+"-"+month+"-"+year;
@@ -7,7 +8,7 @@ exports.insert_user = function (lastname,firstname,day,month,year,email,passwd){
     db.close();
     return req4;
 }
-
+//second request to find a user with the email and password
 exports.get_user = function (email,passwd){
     const db = manager.connect();
     const sq5 = "SELECT firstname FROM users WHERE email=? and passwd=?"
