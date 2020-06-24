@@ -5,7 +5,6 @@ describe('Hunter test', () => {
 
   test('pseudo', () => {
     this.tank = new Hunter(0, "socketid");
-    expect(this.tank.pseudo).toBe("noname");
     this.tank.changePseudo("Monika");
     expect(this.tank.pseudo).toBe("Monika");
   });
@@ -63,7 +62,7 @@ describe('Hunter test', () => {
 
     expect(this.tank.speed).toBe(3);
     this.tank.upgrade(2);
-    expect(this.tank.speed).toBe(3+0.25);    
+    expect(this.tank.speed).toBe(3+0.15);    
     
     expect(this.tank.bulletSize).toBe(6);
     this.tank.upgrade(3);
