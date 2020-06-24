@@ -21,6 +21,8 @@ class Tank extends Entity {
         this.look = getRandom(0, 2 * Math.PI);
         this.score = 0;
         this.isMoving = false;
+        this.invincibleChrono = new Chrono();
+        this.invincible = true;
     }
 
     isOut(x, y) {
@@ -110,7 +112,7 @@ class Tank extends Entity {
                     });
                     if (rm == false && canon.ammos[i].touch(entity)) {
                         rm = true;
-                        entity.health -= canon.ammos[i].damage;
+                        entity.loseHealth(canon.ammos[i].damage);
                         if (entity.isDead()) {
                             this.score += entity.getScore();
                             this.level.addXp(entity.getXp());
@@ -120,6 +122,12 @@ class Tank extends Entity {
                 }
             }
         });
+    }
+
+    loseHealth(damage){
+        if (this.invincible == false){
+            this.health -= damage;
+        }
     }
 
     upgrade(i) {
@@ -143,6 +151,14 @@ class Tank extends Entity {
         }
         this.size += 0.5;
         this.level.xpPoint--;
+    }
+
+    isInvicible(){
+        if (this.invincible){
+            if (this.invincibleChrono.isOver(2000)){
+                this.invincible = false;
+            }
+        }
     }
 
     heal() {
