@@ -30,7 +30,7 @@ class Game {
     this.bonus = new Bonus(this.mapSizeX, this.mapSizeY, '#8b0000');
     this.leaderboard = new Leaderboard();
     // Array for tank colors.
-    this.colors = ['#ff1d58', '#f75990', '#fff685', '#00ddff', '#0049b7', '#657a00', '#7d3cff', '#e1b382', '#9bc400', '#7c677f', '#ffde22', '#ff8928', '#6b7a8f', '#f7882f', '#a4893d', '#ff3a22', '#76c1d4', '#781a44', '#ff5a09', '#73a90e', '#46a9a4', '#8caae7', '#a28bdf', '#a54de7', '#ef07e1', '#b84568'];//'#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
+    this.colors = ['#ff1d58', '#f75990', '#00ddff', '#0049b7', '#657a00', '#7d3cff', '#e1b382', '#9bc400', '#7c677f', '#ffde22', '#ff8928', '#6b7a8f', '#f7882f', '#a4893d', '#ff3a22', '#76c1d4', '#781a44', '#ff5a09', '#73a90e', '#46a9a4', '#8caae7', '#a28bdf', '#a54de7', '#ef07e1', '#b84568'];//'#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
   }
 
   register(id, socket, cls) {
