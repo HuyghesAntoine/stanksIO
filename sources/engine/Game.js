@@ -94,6 +94,10 @@ class Game {
     this.factory.addEntity(30 * Object.keys(this.players).length);
     this.bonus.addEntity(Object.keys(this.players).length);
     //move all the players, their shoots and remove useless shoots
+    this.checkPlayers();
+  }
+
+  checkPlayers(){
     Object.values(this.players).forEach(player => {
       if (player.isMoving == true) {
         player.move();
