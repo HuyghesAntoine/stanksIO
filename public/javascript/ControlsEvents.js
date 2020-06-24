@@ -23,10 +23,12 @@ class ControlsEvents {
         document.getElementById("attackSpeedUpgrade").addEventListener("click", () => this.upgrade(3));
     }
 
+    // Function to change the pseudo on submit.
     onSubPseudo(event, pseudo) {
         this.socket.ChangePseudo(pseudo);
     }
 
+    // Functions to be able to use tactile commands.
     onTouch(x,y) {
         var angle = Math.atan2(x,y);
         this.socket.move(angle - Math.PI/2);

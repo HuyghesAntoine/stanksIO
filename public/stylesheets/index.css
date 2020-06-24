@@ -5,6 +5,8 @@ body {
     overflow: hidden;
 }
 
+/* Home page 2 main buttons for control page and game page 
+Draw 2 polygons and each one have his own propertys*/ 
 .home { 
     position: absolute;
     top: 0;
@@ -34,6 +36,7 @@ body {
     background: #81A3A7;
 }
 
+/*Logos propertys */
 #play {
     display: block;
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
@@ -50,6 +53,7 @@ body {
     width: 20%;
 }
 
+/*Buttons propertys*/
 #btnHomePage{
     position: absolute;
     top: 2vh;

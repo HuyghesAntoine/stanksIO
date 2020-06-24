@@ -10,20 +10,27 @@ class ControlsSocket {
     this.socket.on('control', (data) => this.barexp(data)); //receive the refresh of data
   }
 
+  // Emit stopMove signal to the server
   stopMove() {
     this.socket.emit('stopMove');
   }
 
+  // Emit move signal to the server
   move(direction) {
     this.socket.emit('move', direction);
   }
+
+  // Emit shoot signal to the server 
   shoot(direction) {
     this.socket.emit('shoot', direction);
   }
+
+  // Emit psuedo signal to the server
   ChangePseudo(pseudo) {
     this.socket.emit('pseudo', pseudo);
   }
 
+  // Emit upgrade signal to the server
   upgrade(value) {
     this.socket.emit('upgrade', value);
   }
