@@ -99,6 +99,7 @@ class Game {
 
   checkPlayers(){
     Object.values(this.players).forEach(player => {
+      player.isInvicible();
       if (player.isMoving == true) {
         player.move();
       }
