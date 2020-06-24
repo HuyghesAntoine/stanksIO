@@ -47,6 +47,7 @@ body {
     text-align: center;
 }
 
+/* Set size on the two joysticks */
 #joyMove{
     width: 100px; 
     height: 100px;

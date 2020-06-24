@@ -7,7 +7,7 @@ class GameSocket {
     }
 
     drawLeaderboard(leaderboard){
-        //display and refresh the leaderboard
+        //display and refresh the leaderboard. Using <table> tag.
         let list = document.getElementById('leaderboard');
         list.innerHTML=' <thead><tr><th scope="col">Pseudo</th><th scope="col">Level</th><th scope="col">Score</th> </tr></thead>';
         leaderboard.board.forEach((player) => {

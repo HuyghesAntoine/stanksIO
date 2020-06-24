@@ -53,24 +53,25 @@ body {
     text-align: center;
 }
 
+/* Set size on the two joysticks */ 
 #joyMove{
-    width: 150px; 
-    height: 150px;
+    width: 100px; 
+    height: 100px;
     position: absolute;
     bottom:0; 
     left: 0;
     margin-left: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 15%;
 }
 
 #joyShoot{
-    width: 150px; 
-    height: 150px;
+    width: 100px; 
+    height: 100px;
     position: absolute;
     bottom: 0;
     right: 0;
     margin-right: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 15%;
 }
 
 #control_pading {
@@ -99,7 +100,7 @@ body {
 
 #classPage{
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     -ms-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translate(-50%,-50%);

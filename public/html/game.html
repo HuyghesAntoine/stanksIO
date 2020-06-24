@@ -22,31 +22,6 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="../javascript/GameCanvas.js"></script>
     <script src="../javascript/GameSocket.js"></script>
-    <script> 
-      const canvas = new GameCanvas();
-      const socket = new GameSocket(canvas);
-      var ambiantSound = new Audio('../sounds/music.mp3');
-      ambiantSound.play();
-      ambiantSound.volume  = 0.05;
-      ambiantSound.loop = true;
-
-        function resize() {
-          var canvas = document.getElementById('game-canvas');
-          var canvasRatio = canvas.height / canvas.width;
-          var windowRatio = window.innerHeight / window.innerWidth;
-          var width;
-          var height;
-          if (windowRatio < canvasRatio) {
-            height = window.innerHeight - 30;
-            width = height / canvasRatio;
-          } else {
-            width = window.innerWidth -50;
-            height = width * canvasRatio;
-          }
-          canvas.style.width = width + 'px';
-          canvas.style.height = height + 'px';
-        };
-window.addEventListener('resize', resize, false);
-    </script>
+    <script src="../javascript/Game.js"></script>
   </body>
 </html>
