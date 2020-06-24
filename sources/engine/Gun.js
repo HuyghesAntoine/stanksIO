@@ -1,31 +1,29 @@
 const Bullet = require('./Bullet');
 
-// une arme est un tableau de balles
+// a gun is a bullet array
 class Gun {
     constructor(mapSizeX, mapSizeY, direction) {
-        this.ammos = new Array();
-        this.mapSizeX = mapSizeX;
-        this.mapSizeY = mapSizeY;
-        this.direction = direction;
+        this.ammos = new Array(); // an array of bullets
+        this.mapSizeX = mapSizeX; // useful to check if a bullet is out of map
+        this.mapSizeY = mapSizeY; // useful to check if a bullet is out of map
+        this.direction = direction; // direction of the gun
     }
 
-    // tirer avec une arme revient à ajouter une balle dans le tableau ammos
+    // shoot = add a bullet to the gun
     shoot(ammo) {
         this.ammos.push(ammo);
     }
 
-    // gère le mouvement et la suppression de toutes les balles dans le tableau
+    // make all the gun's bullets move
     moveAll() {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
                 this.ammos[i].move();
-                //if (this.ammos[i].move() || this.ammos[i].isOut())
-                //    this.remove(i);
             }
         }
     }
 
-    // gère la collision de toutes les balles avec une certaine entité
+    // checks if the gun's bullets are touching another entity
     touchAll(entity) {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
