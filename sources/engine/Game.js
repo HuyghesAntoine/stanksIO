@@ -89,10 +89,10 @@ class Game {
 
   refresh() {
     //refresh the leaderboard
-    this.leaderboard.refresh(this.players)
+    this.leaderboard.refresh(this.players);
     //try to add xppoint or bonus
     this.factory.addEntity(30 * Object.keys(this.players).length);
-    this.bonus.addEntity(Object.keys(this.players).length);
+    this.bonus.addEntity(Math.ceil((Object.keys(this.players).length+1)/2));
     //move all the players, their shoots and remove useless shoots
     this.checkPlayers();
   }
