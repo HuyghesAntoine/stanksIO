@@ -5,7 +5,6 @@ describe('Masto test', () => {
 
   test('pseudo', () => {
     this.tank = new Masto(0, "socketid");
-    expect(this.tank.pseudo).toBe("noname");
     this.tank.changePseudo("Monika");
     expect(this.tank.pseudo).toBe("Monika");
   });
@@ -59,7 +58,7 @@ describe('Masto test', () => {
 
     expect(this.tank.speed).toBe(1.5);
     this.tank.upgrade(1);
-    expect(this.tank.speed).toBe(1.5+0.25);
+    expect(this.tank.speed).toBe(1.5+0.15);
 
     expect(this.tank.attack).toBe(2);
     this.tank.upgrade(2);

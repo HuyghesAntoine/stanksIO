@@ -5,7 +5,6 @@ describe('Sniper test', () => {
 
   test('pseudo', () => {
     this.tank = new Sniper(0, "socketid");
-    expect(this.tank.pseudo).toBe("noname");
     this.tank.changePseudo("Monika");
     expect(this.tank.pseudo).toBe("Monika");
   });
@@ -59,7 +58,7 @@ describe('Sniper test', () => {
 
     expect(this.tank.bulletSpeed).toBe(10);
     this.tank.upgrade(1);
-    expect(this.tank.bulletSpeed).toBe(10+0.5);
+    expect(this.tank.bulletSpeed).toBe(10+0.25);
 
     expect(this.tank.bulletSize).toBe(10);
     this.tank.upgrade(2);
@@ -67,7 +66,7 @@ describe('Sniper test', () => {
     
     expect(this.tank.speed).toBe(3);
     this.tank.upgrade(3);
-    expect(this.tank.speed).toBe(3+0.25);
+    expect(this.tank.speed).toBe(3+0.15);
 
     expect(this.tank.attack).toBe(3.15);
     this.tank.upgrade(3);//no more xp point
