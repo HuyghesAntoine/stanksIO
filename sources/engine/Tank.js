@@ -146,9 +146,8 @@ class Tank extends Entity {
     }
 
     heal() {
-        if (this.health < this.maxHealth) {
-            this.health += 2.5;
-        }
+        let heal = 2;
+        this.health = (this.health + heal >= this.maxHealth) ? this.maxHealth : this.health + heal;
     }
 
     getScore() {
