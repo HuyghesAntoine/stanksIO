@@ -55,7 +55,7 @@ describe('Hunter test', () => {
 
     expect(this.tank.attack).toBe(1);
     this.tank.upgrade(0);
-    expect(this.tank.attack).toBe(1+0.5);
+    expect(this.tank.attack).toBe(1+0.15);
 
     expect(this.tank.attackSpeed).toBe(850);
     this.tank.upgrade(1);
