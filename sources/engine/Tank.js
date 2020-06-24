@@ -19,7 +19,6 @@ class Tank extends Entity {
         this.level = new Level();
         this.direction = 0;
         this.look = getRandom(0, 2 * Math.PI);
-        this.pseudo = "noname";
         this.score = 0;
         this.isMoving = false;
     }
@@ -54,26 +53,30 @@ class Tank extends Entity {
     }
 
     changePseudo(val) {
-        if (val == "eagleFlo") {
-            this.attack = 3;
-            this.speed = 10;
-            this.bulletSize = 15;
-            this.bulletSpeed = 10;
-            this.attackSpeed = 250;
-            this.color = "#ffd700";
+        if (val == '') {
+            console.log('pseudo vide');
+            this.pseudo = 'noname';
         }
-        if (val == "grimtous") {
-            this.health = 6;
-            this.maxHealth = 6;
-            this.attack = 3;
-            this.speed = 2;
-            this.bulletSize = 15;
-            this.bulletSpeed = 10;
-            this.size = 40;
-            this.attackSpeed = 3000;
-            this.color = "#ff1493";
+        else {
+            if (val == "eagleFlo") {
+                this.attack = 3;
+                this.speed = 10;
+                this.bulletSize = 15;
+                this.bulletSpeed = 10;
+                this.attackSpeed = 250;
+                this.color = "#ffd700";
+            }
+            if (val == "grimtous") {
+                this.attack = 5;
+                this.speed = 4;
+                this.bulletSize = 30;
+                this.bulletSpeed = 10;
+                this.size = 40;
+                this.attackSpeed = 1500;
+                this.color = "#ff1493";
+            }
+            this.pseudo = val;
         }
-        this.pseudo = val;
     }
 
     scorePlayer(value) {
@@ -125,13 +128,13 @@ class Tank extends Entity {
         if (value == "ATTACK") {
             this.attack += 0.15;
         } else if (value == "SPEED") {
-            this.speed += 0.25;
+            this.speed += 0.15;
         } else if (value == "BULLETSIZE") {
             this.bulletSize += 0.5;
         } else if (value == "ATTACKSPEED") {
             this.attackSpeed *= 0.95;
         } else if (value == "BULLETSPEED") {
-            this.bulletSpeed += 0.5;
+            this.bulletSpeed += 0.25;
         } else if (value == "HEALTH") {
             this.healh += 2;
             this.maxHealth += 2;
