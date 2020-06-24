@@ -18,7 +18,7 @@ const socketio = require('socket.io');
 function io(server) {
 
   const io = socketio(server);
-  io.on('connection', function (socket) {
+  io.on('connection', function (socket) { //every socket.emit the server receive by players are managed here
     var id = game.nbJ;
 
     socket.on('register', (cls) => game.register(id, socket.id, cls));
@@ -42,7 +42,7 @@ function io(server) {
       message: 'display',
       players: Object.values(game.players)
     };
-    io.volatile.emit('control', data);
+    io.volatile.emit('control', data); // emit control at 5 frame per second
   }, 1000 / 5);
 
   setInterval(() => {
