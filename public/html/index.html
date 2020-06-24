@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8"> 
-    <title>NOM DU JEU</title>
+    <title>Stanks.io</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png"/>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
@@ -15,25 +16,16 @@
   <body>
 
     <div>
-        <a  class="home" href="/game" target="_blank"><i id="play" class="fas fa-play fa-10x"></i></a>
-        <a class="home" href="/controls" target="_blank"><i id="control" class="fas fa-gamepad fa-10x"></i></a>
+      <a class="home" href="/game" target="_blank"><i id="play" class="fas fa-play fa-10x"></i></a>
+      <a class="home" href="/controls" target="_blank"><i id="control" class="fas fa-gamepad fa-10x"></i></a>
     </div>
 
-    <div id="btnHomePage" class="btn-group" role="group">
-      <button id="btnHow" class="btn btn-outline-dark" data-toggle="modal" data-target="#desc">
-        <i class="fas fa-question"></i>
+    <div id="btnHomePage" class="btn-group-vertical" role="group">
+      <button id="btnHow" class="btn btn-info" data-toggle="modal" data-target="#desc">
+        <i class="fas fa-question fa-2x"></i>
       </button>
-      <a id="btnShop" class="btn btn-outline-dark" href="/shop">
-        <i class="fas fa-shopping-cart"></i>
-      </a> 
-    </div>
-
-    <div id="btnHomePagePerso" class="btn-group" role="group">
-      <a id="btnCo" class="btn btn-outline-dark" href="/connexion">
-        <i class="fas fa-user-alt"></i>
-      </a>
-      <a id="btnIns" class="btn btn-outline-dark" href="/inscription">
-        <i class="fas fa-sign-in-alt"></i>
+      <a id="btnShop" class="btn btn-success" href="/shop">
+        <i class="fas fa-shopping-cart fa-2x"></i>
       </a> 
     </div>
 
@@ -64,7 +56,10 @@
               <hr>
               <h4 style="text-align: center">On the game page</h4>
               <ul>
-                <li>Just play and have fun !</li>
+                <li> Collect <b>green dots</b> to gain exp and level up.</li>
+                <li> Collect <b>red hearths</b> to regen your life.</li>
+                <li> When you see <b>*</b> on the top of your tank, increase your skills on the control page.</li>
+                <li> Every 5 levels, your tank will evolve and gain canons.</li>
               </ul>
             </div>
         </div>

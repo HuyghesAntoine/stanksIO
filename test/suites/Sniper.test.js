@@ -55,7 +55,7 @@ describe('Sniper test', () => {
 
     expect(this.tank.attack).toBe(3);
     this.tank.upgrade(0);
-    expect(this.tank.attack).toBe(3+0.5);
+    expect(this.tank.attack).toBe(3+0.15);
 
     expect(this.tank.bulletSpeed).toBe(10);
     this.tank.upgrade(1);
@@ -65,13 +65,13 @@ describe('Sniper test', () => {
     this.tank.upgrade(2);
     expect(this.tank.bulletSize).toBe(10+0.5);    
     
-    expect(this.tank.alpha).toBe(1);
+    expect(this.tank.speed).toBe(3);
     this.tank.upgrade(3);
-    expect(this.tank.alpha).toBe(1*0.8);
+    expect(this.tank.speed).toBe(3+0.25);
 
-    expect(this.tank.attack).toBe(3.5);
+    expect(this.tank.attack).toBe(3.15);
     this.tank.upgrade(3);//no more xp point
-    expect(this.tank.attack).toBe(3.5);
+    expect(this.tank.attack).toBe(3.15);
   });
 
 });

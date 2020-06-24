@@ -6,7 +6,7 @@ const Evolution = require('../Evolution');
 class Sniper extends Tank {
     constructor(id, socket, color, mapSizeX, mapSizeY) {
         super(id, socket, color, mapSizeX, mapSizeY);
-        this.myUpgrade = ["ATTACK", "BULLETSPEED", "BULLETSIZE", "ALPHA"];
+        this.myUpgrade = ["ATTACK", "BULLETSPEED", "BULLETSIZE", "SPEED"];
         this.health = 10;
         this.maxHealth = 10;
         this.size = 15;
@@ -15,7 +15,6 @@ class Sniper extends Tank {
         this.bulletSize = 10;
         this.bulletSpeed = 10;
         this.attackSpeed = 2500;
-        this.alpha = 1;
         this.evolution = new Evolution([Math.PI, Math.PI / 6, 7 * Math.PI / 6]);
     }
     upgrade(i) {
@@ -26,9 +25,4 @@ class Sniper extends Tank {
         }
     }
 }
-
-function getRandom(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 module.exports = Sniper;

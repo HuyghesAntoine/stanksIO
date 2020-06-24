@@ -45,18 +45,13 @@ body {
 #control {
     display: block;
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-125%);
-    margin-left:65%;
+    transform: translateY(-105%);
+    margin-left:60%;
     width: 20%;
 }
 
 #btnHomePage{
-    margin-top: 1%;
-    margin-left: 1%;
+    position: absolute;
+    top: 2vh;
+    left: 1%;
 }
-
-#btnHomePagePerso{
-    margin-top: 1%;
-}
-
-

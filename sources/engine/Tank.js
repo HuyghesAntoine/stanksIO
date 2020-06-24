@@ -36,11 +36,9 @@ class Tank extends Entity {
             this.y = yMove;
         }
         else if (this.isOut(xMove, this.x) && !this.isOut(this.x, yMove)) {
-            console.log('depasse en x');
             this.y = yMove;
         }
         else if (this.isOut(this.x, yMove) && !this.isOut(xMove, this.y)) {
-            console.log('depasse en y');
             this.x = xMove;
         }
     }
@@ -99,22 +97,23 @@ class Tank extends Entity {
                     entity.gun.forEach(canonEntity => {
                         for (let j = 0; j < canonEntity.ammos.length; j++) {
                             if (canon.ammos[i].touch(canonEntity.ammos[j])) {
-                                canonEntity.remove(j);
-                                rm = true;
+                                canon.ammos[i].size -= 2;
+                                canonEntity.ammos[j].size -= 2;
+                                if (canon.ammos[i].size <= 3) rm = true;
+                                if (canonEntity.ammos[j].size <= 3) canonEntity.remove(j);
                                 break;
                             }
                         }
                     });
-                    if (canon.ammos[i].touch(entity)) {
+                    if (rm == false && canon.ammos[i].touch(entity)) {
+                        rm = true;
                         entity.health -= canon.ammos[i].damage;
                         if (entity.isDead()) {
                             this.score += entity.getScore();
                             this.level.addXp(entity.getXp());
                         }
-                        rm = true;
                     }
-                    if (rm)
-                        canon.remove(i);
+                    if (rm) canon.remove(i);
                 }
             }
         });
@@ -124,7 +123,7 @@ class Tank extends Entity {
         if (this.level.xpPoint <= 0) return;
         let value = this.myUpgrade[i];
         if (value == "ATTACK") {
-            this.attack += 0.5;
+            this.attack += 0.15;
         } else if (value == "SPEED") {
             this.speed += 0.25;
         } else if (value == "BULLETSIZE") {
@@ -132,14 +131,12 @@ class Tank extends Entity {
         } else if (value == "ATTACKSPEED") {
             this.attackSpeed *= 0.95;
         } else if (value == "BULLETSPEED") {
-            this.bulletSpeed += 0.25;
+            this.bulletSpeed += 0.5;
         } else if (value == "HEALTH") {
             this.healh += 2;
             this.maxHealth += 2;
         } else if (value == "XP") {
             this.level.changeMult(this.level.mult * 1.1);
-        } else if (value == "ALPHA") {
-
         }
         this.size += 0.5;
         this.level.xpPoint--;
@@ -147,7 +144,7 @@ class Tank extends Entity {
 
     heal() {
         if (this.health < this.maxHealth) {
-            this.health += 1;
+            this.health += 2.5;
         }
     }
 
@@ -155,7 +152,7 @@ class Tank extends Entity {
         return Math.floor((this.score / 2) + 500);
     }
     getXp() {
-        return this.level.levelNumber * 100;
+        return this.level.levelNumber * 50;
     }
     addCanon(direction) {
         this.gun.push(new Gun(this.mapSizeX, this.mapSizeY, direction));

@@ -1,19 +1,26 @@
 /* Game page css */ 
 
-#gamePage{
+html, body{
     background: rgb(231,235,236);
     background: radial-gradient(circle, rgba(231,235,236,1) 2%, rgba(179,198,201,1) 47%, rgba(129,163,167,1) 91%);
     font-family: 'Roboto', Arial, sans-serif;
 }
-
-#game-title{
-    text-align: center;
-}
 #game-canvas{
     background-color: #ffffff;
+    float: left;
+    margin-left: 1%;
+    position: relative;
+    transform: top left;
 }
 
 #leaderboard{
-    margin-left: 5vw; 
+    margin-left: 1%; 
     width: 200px;
+    text-align:center;
+    position: absolute;
+    background-color: aliceblue;
+    opacity: 0.5;
+}
+#tt{
+    background-color: rosybrown;
 }

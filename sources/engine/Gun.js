@@ -18,8 +18,9 @@ class Gun {
     moveAll() {
         if (this.ammos.length > 0) {
             for (let i = 0; i < this.ammos.length; i++) {
-                if (this.ammos[i].move() || this.ammos[i].isOut())
-                    this.remove(i);
+                this.ammos[i].move();
+                //if (this.ammos[i].move() || this.ammos[i].isOut())
+                //    this.remove(i);
             }
         }
     }
@@ -38,10 +39,10 @@ class Gun {
 
     // supprime toutes les balles
     removeAll() {
-        while (this.ammos.length > 0) {
-            this.remove(0);
+        for (let i = 0; i < this.ammos.length; i++) {
+            if (this.ammos[i].isOut() || this.ammos[i].isDead())
+                this.remove(i);
         }
-
     }
 
     // supprime la balle à l'indice i du tableau et de la scène

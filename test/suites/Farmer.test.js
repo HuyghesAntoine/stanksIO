@@ -53,9 +53,9 @@ describe('Farmer test', () => {
     this.tank = new Farmer(0, "socketid");
     this.tank.level.xpPoint = 4;
 
-    expect(this.tank.level.mult).toBe(2);
+    expect(this.tank.level.mult).toBe(1.5);
     this.tank.upgrade(0);
-    expect(this.tank.level.mult).toBe(2*1.1);
+    expect(this.tank.level.mult).toBe(1.5*1.1);
 
     expect(this.tank.speed).toBe(2);
     this.tank.upgrade(1);
@@ -63,15 +63,15 @@ describe('Farmer test', () => {
 
     expect(this.tank.attack).toBe(1);
     this.tank.upgrade(2);
-    expect(this.tank.attack).toBe(1+0.5);    
+    expect(this.tank.attack).toBe(1+0.15);    
     
     expect(this.tank.attackSpeed).toBe(1000);
     this.tank.upgrade(3);
     expect(this.tank.attackSpeed).toBe(1000*0.95);
 
-    expect(this.tank.attack).toBe(1.5);
+    expect(this.tank.attack).toBe(1.15);
     this.tank.upgrade(3);//no more xp point
-    expect(this.tank.attack).toBe(1.5);
+    expect(this.tank.attack).toBe(1.15);
   });
 
 });
