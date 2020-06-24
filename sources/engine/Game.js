@@ -23,14 +23,13 @@ class Game {
     this.mapSizeX = 1200;
     this.mapSizeY = 700;
     this.nbJ = 1;
-    this.totalPlayers = 0;
     this.name = name;
     this.players = {};
     this.factory = new Factory(this.mapSizeX, this.mapSizeY, '#63d07b');
     this.bonus = new Bonus(this.mapSizeX, this.mapSizeY, '#8b0000');
     this.leaderboard = new Leaderboard();
     // Array for tank colors.
-    this.colors = ['#ff1d58', '#f75990', '#fff685', '#00ddff', '#0049b7', '#657a00', '#7d3cff', '#e1b382', '#9bc400', '#7c677f', '#ffde22', '#ff8928', '#6b7a8f', '#f7882f', '#a4893d', '#ff3a22', '#76c1d4', '#781a44', '#ff5a09', '#73a90e', '#46a9a4', '#8caae7', '#a28bdf', '#a54de7', '#ef07e1', '#b84568'];//'#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
+    this.colors = ['#ff1d58', '#f75990', '#00ddff', '#0049b7', '#657a00', '#7d3cff', '#e1b382', '#9bc400', '#7c677f', '#ffde22', '#ff8928', '#6b7a8f', '#f7882f', '#a4893d', '#ff3a22', '#76c1d4', '#781a44', '#ff5a09', '#73a90e', '#46a9a4', '#8caae7', '#a28bdf', '#a54de7', '#ef07e1', '#b84568'];//'#000000', '#bada55', '#7fe5f0', '#ff0000', '#ff80ed', '#407294', '#420420', '#065535', '#ffa500', '#5ac18e', '#660066', '#990000', '#ffd700'];
   }
 
   register(id, socket, cls) {
@@ -45,7 +44,6 @@ class Game {
     else if (cls == "cls4")
       this.players[id] = new Sniper(id, socket, this.getRandomColor(), this.mapSizeX, this.mapSizeY);
     this.nbJ += 1;
-    this.totalPlayers +=1;
   }
 
   move(id, direction) {
@@ -77,9 +75,8 @@ class Game {
 
   delist(id, socket) {
     if (typeof (this.players[id]) != 'undefined') {
-      if (this.players[id].socketId == socket){
+      if (this.players[id].socketId == socket) {
         delete this.players[id];
-        this.totalPlayers-=1;
       }
     }
   }
@@ -92,12 +89,17 @@ class Game {
 
   refresh() {
     //refresh the leaderboard
-    this.leaderboard.refresh(this.players);
+    this.leaderboard.refresh(Math.ceil((Object.keys(this.players).length+1)/2));
     //try to add xppoint or bonus
-    this.factory.addEntity(30*this.totalPlayers);
-    this.bonus.addEntity(this.totalPlayers);
+    this.factory.addEntity(30 * Object.keys(this.players).length);
+    this.bonus.addEntity(Object.keys(this.players).length);
     //move all the players, their shoots and remove useless shoots
+    this.checkPlayers();
+  }
+
+  checkPlayers(){
     Object.values(this.players).forEach(player => {
+      player.isInvicible();
       if (player.isMoving == true) {
         player.move();
       }
