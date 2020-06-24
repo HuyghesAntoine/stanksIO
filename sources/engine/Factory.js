@@ -5,16 +5,16 @@ const Chrono = require('./Chrono');
 class Factory {
     // Constructor that take mapSize parameter.
     constructor(mapSizeX, mapSizeY, color) {
-        this.entities = new Array();
-        this.mapSizeX = mapSizeX;
+        this.entities = new Array(); // Initialise a new array for bonus entities
+        this.mapSizeX = mapSizeX; // Get map size 
         this.mapSizeY = mapSizeY;
-        this.delay = 800;
-        this.maxDelay = 20000;
-        this.max = 100;
-        this.chrono = new Chrono();
-        this.score = 100;
-        this.xp = 15;
-        this.color = color;
+        this.delay = 800; // Set delay to 800 ms 
+        this.maxDelay = 20000; // Set max delay to 20000 ms 
+        this.max = 100; // Set max factory entities to 100 units. 
+        this.chrono = new Chrono(); // Initialise new chrono from Chrono.js 
+        this.score = 100; // Set the score from a factory to 100 points. 
+        this.xp = 15; // Set exp that occure a factory to 15 points
+        this.color = color; // Set a color 
     }
 
     // Function that add a factory entity in an array?
