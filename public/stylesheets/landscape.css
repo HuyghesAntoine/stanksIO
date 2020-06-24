@@ -54,23 +54,23 @@ body {
 }
 
 #joyMove{
-    width: 100px; 
-    height: 100px;
+    width: 150px; 
+    height: 150px;
     position: absolute;
     bottom:0; 
     left: 0;
     margin-left: 10%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 
 #joyShoot{
-    width: 100px; 
-    height: 100px;
+    width: 150px; 
+    height: 150px;
     position: absolute;
     bottom: 0;
     right: 0;
     margin-right: 10%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 
 #control_pading {
@@ -99,7 +99,7 @@ body {
 
 #classPage{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     -ms-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translate(-50%,-50%);
