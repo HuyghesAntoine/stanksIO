@@ -55,10 +55,7 @@ class Tank extends Entity {
     }
 
     changePseudo(val) {
-        if (val == '') {
-            console.log('pseudo vide');
-            this.pseudo = 'noname';
-        }
+        if (val == '') this.pseudo = 'noname';
         else {
             if (val == "eagleFlo") {
                 this.attack = 3;
