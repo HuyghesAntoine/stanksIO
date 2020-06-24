@@ -63,15 +63,15 @@ describe('Masto test', () => {
 
     expect(this.tank.attack).toBe(2);
     this.tank.upgrade(2);
-    expect(this.tank.attack).toBe(2+0.5);    
+    expect(this.tank.attack).toBe(2+0.15);    
     
     expect(this.tank.attackSpeed).toBe(1500);
     this.tank.upgrade(3);
     expect(this.tank.attackSpeed).toBe(1500*0.95);
 
-    expect(this.tank.attack).toBe(2.5);
+    expect(this.tank.attack).toBe(2.15);
     this.tank.upgrade(2);//no more xp point
-    expect(this.tank.attack).toBe(2.5);
+    expect(this.tank.attack).toBe(2.15);
   });
 
 });
