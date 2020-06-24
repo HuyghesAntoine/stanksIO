@@ -4,14 +4,14 @@ const Chrono = require('./Chrono');
 class Bonus {
     // Constructor that take mapSize parameter.
     constructor(mapSizeX, mapSizeY,color) {
-        this.entities = new Array();
-        this.mapSizeX = mapSizeX;
+        this.entities = new Array(); // Initialise a new array for bonus entities
+        this.mapSizeX = mapSizeX; // Get map size 
         this.mapSizeY = mapSizeY;
-        this.delay = 10000;
-        this.maxDelay = 20000;
-        this.max = 6;
-        this.chrono = new Chrono();
-        this.color = color;
+        this.delay = 10000; // Set delay to 10000 ms 
+        this.maxDelay = 20000; // Set the max delay to 20000 ms 
+        this.max = 6; // Max bonus entities available on the map 
+        this.chrono = new Chrono(); // Initialise a new chrono from Chrono.js 
+        this.color = color; // Set color to the bonus entities
     }
     // Add a bonus in the entities array when the chrono is over.
     addEntity(max) {
