@@ -1,9 +1,9 @@
 // This is how we play the game music 
 const canvas = new GameCanvas();
 const socket = new GameSocket(canvas);
-var ambiantSound = new Audio('../sounds/music.mp3');
+var ambiantSound = new Audio('../sounds/hunter.mp3');
 ambiantSound.play();
-ambiantSound.volume  = 0.05; // Volume not too loud
+ambiantSound.volume  = 0.1; // Volume not too loud
 ambiantSound.loop = true; // Loop for infinite fun ! 
 
 // Function to resize the canvas, based on the window size.
