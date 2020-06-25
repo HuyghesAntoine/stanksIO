@@ -111,7 +111,11 @@ class Tank extends Entity {
                     });
                     if (rm == false && canon.ammos[i].touch(entity)) {
                         rm = true;
-                        entity.loseHealth(canon.ammos[i].damage);
+                        let ratio = canon.ammos[i].size/canon.ammos[i].maxSize;
+                        if (ratio < 0.5){
+                            ratio = 0.5;
+                        }
+                        entity.loseHealth(canon.ammos[i].damage*ratio);
                         if (entity.isDead()) {
                             this.score += entity.getScore();
                             this.level.addXp(entity.getXp());
@@ -165,7 +169,7 @@ class Tank extends Entity {
 
     // heals 2 hp or less
     heal() {
-        let heal = 2;
+        let heal = 1.5;
         this.health = (this.health + heal >= this.maxHealth) ? this.maxHealth : this.health + heal;
     }
 
