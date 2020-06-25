@@ -1,6 +1,6 @@
 #tests
 test-jest:
-   stage: testUnit
+   stage: test
    image: node
    script: 
      - cd ./test
