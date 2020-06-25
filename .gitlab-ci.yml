@@ -1,0 +1,9 @@
+#tests
+test-jest:
+   stage: testUnit
+   image: node
+   script: 
+     - cd ./test
+     - npm install 
+     - npm run test
+
