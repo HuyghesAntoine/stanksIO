@@ -8,7 +8,7 @@ class Bullet extends Entity{
         super(tank.bulletSize, (tank.x + (Math.cos(direction) * (tank.size*1.2))), (tank.y + (Math.sin(direction) * (tank.size*1.2))), 1, tank.color, tank.mapSizeX, tank.mapSizeY);
         this.damage = tank.attack;
         this.direction = direction;
-        
+        this.maxSize = this.size;
         this.speed = tank.bulletSpeed;
     }
 
