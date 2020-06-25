@@ -1,0 +1,10 @@
+#Run the tests
+test_jest:
+   stage: test
+   image: node
+   script: 
+     - cd ./test
+     - npm install 
+     - npm run test
+
+
